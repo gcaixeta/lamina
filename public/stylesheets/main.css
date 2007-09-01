@@ -1,0 +1,103 @@
+*, html, body {
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+
+html {
+	background:#d5ae52 url('../img/back.png') repeat fixed 0 0;	
+}
+body {
+}   
+
+img { 
+	border: 0;
+}
+
+fieldset { 
+	display: block; 
+	border: 2px ridge #FFF; 
+	padding: 10px; 
+}
+
+ul, ol { 
+	/*margin-left: 10px;*/ 
+}
+
+input[type=hidden]{ 
+	display: none !important;
+	visibility: hidden !important;
+}
+
+button { 
+	border: 1px outset #AAA;
+}
+
+form button { 
+	text-align: center; 
+	margin: 5px auto; 
+	display: block; 
+}
+
+form ul { 
+	list-style: none; 
+	margin-left: 0;
+}
+
+fieldset label { 
+	display: block;
+}
+
+fieldset .radios label { 
+	display: inline;
+}
+
+p { margin-top: 5px; }
+
+/* padronizando tamanhos de cabecalho em todos os browsers */
+h1 { font-size: 250%;}
+h2 { font-size: 200%;}
+h3 { font-size: 150%;}
+h4 { font-size: 120%;}
+
+
+.img-left { float: left; }
+.img-right { float: right;}
+
+
+#menu  a {
+float: left;
+padding: 0px 15px;
+background: #fff;
+color:#000;
+
+}
+#menu  a:hover{
+background: #e8eefa;
+} 
+
+ul#menu{
+float: right;
+}
+
+#header{
+background: #c3d9ff url('../img/teste1.png') repeat;
+height: 75px;
+}
+
+#header h1{
+color:  #0000ff;
+text-align: center;
+}
+
+#content{
+background: #eff3f7;
+}
+
+
+#content table{
+background: #fff;
+}
+#content tr:hover{
+background:  #e8eefa;
+}

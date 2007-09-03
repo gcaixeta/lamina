@@ -1,5 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
+link1:
   id: 1
-two:
+  themes_id: 1
+  address: www.uol.com.br/tecnologia
+  description: tecno
+Link2:
   id: 2
+  themes_id: 2
+  address: www.terra.com.br/tecnologia
+  description: tecno

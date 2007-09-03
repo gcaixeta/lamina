@@ -1,5 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
+message1:
   id: 1
-two:
+  participations_id: 1
+  messages: olá blz
+message2:
   id: 2
+  participations_id: 2
+  messages: blz e vc

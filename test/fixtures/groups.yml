@@ -1,5 +1,18 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
+group1:
   id: 1
-two:
+  themes_id: 1
+  name: Blue
+group2:
   id: 2
+  themes_id: 1
+  name: Red
+
+group3:
+  id: 3
+  themes_id: 2
+  name: yellow
+group4:
+  id: 4
+  themes_id: 2
+  name: gren

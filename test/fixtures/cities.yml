@@ -1,5 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
+rp:
   id: 1
-two:
+  name: Rio Preto
+  states_id: 1
+
+rb:
   id: 2
+  name: Rio Branco
+  states_id: 1

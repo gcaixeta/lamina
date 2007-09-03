@@ -1,5 +1,14 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
+Fatec:
   id: 1
-two:
+  name: Fatec
+  cnpj: 123456
+  telephone: 1234561
+  email: fatec@fatecriopreto.com	
+  
+Phila:
   id: 2
+  name: Phila
+  cnpj: 456789
+  telephone: 987654
+  email: phila@com.br	

@@ -1,5 +1,16 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
+Paz:
   id: 1
-two:
+  name: Paz
+  configurations_id: 1
+  summary: the paz today
+  active: 1
+  password: 123
+  
+War:
   id: 2
+  name: War
+  configurations_id: 2
+  summary: the war today
+  active: 0
+  password: 456

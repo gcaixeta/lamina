@@ -1,5 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 one:
   id: 1
+  participations_id: 1
+  answers_id: 1 
+  questions_id: 1
 two:
   id: 2
+  participations_id: 2
+  answers_id: 2
+  questions_id: 2

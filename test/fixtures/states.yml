@@ -1,5 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
+sp:
   id: 1
-two:
+  name: Sao Paulo
+rj:
   id: 2
+  name: Rio de Janeiro

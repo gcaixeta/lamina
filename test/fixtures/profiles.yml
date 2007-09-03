@@ -1,5 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
+Aluno:
   id: 1
-two:
+  description: Aluno
+Professor:
   id: 2
+  description: Professor
+
+Responsavel:
+  id: 3
+  description: Responsavel

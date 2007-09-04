@@ -29,18 +29,18 @@ class ArchiveTest < Test::Unit::TestCase
  def test_should_require_thmes_id
     archive = create(:themes_id => nil)
     assert archive.errors.invalid?(:themes_id), ":name should be required"
-    assert_invalid archive, "theme shouldn't be created"
+    assert_invalid archive, "archive shouldn't be created"
   end
 
 	# validar o int no themes_id do archive
 def test_should_deny_non_integer_themes_id
   archive = create(:themes_id => 'a')
   assert archive.errors.invalid?(:themes_id), ":themes_id should have had an error"
-  assert_invalid archive, "theme shouldn't be created"
+  assert_invalid archive, "archive shouldn't be created"
   
   archive = create(:themes_id => 1.397)
   assert archive.errors.invalid?(:themes_id), ":themes_id should have had an error"
-  assert_invalid archive, "theme shouldn't be created"
+  assert_invalid archive, "archive shouldn't be created"
 end
 
 

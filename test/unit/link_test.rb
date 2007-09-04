@@ -4,12 +4,11 @@ class LinkTest < Test::Unit::TestCase
   fixtures :links
 
 
-
-def test_should_be_invalid
-  link = create(:themes_id => nil, :address => nil, 
-      :description => nil)
+	# Proibi criacao dados em branco
+  def test_should_be_invalid
+  link = create(:themes_id => nil, :address => nil, :description => nil)
   assert_invalid link, "Link shouldn't be created"
-end
+  end
 
 
      # validar o description do link

@@ -8,33 +8,35 @@ class UserTest < Test::Unit::TestCase
     assert_invalid user, "User shouldn't be created"
   end
   
-
+     # validar o name do user
  def test_should_require_name
     user = create(:name => nil)
     assert user.errors.invalid?(:name), ":name should be required"
     assert_invalid user, "User shouldn't be created"
   end
   
-
+    # validar o cities_id do user
   def test_should_require_cities_id
     user = create(:cities_id => nil)
     assert user.errors.invalid?(:cities_id), ":name should be required"
     assert_invalid user, "User shouldn't be created"
   end
 
-
+   # validar o email do user
   def test_should_require_email
     user = create(:email => nil)
     assert user.errors.invalid?(:email), ":email should be required"
     assert_invalid user, "User shouldn't be created"
   end
   
+   # validar o formato do email do user
   def test_should_deny_bad_email
     user = create(:email => 'bad@format')
     assert user.errors.invalid?(:email), ":email should be in a valid format"
     assert_invalid user, "User shouldn't be created"
   end
- 
+
+   # nao permite a criacao duplicada de usuario
   def test_should_deny_duplicate_user
     user = create
     assert_valid user
@@ -43,7 +45,7 @@ class UserTest < Test::Unit::TestCase
     assert_invalid user, "User shouldn't be created"
   end
   
-
+	# validar o int do codigo city_id da tabela user
   def test_should_deny_non_integer_city
   user = create(:cities_id => 'a')
   assert user.errors.invalid?(:cities_id), ":citis_id should have had an error"
@@ -54,7 +56,7 @@ class UserTest < Test::Unit::TestCase
   assert_invalid user, "user shouldn't be created"
   end
 
-
+	# criar dados na tabela User
   private
     def create(options={})
       User.create({

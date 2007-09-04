@@ -25,8 +25,6 @@ class ThemeTest < Test::Unit::TestCase
   end
 
 
-
-
      # validar o password do theme
  def test_should_require_password
     theme = create(:password => nil)
@@ -48,16 +46,16 @@ class ThemeTest < Test::Unit::TestCase
     assert_invalid theme, "theme shouldn't be created"
   end
 
-
-def test_should_deny_non_integer_configurations_id
-  theme = create(:configurations_id => 'a')
-  assert theme.errors.invalid?(:configurations_id), ":configurations_id should have had an error"
-  assert_invalid theme, "theme shouldn't be created"
+	# validar o int do codigo configurations_id da tabela theme
+  def test_should_deny_non_integer_configurations_id
+    theme = create(:configurations_id => 'a')
+    assert theme.errors.invalid?(:configurations_id), ":configurations_id should have had an error"
+    assert_invalid theme, "theme shouldn't be created"
   
-  theme = create(:configurations_id => 1.397)
-  assert theme.errors.invalid?(:configurations_id), ":configurations_id should have had an error"
-  assert_invalid theme, "theme shouldn't be created"
-end
+    theme = create(:configurations_id => 1.397)
+    assert theme.errors.invalid?(:configurations_id), ":configurations_id should have had an error"
+    assert_invalid theme, "theme shouldn't be created"
+  end
 
 
 	# criar dados na tabela theme

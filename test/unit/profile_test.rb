@@ -3,11 +3,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 class ProfileTest < Test::Unit::TestCase
   fixtures :profiles
 
-  # Replace this with your real tests.
-  def test_truth
-    assert true
-  end
-  
+	# validar o description_id do profile
   def test_should_require_description
     profile = create(:description => nil)
     assert profile.errors.invalid?(:description), ":description should be required"

@@ -1,12 +1,12 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 part1:
   id: 1
-  groups_id: 1
-  registrations_id: 1
+  group_id: 1
+  registration_id: 1
   leader: 1
 part2:
   id: 2
-  groups_id: 2
-  registrations_id: 2
+  group_id: 2
+  registration_id: 2
   leader: 0
   

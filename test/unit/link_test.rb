@@ -6,7 +6,7 @@ class LinkTest < Test::Unit::TestCase
 
 	# Proibi criacao dados em branco
   def test_should_be_invalid
-  link = create(:themes_id => nil, :address => nil, :description => nil)
+  link = create(:theme_id => nil, :address => nil, :description => nil)
   assert_invalid link, "Link shouldn't be created"
   end
 
@@ -19,21 +19,21 @@ class LinkTest < Test::Unit::TestCase
   end
 
 
-     # validar o themes_id do link
- def test_should_require_thmes_id
-    link = create(:themes_id => nil)
-    assert link.errors.invalid?(:themes_id), ":name should be required"
+     # validar o theme_id do link
+ def test_should_require_thme_id
+    link = create(:theme_id => nil)
+    assert link.errors.invalid?(:theme_id), ":theme_id  should be required"
     assert_invalid link, "link shouldn't be created"
   end
 
-	# validar o int no themes_id do link
+	# validar o int no theme_id do link
 def test_should_deny_non_integer_themes_id
-  link = create(:themes_id => 'a')
-  assert link.errors.invalid?(:themes_id), ":themes_id should have had an error"
+  link = create(:theme_id => 'a')
+  assert link.errors.invalid?(:theme_id), ":theme_id should have had an error"
   assert_invalid link, "link shouldn't be created"
   
-  link = create(:themes_id => 1.397)
-  assert link.errors.invalid?(:themes_id), ":themes_id should have had an error"
+  link = create(:theme_id => 1.397)
+  assert link.errors.invalid?(:theme_id), ":theme_id should have had an error"
   assert_invalid link, "link shouldn't be created"
 end
 
@@ -43,7 +43,7 @@ end
   private
     def create(options={})
       Link.create({
-	:themes_id => 1,
+	:theme_id => 1,
 	:address => "www.uol.com.br/tecnologia",
 	:description => "Photo"
         }.merge(options))

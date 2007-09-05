@@ -4,17 +4,17 @@ class ParticipationTest < Test::Unit::TestCase
   fixtures :participations
 
 
-     # validar o groups_id do participation
- def test_should_require_groups_id
-    participation = create(:groups_id => nil)
-    assert participation.errors.invalid?(:groups_id), ":groups_id should be required"
+     # validar o group_id do participation
+ def test_should_require_group_id
+    participation = create(:group_id => nil)
+    assert participation.errors.invalid?(:group_id), ":group_id should be required"
     assert_invalid participation, "theme shouldn't be created"
   end
 
-     # validar o registrations_id do participation
- def test_should_require_registrations_id
-    participation = create(:registrations_id => nil)
-    assert participation.errors.invalid?(:registrations_id), ":registrations_id should be required"
+     # validar o registration_id do participation
+ def test_should_require_registration_id
+    participation = create(:registration_id => nil)
+    assert participation.errors.invalid?(:registration_id), ":registration_id should be required"
     assert_invalid participation, "theme shouldn't be created"
   end
 
@@ -30,8 +30,8 @@ class ParticipationTest < Test::Unit::TestCase
   private
     def create(options={})
       Participation.create({
-	:groups_id => 1,
-        :registrations_id => 1, 
+	:group_id => 1,
+        :registration_id => 1, 
    	:leader => "true"
         }.merge(options))
     end

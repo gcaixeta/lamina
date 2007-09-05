@@ -2,9 +2,9 @@
 rp:
   id: 1
   name: Rio Preto
-  states_id: 1
+  state_id: 1
 
 rb:
   id: 2
   name: Rio Branco
-  states_id: 1
+  state_id: 1

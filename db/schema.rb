@@ -5,21 +5,21 @@
 ActiveRecord::Schema.define(:version => 1) do
 
   create_table "answers", :force => true do |t|
-    t.column "questions_id", :integer,                    :null => false
-    t.column "text",         :text,    :default => "",    :null => false
-    t.column "correct",      :boolean, :default => false, :null => false
+    t.column "question_id", :integer,                    :null => false
+    t.column "text",        :text,    :default => "",    :null => false
+    t.column "correct",     :boolean, :default => false, :null => false
   end
 
   create_table "archives", :force => true do |t|
-    t.column "themes_id",   :string, :default => "", :null => false
+    t.column "theme_id",    :string, :default => "", :null => false
     t.column "name",        :string, :default => "", :null => false
     t.column "description", :string
     t.column "heading",     :string
   end
 
   create_table "cities", :force => true do |t|
-    t.column "states_id", :integer,                 :null => false
-    t.column "name",      :string,  :default => "", :null => false
+    t.column "state_id", :integer,                 :null => false
+    t.column "name",     :string,  :default => "", :null => false
   end
 
   create_table "configurations", :force => true do |t|
@@ -28,15 +28,15 @@ ActiveRecord::Schema.define(:version => 1) do
   end
 
   create_table "games", :force => true do |t|
-    t.column "themes_id",  :integer,                    :null => false
+    t.column "theme_id",   :integer,                    :null => false
     t.column "date_begin", :date,                       :null => false
     t.column "concluded",  :boolean, :default => false
     t.column "victory_id", :integer
   end
 
   create_table "groups", :force => true do |t|
-    t.column "themes_id", :integer,                 :null => false
-    t.column "name",      :string,  :default => "", :null => false
+    t.column "theme_id", :integer,                 :null => false
+    t.column "name",     :string,  :default => "", :null => false
   end
 
   create_table "institutions", :force => true do |t|
@@ -48,38 +48,38 @@ ActiveRecord::Schema.define(:version => 1) do
   end
 
   create_table "interactions", :force => true do |t|
-    t.column "participations_id", :integer,  :null => false
-    t.column "answers_id",        :integer,  :null => false
-    t.column "questions_id",      :integer,  :null => false
-    t.column "created_at",        :datetime
+    t.column "participation_id", :integer,  :null => false
+    t.column "answer_id",        :integer,  :null => false
+    t.column "question_id",      :integer,  :null => false
+    t.column "created_at",       :datetime
   end
 
   create_table "links", :force => true do |t|
-    t.column "themes_id",   :integer,                 :null => false
+    t.column "theme_id",    :integer,                 :null => false
     t.column "address",     :string,  :default => "", :null => false
     t.column "description", :string,  :default => "", :null => false
   end
 
   create_table "messages", :force => true do |t|
-    t.column "participations_id", :integer,                 :null => false
-    t.column "messages",          :text,    :default => "", :null => false
+    t.column "participation_id", :integer,                 :null => false
+    t.column "messages",         :text,    :default => "", :null => false
   end
 
   create_table "participations", :force => true do |t|
-    t.column "groups_id",        :integer,                    :null => false
-    t.column "registrations_id", :integer,                    :null => false
-    t.column "leader",           :boolean, :default => false
+    t.column "group_id",        :integer,                    :null => false
+    t.column "registration_id", :integer,                    :null => false
+    t.column "leader",          :boolean, :default => false
   end
 
   create_table "players", :force => true do |t|
-    t.column "games_id",  :integer, :null => false
-    t.column "groups_id", :integer, :null => false
+    t.column "game_id",  :integer, :null => false
+    t.column "group_id", :integer, :null => false
   end
 
   create_table "plays", :force => true do |t|
-    t.column "players_id",   :integer, :null => false
-    t.column "questions_id", :integer, :null => false
-    t.column "answers_id",   :integer
+    t.column "player_id",   :integer, :null => false
+    t.column "question_id", :integer, :null => false
+    t.column "answer_id",   :integer
   end
 
   create_table "profiles", :force => true do |t|
@@ -87,9 +87,9 @@ ActiveRecord::Schema.define(:version => 1) do
   end
 
   create_table "proposals", :force => true do |t|
-    t.column "themes_id",        :integer, :null => false
-    t.column "registrations_id", :integer, :null => false
-    t.column "active",           :boolean
+    t.column "theme_id",        :integer, :null => false
+    t.column "registration_id", :integer, :null => false
+    t.column "active",          :boolean
   end
 
   create_table "questions", :force => true do |t|
@@ -97,9 +97,9 @@ ActiveRecord::Schema.define(:version => 1) do
   end
 
   create_table "registrations", :force => true do |t|
-    t.column "profiles_id",     :integer, :null => false
-    t.column "users_id",        :integer, :null => false
-    t.column "institutions_id", :integer, :null => false
+    t.column "profile_id",     :integer, :null => false
+    t.column "user_id",        :integer, :null => false
+    t.column "institution_id", :integer, :null => false
   end
 
   create_table "states", :force => true do |t|
@@ -107,16 +107,16 @@ ActiveRecord::Schema.define(:version => 1) do
   end
 
   create_table "themes", :force => true do |t|
-    t.column "configurations_id", :integer,                  :null => false
-    t.column "name",              :string,   :default => "", :null => false
-    t.column "summary",           :string,   :default => "", :null => false
-    t.column "create_at",         :datetime
-    t.column "active",            :boolean,                  :null => false
-    t.column "password",          :string
+    t.column "configuration_id", :integer,                  :null => false
+    t.column "name",             :string,   :default => "", :null => false
+    t.column "summary",          :string,   :default => "", :null => false
+    t.column "create_at",        :datetime
+    t.column "active",           :boolean,                  :null => false
+    t.column "password",         :string
   end
 
   create_table "users", :force => true do |t|
-    t.column "cities_id",                 :integer,                  :null => false
+    t.column "city_id",                   :integer,                  :null => false
     t.column "name",                      :string
     t.column "login",                     :string,   :default => "", :null => false
     t.column "email",                     :string

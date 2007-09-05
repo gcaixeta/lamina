@@ -5,5 +5,5 @@ validates_presence_of :name
 validates_presence_of :description
 validates_presence_of :heading
 
-validates_numericality_of :themes_id, :only_integer => true
+validates_numericality_of :theme_id, :only_integer => true
 end

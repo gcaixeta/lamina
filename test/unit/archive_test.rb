@@ -25,21 +25,21 @@ class ArchiveTest < Test::Unit::TestCase
   end
 
 
-     # validar o themes_id do archive
- def test_should_require_thmes_id
-    archive = create(:themes_id => nil)
-    assert archive.errors.invalid?(:themes_id), ":name should be required"
+     # validar o theme_id do archive
+ def test_should_require_theme_id
+    archive = create(:theme_id => nil)
+    assert archive.errors.invalid?(:theme_id), ":theme_id should be required"
     assert_invalid archive, "archive shouldn't be created"
   end
 
-	# validar o int no themes_id do archive
-def test_should_deny_non_integer_themes_id
-  archive = create(:themes_id => 'a')
-  assert archive.errors.invalid?(:themes_id), ":themes_id should have had an error"
+	# validar o int no theme_id do archive
+def test_should_deny_non_integer_theme_id
+  archive = create(:theme_id => 'a')
+  assert archive.errors.invalid?(:theme_id), ":theme_id should have had an error"
   assert_invalid archive, "archive shouldn't be created"
   
-  archive = create(:themes_id => 1.397)
-  assert archive.errors.invalid?(:themes_id), ":themes_id should have had an error"
+  archive = create(:theme_id => 1.397)
+  assert archive.errors.invalid?(:theme_id), ":theme_id should have had an error"
   assert_invalid archive, "archive shouldn't be created"
 end
 
@@ -48,7 +48,7 @@ end
   private
     def create(options={})
       Archive.create({
-	:themes_id => 1,
+	:theme_id => 1,
 	:name => "Imagem do ceu",
 	:description => "Photo",
 	:heading => "Never"

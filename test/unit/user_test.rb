@@ -4,7 +4,7 @@ class UserTest < Test::Unit::TestCase
   fixtures :users
 
   def test_should_be_invalid
-    user = create(:name => nil, :email => nil, :login => nil, :cities_id => 1)
+    user = create(:name => nil, :email => nil, :login => nil, :city_id => 1)
     assert_invalid user, "User shouldn't be created"
   end
   
@@ -15,10 +15,10 @@ class UserTest < Test::Unit::TestCase
     assert_invalid user, "User shouldn't be created"
   end
   
-    # validar o cities_id do user
-  def test_should_require_cities_id
-    user = create(:cities_id => nil)
-    assert user.errors.invalid?(:cities_id), ":name should be required"
+    # validar o city_id do user
+  def test_should_require_city_id
+    user = create(:city_id => nil)
+    assert user.errors.invalid?(:city_id), ":city_id should be required"
     assert_invalid user, "User shouldn't be created"
   end
 
@@ -47,12 +47,12 @@ class UserTest < Test::Unit::TestCase
   
 	# validar o int do codigo city_id da tabela user
   def test_should_deny_non_integer_city
-  user = create(:cities_id => 'a')
-  assert user.errors.invalid?(:cities_id), ":citis_id should have had an error"
+  user = create(:city_id => 'a')
+  assert user.errors.invalid?(:city_id), ":city_id should have had an error"
   assert_invalid user, "user shouldn't be created"
   
-  user = create(:cities_id => 1.397)
-  assert user.errors.invalid?(:cities_id), ":cities_id should have had an error"
+  user = create(:city_id => 1.397)
+  assert user.errors.invalid?(:city_id), ":city_id should have had an error"
   assert_invalid user, "user shouldn't be created"
   end
 
@@ -63,7 +63,7 @@ class UserTest < Test::Unit::TestCase
         :name => "Joao",
         :email => "jaumaaa@simpsons.com",
         :login => "jaum",
-	:cities_id => 1
+	:city_id => 1
         }.merge(options))
     end
 end

@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 pro1:
   id: 1
-  themes_id: 1
-  registrations_id: 1
+  theme_id: 1
+  registration_id: 1
   active: 1
 pro2:
   id: 2
-  themes_id: 2
-  registrations_id: 2
+  theme_id: 2
+  registration_id: 2
   active: 0

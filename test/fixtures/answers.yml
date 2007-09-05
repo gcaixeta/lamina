@@ -1,22 +1,22 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 ans1:
   id: 1
-  questions_id: 1
+  question_id: 1
   text: Never
   correct: true
 ans2:
   id: 2
-  questions_id: 1
+  question_id: 1
   text: Yes
   correct: false
 
 ans3:
   id: 3
-  questions_id: 2
+  question_id: 2
   text: good
   correct: true
 ans4:
   id: 4
-  questions_id: 2
+  question_id: 2
   text: beast
   correct: false

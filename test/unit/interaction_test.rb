@@ -4,57 +4,57 @@ class InteractionTest < Test::Unit::TestCase
   fixtures :interactions
 
 
-     # validar o participations_id do Interaction
+     # validar o participation_id do Interaction
  def test_should_require_interaction_id
-    interaction = create(:participations_id => nil)
-    assert interaction.errors.invalid?(:participations_id), ":participations_id should be required"
+    interaction = create(:participation_id => nil)
+    assert interaction.errors.invalid?(:participation_id), ":participation_id should be required"
     assert_invalid interaction, "interaction shouldn't be created"
   end
 
      # validar o answers_id do Interaction
- def test_should_require_answers_id
-    interaction = create(:answers_id => nil)
-    assert interaction.errors.invalid?(:answers_id), ":answers_id should be required"
+ def test_should_require_answer_id
+    interaction = create(:answer_id => nil)
+    assert interaction.errors.invalid?(:answer_id), ":answer_id should be required"
     assert_invalid interaction, "interaction shouldn't be created"
   end
 
-     # validar o questions_id do Interaction
- def test_should_require_questions_id
-    interaction = create(:questions_id => nil)
-    assert interaction.errors.invalid?(:questions_id), ":questions_id should be required"
+     # validar o question_id do Interaction
+ def test_should_require_question_id
+    interaction = create(:question_id => nil)
+    assert interaction.errors.invalid?(:question_id), ":question_id should be required"
     assert_invalid interaction, "interaction shouldn't be created"
   end
 
 	# validar o int no codigo participations_id da tabela interaction
-def test_should_deny_non_integer_participations_id
-  interaction = create(:participations_id => 'a')
-  assert interaction.errors.invalid?(:participations_id), ":participations_id should have had an error"
+def test_should_deny_non_integer_participation_id
+  interaction = create(:participation_id => 'a')
+  assert interaction.errors.invalid?(:participation_id), ":participation_id should have had an error"
   assert_invalid interaction, "interaction shouldn't be created"
   
-  interaction = create(:participations_id => 1.397)
-  assert interaction.errors.invalid?(:participations_id), ":participations_id should have had an error"
+  interaction = create(:participation_id => 1.397)
+  assert interaction.errors.invalid?(:participation_id), ":participation_id should have had an error"
   assert_invalid interaction, "interaction shouldn't be created"
 end
 
-	# validar o int no codigo answers_id da tabela interaction
-def test_should_deny_non_integer_answers_id
-  interaction = create(:answers_id => 'a')
-  assert interaction.errors.invalid?(:answers_id), ":answers_id should have had an error"
+	# validar o int no codigo answer_id da tabela interaction
+def test_should_deny_non_integer_answer_id
+  interaction = create(:answer_id => 'a')
+  assert interaction.errors.invalid?(:answer_id), ":answer_id should have had an error"
   assert_invalid interaction, "interaction shouldn't be created"
   
-  interaction = create(:answers_id => 1.397)
-  assert interaction.errors.invalid?(:answers_id), ":answers_id should have had an error"
+  interaction = create(:answer_id => 1.397)
+  assert interaction.errors.invalid?(:answer_id), ":answer_id should have had an error"
   assert_invalid interaction, "interaction shouldn't be created"
 end
 
-	# validar o int no codigo questions_id da tabela interaction
-def test_should_deny_non_integer_questions_id
-  interaction = create(:questions_id => 'a')
-  assert interaction.errors.invalid?(:questions_id), ":questions_id should have had an error"
+	# validar o int no codigo question_id da tabela interaction
+def test_should_deny_non_integer_question_id
+  interaction = create(:question_id => 'a')
+  assert interaction.errors.invalid?(:question_id), ":question_id should have had an error"
   assert_invalid interaction, "interaction shouldn't be created"
   
-  interaction = create(:questions_id => 1.397)
-  assert interaction.errors.invalid?(:questions_id), ":questions_id should have had an error"
+  interaction = create(:question_id => 1.397)
+  assert interaction.errors.invalid?(:question_id), ":question_id should have had an error"
   assert_invalid interaction, "interaction shouldn't be created"
 end
 
@@ -63,9 +63,9 @@ end
   private
     def create(options={})
       Interaction.create({
-	:participations_id => 1,
-	:answers_id => 1,
-	:questions_id => 1
+	:participation_id => 1,
+	:answer_id => 1,
+	:question_id => 1
         }.merge(options))
     end
 

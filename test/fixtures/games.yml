@@ -1,14 +1,14 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 game1:
   id: 1
-  themes_id: 1
+  theme_id: 1
   date_begin: datatime
   concluded: 1
   victory_id: 1
 
 game2:
   id: 2
-  themes_id: 2
+  theme_id: 2
   date_begin: datatime
   concluded: 1
   victory_id: 2

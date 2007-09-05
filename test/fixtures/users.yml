@@ -1,14 +1,14 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 Jaum:
   id: 1
-  cities_id: 1
+  city_id: 1
   name: Joao
   login: jaum
   email: jaumaaa
   
 Yue:
   id: 2
-  cities_id: 1
+  city_id: 1
   name: Gustavo
   login: guga
   email: gugada

@@ -26,14 +26,14 @@ class CreatePerTables < ActiveRecord::Migration
 
 
   create_table "cities" do |t|
-    t.column "states_id", :integer, :null => false
+    t.column "state_id", :integer, :null => false
     t.column "name",      :string, :null => false
 
   end
 
 
   create_table "users" do |t|
-    t.column "cities_id",                 :integer, :null => false
+    t.column "city_id",                 :integer, :null => false
     t.column "name",                      :string
     t.column "login",                     :string, :null => false
     t.column "email",                     :string
@@ -50,9 +50,9 @@ class CreatePerTables < ActiveRecord::Migration
 
 
   create_table "registrations" do |t|
-    t.column "profiles_id",     :integer, :null => false
-    t.column "users_id",        :integer, :null => false
-    t.column "institutions_id", :integer, :null => false
+    t.column "profile_id",     :integer, :null => false
+    t.column "user_id",        :integer, :null => false
+    t.column "institution_id", :integer, :null => false
   end
 
 
@@ -65,7 +65,7 @@ class CreatePerTables < ActiveRecord::Migration
 
 
   create_table "themes" do |t|
-    t.column "configurations_id", :integer, :null => false
+    t.column "configuration_id", :integer, :null => false
     t.column "name",              :string, :null => false
     t.column "summary",           :string, :null => false
     t.column "create_at",         :datetime
@@ -75,40 +75,40 @@ class CreatePerTables < ActiveRecord::Migration
 
 
   create_table "archives" do |t|
-    t.column "themes_id",   :string, :null => false
+    t.column "theme_id",   :string, :null => false
     t.column "name",        :string, :null => false
     t.column "description", :string
     t.column "heading",     :string
   end
 
   create_table "links" do |t|
-    t.column "themes_id",   :integer, :null => false
+    t.column "theme_id",   :integer, :null => false
     t.column "address",     :string, :null => false
     t.column "description", :string, :null => false
   end
 
 
   create_table "proposals" do |t|
-    t.column "themes_id",        :integer, :null => false
-    t.column "registrations_id", :integer, :null => false
+    t.column "theme_id",        :integer, :null => false
+    t.column "registration_id", :integer, :null => false
     t.column "active",           :boolean
   end
 
   create_table "groups" do |t|
-    t.column "themes_id", :integer, :null => false
+    t.column "theme_id", :integer, :null => false
     t.column "name",      :string, :null => false
   end
 
 
   create_table "participations" do |t|
-    t.column "groups_id",        :integer, :null => false
-    t.column "registrations_id", :integer, :null => false
+    t.column "group_id",        :integer, :null => false
+    t.column "registration_id", :integer, :null => false
     t.column "leader",            :boolean, :default => false
   end
 
 
   create_table "messages" do |t|
-    t.column "participations_id", :integer, :null => false
+    t.column "participation_id", :integer, :null => false
     t.column "messages",               :text, :null => false
   end
 
@@ -119,16 +119,16 @@ class CreatePerTables < ActiveRecord::Migration
   end
 
   create_table "answers" do |t|
-    t.column "questions_id", :integer, :null => false
+    t.column "question_id", :integer, :null => false
     t.column "text",       :text, :null => false
     t.column "correct",    :boolean, :default => false, :null => false
   end
 
 
   create_table "interactions" do |t|
-    t.column "participations_id", :integer, :null => false
-    t.column "answers_id",             :integer, :null => false
-    t.column "questions_id",           :integer, :null => false
+    t.column "participation_id", :integer, :null => false
+    t.column "answer_id",             :integer, :null => false
+    t.column "question_id",           :integer, :null => false
     t.column "created_at",    :datetime
   end
 
@@ -136,7 +136,7 @@ class CreatePerTables < ActiveRecord::Migration
 
 
   create_table "games" do |t|
-    t.column "themes_id",      :integer, :null => false
+    t.column "theme_id",      :integer, :null => false
     t.column "date_begin", :date, :null => false
     t.column "concluded",     :boolean, :default => false
     t.column "victory_id",     :integer, :null => true
@@ -144,16 +144,16 @@ class CreatePerTables < ActiveRecord::Migration
 
 
   create_table "players" do |t|
-    t.column "games_id",     :integer, :null => false
-    t.column "groups_id",     :integer, :null => false
+    t.column "game_id",     :integer, :null => false
+    t.column "group_id",     :integer, :null => false
   end
 
 
 
   create_table "plays" do |t|
-    t.column "players_id",         :integer, :null => false
-    t.column "questions_id",     :integer, :null => false
-    t.column "answers_id",       :integer, :null => true
+    t.column "player_id",         :integer, :null => false
+    t.column "question_id",     :integer, :null => false
+    t.column "answer_id",       :integer, :null => true
   end
 
 

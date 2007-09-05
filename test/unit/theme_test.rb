@@ -39,21 +39,21 @@ class ThemeTest < Test::Unit::TestCase
     assert_invalid theme, "theme shouldn't be created"
   end
 
-     # validar o configurations_id do theme
- def test_should_require_configurations_id
-    theme = create(:configurations_id => nil)
-    assert theme.errors.invalid?(:configurations_id), ":name should be required"
+     # validar o configuration_id do theme
+ def test_should_require_configuration_id
+    theme = create(:configuration_id => nil)
+    assert theme.errors.invalid?(:configuration_id), ":configuration_id should be required"
     assert_invalid theme, "theme shouldn't be created"
   end
 
-	# validar o int do codigo configurations_id da tabela theme
+	# validar o int do codigo configuration_id da tabela theme
   def test_should_deny_non_integer_configurations_id
-    theme = create(:configurations_id => 'a')
-    assert theme.errors.invalid?(:configurations_id), ":configurations_id should have had an error"
+    theme = create(:configuration_id => 'a')
+    assert theme.errors.invalid?(:configuration_id), ":configuration_id should have had an error"
     assert_invalid theme, "theme shouldn't be created"
   
-    theme = create(:configurations_id => 1.397)
-    assert theme.errors.invalid?(:configurations_id), ":configurations_id should have had an error"
+    theme = create(:configuration_id => 1.397)
+    assert theme.errors.invalid?(:configuration_id), ":configuration_id should have had an error"
     assert_invalid theme, "theme shouldn't be created"
   end
 
@@ -62,7 +62,7 @@ class ThemeTest < Test::Unit::TestCase
   private
     def create(options={})
       Theme.create({
-	:configurations_id => 1,
+	:configuration_id => 1,
 	:name => "War",
 	:summary => "War of world",
 	:active => 1,

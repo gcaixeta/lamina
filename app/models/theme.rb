@@ -10,12 +10,12 @@ has_many  :archives
 belongs_to  :configuration
 
 validates_presence_of :name
-validates_presence_of :configurations_id
+validates_presence_of :configuration_id
 validates_presence_of :summary
 validates_presence_of :active
 validates_presence_of :password
 
 validates_length_of :password, :minimum => 4
-validates_numericality_of :configurations_id, :only_integer => true
+validates_numericality_of :configuration_id, :only_integer => true
 
 end

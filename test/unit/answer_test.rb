@@ -19,21 +19,21 @@ class AnswerTest < Test::Unit::TestCase
   end
 
 
-     # validar o questions_id do answer
- def test_should_require_questions_id
-    answer = create(:questions_id => nil)
-    assert answer.errors.invalid?(:questions_id), ":questions_id should be required"
+     # validar o question_id do answer
+ def test_should_require_question_id
+    answer = create(:question_id => nil)
+    assert answer.errors.invalid?(:question_id), ":question_id should be required"
     assert_invalid answer, "answer shouldn't be created"
   end
 
-	# validar o int do codigo questions_id da tabela answer
-def test_should_deny_non_integer_questions_id
-  answer = create(:questions_id => 'a')
-  assert answer.errors.invalid?(:questions_id), ":questions_id should have had an error"
+	# validar o int do codigo question_id da tabela answer
+def test_should_deny_non_integer_question_id
+  answer = create(:question_id => 'a')
+  assert answer.errors.invalid?(:question_id), ":question_id should have had an error"
   assert_invalid answer, "answer shouldn't be created"
   
-  answer = create(:questions_id => 1.397)
-  assert answer.errors.invalid?(:questions_id), ":questions_id should have had an error"
+  answer = create(:question_id => 1.397)
+  assert answer.errors.invalid?(:question_id), ":question_id should have had an error"
   assert_invalid answer, "answer shouldn't be created"
 end
 
@@ -42,7 +42,7 @@ end
    private
     def create(options={})
       Answer.create({
-        :questions_id => 1,
+        :question_id => 1,
    	:text => "I have problem",
    	:correct => "true"  
         }.merge(options))   

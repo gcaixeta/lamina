@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ArchiveTest < Test::Unit::TestCase
-  fixtures :archives
+  fixtures :archives, :themes
 
      # validar o nome do archive
   def test_should_require_name
@@ -43,6 +43,26 @@ def test_should_deny_non_integer_theme_id
   assert_invalid archive, "archive shouldn't be created"
 end
 
+ def test_should_check_archive_authorship
+ 
+  # check all fixtures were loaded
+  assert_equal 2, themes(:Paz).archives.size, "themes should have had 2 archives"
+
+  
+  # assign a post without themes_id
+   archive = create(:theme_id => nil)
+
+  # then, assign a archives using the relationship method
+  themes(:Paz).archives << archive
+
+  #now, check if themes have one more archives
+  assert_equal 3, themes(:Paz).archives.size, "themes should have had 3 archives"
+
+  # assign a archives to a theme_id that doesn't exist
+    archive = create(:theme_id => 100)
+    assert archive.errors.invalid?(:theme), "theme doesn't exist, so it should be required"
+
+  end
 
 	# criar dados na tabela archive
   private

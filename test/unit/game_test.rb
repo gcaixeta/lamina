@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class GameTest < Test::Unit::TestCase
-  fixtures :games
+  fixtures :games, :themes
 
 
 	# Proibi criacao dados em branco
@@ -43,6 +43,29 @@ def test_should_deny_non_integer_theme_id
   assert game.errors.invalid?(:theme_id), ":theme_id should have had an error"
   assert_invalid game, "game shouldn't be created"
 end
+
+
+ def test_should_check_games_authorship
+ 
+  # check all fixtures were loaded
+  assert_equal 2, themes(:Paz).games.size, "themes should have had 2 games"
+
+  
+  # assign a post without themes_id
+   game = create(:theme_id => nil)
+
+  # then, assign a games using the relationship method
+  themes(:Paz).games << game
+
+  #now, check if themes have one more archives
+  assert_equal 3, themes(:Paz).games.size, "themes should have had 3 games"
+
+  # assign a games to a theme_id that doesn't exist
+    game = create(:theme_id => 100)
+    assert game.errors.invalid?(:theme), "theme doesn't exist, so it should be required"
+
+  end
+
 
 	# criar dados na tabela Game
   private

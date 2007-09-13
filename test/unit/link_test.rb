@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class LinkTest < Test::Unit::TestCase
-  fixtures :links
+  fixtures :links, :themes
 
 
 	# Proibi criacao dados em branco
@@ -38,6 +38,26 @@ def test_should_deny_non_integer_themes_id
 end
 
 
+  def test_should_check_link_authorship
+ 
+  # check all fixtures were loaded
+  assert_equal 2, themes(:Paz).links.size, "themes should have had 2 links"
+
+  
+  # assign a link without theme_id
+   link = create(:theme_id => nil)
+
+  # then, assign a themes using the relationship method
+  themes(:Paz).links << link
+
+  #now, check if themes have one more links
+  assert_equal 3, themes(:Paz).links.size, "themes should have had 3 links"
+
+  # assign a link to a theme_id that doesn't exist
+    link = create(:theme_id => 100)
+    assert link.errors.invalid?(:theme), "theme doesn't exist, so it should be required"
+
+  end
 
 	# criar dados na tabela links
   private

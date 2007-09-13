@@ -8,7 +8,7 @@ game1:
 
 game2:
   id: 2
-  theme_id: 2
+  theme_id: 1
   date_begin: datatime
   concluded: 1
   victory_id: 2

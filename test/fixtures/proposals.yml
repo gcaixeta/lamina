@@ -6,6 +6,6 @@ pro1:
   active: 1
 pro2:
   id: 2
-  theme_id: 2
-  registration_id: 2
+  theme_id: 1
+  registration_id: 1
   active: 0

@@ -6,7 +6,7 @@ part1:
   leader: 1
 part2:
   id: 2
-  group_id: 2
-  registration_id: 2
+  group_id: 1
+  registration_id: 1
   leader: 0
   

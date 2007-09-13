@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ProposalTest < Test::Unit::TestCase
-  fixtures :proposals
+  fixtures :proposals, :themes, :registrations
 
 
      # validar o theme_id do proposal
@@ -47,6 +47,48 @@ def test_should_deny_non_integer_registration_id
   assert proposal.errors.invalid?(:registration_id), ":registration_id should have had an error"
   assert_invalid proposal, "proposal shouldn't be created"
 end
+
+  def test_should_check_proposal_authorship
+ 
+  # check all fixtures were loaded
+  assert_equal 2, themes(:Paz).proposals.size, "themes should have had 2 proposals"
+
+  
+  # assign a link without theme_id
+   proposal = create(:theme_id => nil)
+
+  # then, assign a themes using the relationship method
+  themes(:Paz).proposals << proposal
+
+  #now, check if themes have one more links
+  assert_equal 3, themes(:Paz).proposals.size, "themes should have had 3 proposals"
+
+  # assign a proposal to a theme_id that doesn't exist
+    proposal = create(:theme_id => 100)
+    assert proposal.errors.invalid?(:theme), "theme doesn't exist, so it should be required"
+
+  end
+
+  def test_should_check_proposal_registration_authorship
+ 
+  # check all fixtures were loaded
+  assert_equal 2, registrations(:one).proposals.size, "registration should have had 2 proposals"
+
+  
+  # assign a link without registration_id
+   proposal = create(:registration_id => nil)
+
+  # then, assign a registrations using the relationship method
+  registrations(:one).proposals << proposal
+
+  #now, check if registration have one more links
+  assert_equal 3, registrations(:one).proposals.size, "registration should have had 3 proposals"
+
+  # assign a proposal to a registration_id that doesn't exist
+    proposal = create(:registration_id => 100)
+    assert proposal.errors.invalid?(:registration), "registration doesn't exist, so it should be required"
+
+  end
 
     def create(options={})
       Proposal.create({

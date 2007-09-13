@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class UserTest < Test::Unit::TestCase
-  fixtures :users
+  fixtures :users, :cities
 
   def test_should_be_invalid
     user = create(:name => nil, :email => nil, :login => nil, :city_id => 1)
@@ -55,6 +55,24 @@ class UserTest < Test::Unit::TestCase
   assert user.errors.invalid?(:city_id), ":city_id should have had an error"
   assert_invalid user, "user shouldn't be created"
   end
+
+def test_should_check_user_authorship
+  # check all fixtures were loaded
+  assert_equal 2, cities(:rp).users.size, "cities should have had 2 users"
+ 
+  # assign a post without city_id
+  user = create(:city_id => nil)
+  
+  # then, assign a user using the relationship method
+  cities(:rp).users << user
+  
+  #now, check if city have one more user
+  assert_equal 3, cities(:rp).users.size, "city should have had 3 users"
+  
+  # assign a city to a user that doesn't exist
+  user = create(:city_id => 100)
+  assert user.errors.invalid?(:city), "city doesn't exist, so it should be required"
+end
 
 	# criar dados na tabela User
   private

@@ -9,6 +9,9 @@ has_many  :archives
 
 belongs_to  :configuration
 
+  validates_presence_of :configuration
+  validates_associated :configuration
+
 validates_presence_of :name
 validates_presence_of :configuration_id
 validates_presence_of :summary

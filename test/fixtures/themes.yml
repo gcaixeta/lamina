@@ -10,7 +10,7 @@ Paz:
 War:
   id: 2
   name: War
-  configuration_id: 2
+  configuration_id: 1
   summary: the war today
   active: 0
   password: 456

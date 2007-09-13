@@ -34,15 +34,15 @@ def test_should_check_city_authorship
   # assign a post without state_id
   city = create(:state_id => nil)
   
-  # then, assign a post using the relationship method
+  # then, assign a city using the relationship method
   states(:sp).cities << city
   
-  #now, check if user have one more post
-  assert_equal 3, states(:sp).cities.size, "user should have had 3 posts"
+  #now, check if state have one more city
+  assert_equal 3, states(:sp).cities.size, "State should have had 3 posts"
   
-  # assign a post to a user that doesn't exist
+  # assign a post to a state that doesn't exist
   city = create(:state_id => 100)
-  assert city.errors.invalid?(:state), "User doesn't exist, so it should be required"
+  assert city.errors.invalid?(:state), "State doesn't exist, so it should be required"
 end
 
   private

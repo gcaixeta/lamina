@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ThemeTest < Test::Unit::TestCase
-  fixtures :themes
+  fixtures :themes, :configurations
 
      # validar o nome do theme
  def test_should_require_name
@@ -55,6 +55,28 @@ class ThemeTest < Test::Unit::TestCase
     theme = create(:configuration_id => 1.397)
     assert theme.errors.invalid?(:configuration_id), ":configuration_id should have had an error"
     assert_invalid theme, "theme shouldn't be created"
+  end
+
+  def test_should_check_registration_configurations_authorship
+ 
+  # check all fixtures were loaded
+ # assert_equal 2, configurations(:one).theme.size, "configurations should have had 2 themes"
+# erro no theme do model procurar saber como fazer com o relacionamento 1 para 1;
+  
+
+  # assign a post without institution_id
+   theme = create(:configuration_id => nil)
+
+  # then, assign a institutions using the relationship method
+ # configurations(:one).theme << theme # erro no theme do model procurar saber como fazer com o relacionamento 1 para 1;
+  
+  #now, check if registration have one more institutions
+  #assert_equal 3, configurations(:one).themes.size, "profiles should have had 3 registrations"
+
+  # assign a registration to a profile that doesn't exist
+    theme = create(:configuration_id => 100)
+    assert theme.errors.invalid?(:configuration), "theme doesn't exist, so it should be required"
+
   end
 
 

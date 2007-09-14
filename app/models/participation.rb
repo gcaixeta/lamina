@@ -2,7 +2,7 @@ class Participation < ActiveRecord::Base
 belongs_to :registration
 belongs_to :group
 
-has_many :mensagens
+has_many :messages
 has_many :interactions
 
 validates_presence_of :group_id

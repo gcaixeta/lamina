@@ -6,7 +6,7 @@ one:
 two:
   id: 2
   game_id: 1
-  group_id: 2
+  group_id: 1
 
 tree:
   id: 3

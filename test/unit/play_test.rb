@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class PlayTest < Test::Unit::TestCase
-  fixtures :plays
+  fixtures :plays, :answers, :questions, :players
 
 
  # validar o answer_id do play
@@ -25,7 +25,7 @@ class PlayTest < Test::Unit::TestCase
     assert_invalid play, "play shouldn't be created"
   end
 
-	# validar o int no codigo answer_id da tabela play
+# validar o int no codigo answer_id da tabela play
 def test_should_deny_non_integer_answer_id
   play = create(:answer_id => 'a')
   assert play.errors.invalid?(:answer_id), ":answer_id should have had an error"
@@ -57,6 +57,69 @@ def test_should_deny_non_integer_player_id
   assert play.errors.invalid?(:player_id), ":player_id should have had an error"
   assert_invalid play, "play shouldn't be created"
 end
+
+
+ def test_should_check_answer_interactions_authorship
+ 
+  # check all fixtures were loaded
+   assert_equal 2, answers(:ans1).plays.size, "answer should have had 2 plays"
+  
+  # assign a link without answer_id
+   play = create(:answer_id => nil)
+
+  # then, assign a answer using the relationship method
+  answers(:ans1).plays << play
+
+  #now, check if answer have one more participations
+  assert_equal 3, answers(:ans1).plays.size, "answer should have had 3 plays"
+
+  # assign a proposal to a answer_id that doesn't exist
+    play = create(:answer_id => 100)
+    assert play.errors.invalid?(:answer), "answer doesn't exist, so it should be required"
+
+  end
+
+def test_should_check_questions_plays_authorship
+ 
+  # check all fixtures were loaded
+  assert_equal 2, questions(:one).plays.size, "questions should have had 2 plays"
+  
+  # assign a link without questions_id
+   play = create(:question_id => nil)
+
+  # then, assign a questions using the relationship method
+  questions(:one).plays << play
+
+  #now, check if questions have one more participations
+  assert_equal 3, questions(:one).plays.size, "questions should have had 3 plays"
+
+  # assign a proposal to a question_id that doesn't exist
+    play = create(:question_id => 100)
+    assert play.errors.invalid?(:question), "question doesn't exist, so it should be required"
+
+  end
+
+
+def test_should_check_players_plays_authorship
+ 
+  # check all fixtures were loaded
+  assert_equal 2, players(:one).plays.size, "players should have had 2 plays"
+  
+  # assign a link without player_id
+   play = create(:player_id => nil)
+
+  # then, assign a questions using the relationship method
+  players(:one).plays << play
+
+  #now, check if questions have one more participations
+  assert_equal 3, players(:one).plays.size, "players should have had 3 plays"
+
+  # assign a proposal to a player_id that doesn't exist
+    play = create(:player_id => 100)
+    assert play.errors.invalid?(:player), "player doesn't exist, so it should be required"
+
+  end
+
 
 
 	# criar dados na tabela Play

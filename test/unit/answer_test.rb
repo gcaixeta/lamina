@@ -56,6 +56,7 @@ end
     assert answer.errors.invalid?(:question), "question_id doesn't exist, so it should be required"
 
   end
+
   
 	# criar dados na tabela Answer
    private

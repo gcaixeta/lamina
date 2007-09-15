@@ -12,6 +12,7 @@ has_many :groups, :through => :participations
   validates_presence_of :user_id
   validates_presence_of :institution_id
 
+
   validates_presence_of :profile
   validates_associated :profile
 

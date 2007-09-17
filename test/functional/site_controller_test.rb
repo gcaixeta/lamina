@@ -15,5 +15,10 @@ class SiteControllerTest < Test::Unit::TestCase
   def test_truth
     assert true
   end
+
+	def test_index
+	get :index
+	assert_response :success
+	end
   
 end

@@ -1,0 +1,25 @@
+<h1>Lista de Instituiçoes</h1>
+
+<table>
+  <tr>
+	<td>Nome</td>
+  </tr>
+  
+<% for institution in @institutions %>
+  <tr>
+  <% for column in Institution.content_columns %>
+    <td><%=h institution.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Visualizar', :action => 'show', :id => institution %></td>
+    <td><%= link_to 'Editar', :action => 'edit', :id => institution %></td>
+    <td><%= link_to 'Deletar', { :action => 'destroy', :id => institution }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @institution_pages.current.previous } if @institution_pages.current.previous %>
+<%= link_to 'Next page', { :page => @institution_pages.current.next } if @institution_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New institution', :action => 'new' %>

@@ -9,6 +9,6 @@ validates_presence_of :name
 validates_presence_of :cnpj
 validates_presence_of :telephone
 validates_presence_of :email
-validates_presence_of :active
+
 
 end

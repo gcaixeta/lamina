@@ -31,12 +31,6 @@ class InstitutionTest < Test::Unit::TestCase
     assert_invalid intitution, "intitution shouldn't be created"
   end
 
-	# validar o active da intitution  
-  def test_should_require_active
-    intitution = create(:active => nil)
-    assert intitution.errors.invalid?(:active), ":active should be required"
-    assert_invalid intitution, "intitution shouldn't be created"
-  end
   
   	# validar o campo email no formato da intitution  
   def test_should_deny_bad_email
@@ -69,7 +63,7 @@ class InstitutionTest < Test::Unit::TestCase
 		:cnpj => 321,
 		:telephone => 321456,
 		:email => "joao@uol.com.br",
-		:active => 1
+		:active => 0
         }.merge(options))
     end
 

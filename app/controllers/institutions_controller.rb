@@ -18,4 +18,4 @@ class InstitutionsController < ApplicationController
     end
   end
 
-end
+end 

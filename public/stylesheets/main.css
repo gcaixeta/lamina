@@ -5,7 +5,7 @@
 }
 
 html {
-	background:#d5ae52 url('../img/back.png') repeat fixed 0 0;	
+	background:#d5ae52 url('../images/back.png') repeat fixed 0 0;	
 }
 body {
 }   
@@ -81,7 +81,7 @@ float: right;
 }
 
 #header{
-background: #c3d9ff url('../img/teste1.png') repeat;
+background: #c3d9ff url('../images/teste1.png') repeat;
 height: 75px;
 }
 

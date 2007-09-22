@@ -18,9 +18,11 @@ class InstitutionsController < ApplicationController
     end
   end
   
-	def active
-	  @institution = Institution.find(params[:id])
-	     render :layout => false
+  def active
+	render :layout => false
+	@institution = Institution.find(params[:id])
+	@institution.active = true
+	@institution.save
   end
 
 end 

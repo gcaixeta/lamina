@@ -3,6 +3,10 @@
 <table>
   <tr>
 	<td>Nome</td>
+	<td>CNPJ</td>
+	<td>Telefone</td>
+	<td>Email</td>
+	<td>Ativar</td>
   </tr>
   
 <% for institution in @institutions %>
@@ -10,6 +14,7 @@
   <% for column in Institution.content_columns %>
     <td><%=h institution.send(column.name) %></td>
   <% end %>
+	<td><%= link_to 'Ativar', :action => 'active', :id => institution %></td>
     <td><%= link_to 'Visualizar', :action => 'show', :id => institution %></td>
     <td><%= link_to 'Editar', :action => 'edit', :id => institution %></td>
     <td><%= link_to 'Deletar', { :action => 'destroy', :id => institution }, :confirm => 'Are you sure?', :method => :post %></td>

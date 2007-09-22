@@ -17,5 +17,10 @@ class InstitutionsController < ApplicationController
       render :action => 'new'
     end
   end
+  
+	def active
+	  @institution = Institution.find(params[:id])
+	     render :layout => false
+  end
 
 end 

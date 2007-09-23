@@ -42,6 +42,7 @@ Rails::Initializer.run do |config|
   # config.active_record.default_timezone = :utc
   
   # See Rails::Configuration for more options
+
 end
 
 # Add new inflection rules using the following format 
@@ -58,3 +59,4 @@ end
 # Mime::Type.register "application/x-mobile", :mobile
 
 # Include your application configuration below
+require "#{RAILS_ROOT}/app/overrides/messages"

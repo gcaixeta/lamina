@@ -1,4 +1,4 @@
-<h1>Lista de Instituiçoes</h1>
+<h3>Lista de Instituições</h3>
 
 <table>
   <tr>
@@ -15,7 +15,8 @@
     <td><%=h institution.send(column.name) %></td>
   <% end %>
 	<td><%= link_to_remote ('Ativar', :url => { :action => 'active', :id => institution}) %></td>
-    <td><%= link_to 'Visualizar', :action => 'show', :id => institution %></td>
+<td><%= link_to_remote ('Desativar', :url => { :action => 'desative', :id => 
+institution}) %></td>
     <td><%= link_to 'Editar', :action => 'edit', :id => institution %></td>
     <td><%= link_to 'Deletar', { :action => 'destroy', :id => institution }, :confirm => 'Are you sure?', :method => :post %></td>
   </tr>
@@ -27,4 +28,4 @@
 
 <br />
 
-<%= link_to 'New institution', :action => 'new' %>
+<%= link_to 'Nova Instituição', :action => 'new' %>

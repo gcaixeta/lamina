@@ -21,7 +21,14 @@ class InstitutionsController < ApplicationController
   def active
 	render :layout => false
 	@institution = Institution.find(params[:id])
-	@institution.active = true
+	@institution.active = 1
+	@institution.save
+  end
+
+  def desative
+	render :layout => false
+	@institution = Institution.find(params[:id])
+	@institution.active = 0
 	@institution.save
   end
 

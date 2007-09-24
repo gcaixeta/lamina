@@ -90,6 +90,10 @@ color:  #0000ff;
 text-align: center;
 }
 
+#msgs{
+background: green;
+}
+
 #content{
 background: #eff3f7;
 }

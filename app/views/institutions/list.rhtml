@@ -23,9 +23,8 @@ institution}) %></td>
 <% end %>
 </table>
 
-<%= link_to 'Previous page', { :page => @institution_pages.current.previous } if 			@institution_pages.current.previous %>
-<%= link_to 'Next page', { :page => @institution_pages.current.next } if @institution_pages.current.next %> 
+
 
 <br />
 
-<%= link_to 'Nova Instituição', :action => 'new' %>
+<%= link_to 'Nova Instituição', :action => 'signup' %>

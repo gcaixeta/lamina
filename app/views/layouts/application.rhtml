@@ -17,17 +17,19 @@
 	<div id="header">
 		<h1>Sistema de Perguntas e Respostas</h1>
 		<ul id="menu">
-			<li><%= link_to 'Cadastro de Instituição', :controller=>"institutions", :action => 'new' %></li>
+			<li><%= link_to 'Cadastro de Instituição', :controller=>"institutions", :action => 'signup' %></li>
 			<li><%= link_to 'Cadastro de Usuário', :controller=>"users", :action => 'new' %></li>
 			<li><%= link_to 'Sobre', :controller=>"site", :action => 'about' %></li>
 			<li></li>
 		</ul>
 	</div>
-
+  <div id="msgs">
+     <%= flash[:notice] %>
+  </div>
 	<div id="content">
 		<%= yield %>
-
 	</div>
+
 
 </body>
 </html>

@@ -1,23 +1,29 @@
 class InstitutionsController < ApplicationController
 
-  def new
-    @institution = Institution.new
-  end
+	#usuario
 
-  def index
-    @institution_pages, @institutions = paginate :institutions, :per_page => 10
+  def signup
+    @institution = Institution.new
   end
 
   def create
     @institution = Institution.new(params[:institution])
     if @institution.save
       flash[:notice] = 'Institicao criada com sucesso.'
-      redirect_to :action => 'index'
+      redirect_to :controller => 'site' , :action => 'index'
     else
-      render :action => 'new'
+      render :action => 'signup'
     end
   end
   
+	# administrador 
+
+  def list
+    @institutions = Institution.find_by_active(:false)
+
+  end
+
+
   def active
 	render :layout => false
 	@institution = Institution.find(params[:id])

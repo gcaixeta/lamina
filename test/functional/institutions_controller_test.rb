@@ -15,14 +15,14 @@ class InstitutionsControllerTest < Test::Unit::TestCase
   def test_should_get_new_institution
   	get :signup
   	assert_response :success
-		assert_template :signup	
+
   end
 
   def test_should_new_institutions
-    post :new, :institutions => { :name => 'Fatec', :cnpj => '123456', :telephone => '1234561', :email => 'fatec@fatecriopreto.com' }
+    post :signup, :institutions => { :name => 'Fatec', :cnpj => '123456', :telephone => '1234561', :email => 'fatec@fatecriopreto.com' }
     end
 
-	def test
+
 
 
 end

@@ -19,8 +19,7 @@ class InstitutionsController < ApplicationController
 	# administrador 
 
   def list
-    @institutions = Institution.find_by_active(:false)
-
+    @institutions = Institution.find_all_by_active(:false)
   end
 
 

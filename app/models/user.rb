@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 has_many  :registrations
 belongs_to :city
 
+
   validates_presence_of :email
   validates_presence_of :name
   validates_presence_of :login
@@ -12,5 +13,4 @@ belongs_to :city
   validates_associated :city
   validates_presence_of :city
 
-  
 end

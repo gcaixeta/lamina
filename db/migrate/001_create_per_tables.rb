@@ -37,10 +37,10 @@ class CreatePerTables < ActiveRecord::Migration
     t.column "name",                      :string
     t.column "login",                     :string, :null => false
     t.column "email",                     :string
-    t.column "crypted_password",          :string
+    t.column "crypted_password",          :string, :limit => 40
     t.column "birth",                     :datetime
     t.column "lastacess",                 :datetime
-    t.column "salt",                      :string
+    t.column "salt",                      :string, :limit => 40
     t.column "created_at",                :datetime
     t.column "updated_at",                :datetime
     t.column "remember_token",            :string

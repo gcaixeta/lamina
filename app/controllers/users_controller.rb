@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   # render new.rhtml
   def new
     @user = User.new
-    @city = City.find(:all).collect{|c|[c.name,c.id]}
+  #  @cities = City.find(:all).collect{|c|[c.name,c.id]}
   end
 
   def create
@@ -13,7 +13,8 @@ class UsersController < ApplicationController
     redirect_back_or_default('/')
     flash[:notice] = "Thanks for signing up!"
   rescue ActiveRecord::RecordInvalid
-    render :action => 'new'
+#		redirect_to :action => 'new'    
+render :action => 'new'
   end
 
 end

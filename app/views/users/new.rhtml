@@ -2,13 +2,16 @@
 <% form_for :user, :url => {:action => "create" } do |f| -%>
 
 <p><label for="user_name">Nome</label><br/>
-<%= f.text_field :name  %></p>
+<%= f.text_field :name %></p>
 
 <p><label for="user_login">Login</label><br/>
 <%= f.text_field :login %></p>
 
 <p><label for="password">Password</label><br/>
-<%= f.password_field :crypted_password %></p>
+<%= f.password_field :password%></p>
+
+<p><label for="password_confirmation">Confirme Password</label><br/>
+<%= f.password_field :password_confirmation %></p>
 
 
 <p><label for="user_email">Email</label><br/>
@@ -18,7 +21,7 @@
 <%= f.date_select :birth %></p>
 
 <p><label for="user_city">Cidade</label><br/>
-<%= select("user","city_id", @city ) %></p>
+<%= select("user","city_id", City.find(:all).collect{|c|[c.name,c.id]} ) %></p>
 
 <p><%= submit_tag 'Sign up' %></p>
 <% end -%>

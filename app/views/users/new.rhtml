@@ -18,7 +18,7 @@
 <%= f.text_field :email %></p>
 
 <p><label for="user_birth">Data de Nascimento</label><br/>
-<%= f.date_select :birth %></p>
+<%= date_select("user", "birth",  :start_year => 1920) %></p>
 
 <p><label for="user_city">Cidade</label><br/>
 <%= select("user","city_id", City.find(:all).collect{|c|[c.name,c.id]} ) %></p>

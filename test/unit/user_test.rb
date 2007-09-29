@@ -6,9 +6,6 @@ class UserTest < Test::Unit::TestCase
   include AuthenticatedTestHelper
   fixtures :users, :cities
 
-
-
-
   def test_should_be_invalid
     user = create(:name => nil, :email => nil, :login => nil, :city_id => 1)
     assert_invalid user, "User shouldn't be created"
@@ -79,12 +76,6 @@ def test_should_check_user_authorship
   user = create(:city_id => 100)
   assert user.errors.invalid?(:city), "city doesn't exist, so it should be required"
 end
-
-
-
-
-
-
 
   def test_should_create_user
     assert_difference 'User.count' do
@@ -174,16 +165,23 @@ end
     assert users(:quentin).remember_token_expires_at.between?(before, after)
   end
 
+
   protected
+
     def create_user(options = {})
-      User.create({ :login => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
+      User.create({ 
+        :login => 'quire', 
+        :email => 'quire@example.com', 
+        :password => 'quire', 
+        :password_confirmation => 'quire' 
+        }.merge(options))
     end
 
 
     def create(options={})
       User.create({
         :name => "Joao",
-        :email => "jaumaaa@simpsons.com",
+        :email => "joao@terra.com.br",
         :login => "jaum",
 	:city_id => 1
         }.merge(options))

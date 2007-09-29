@@ -116,14 +116,14 @@ ActiveRecord::Schema.define(:version => 1) do
   end
 
   create_table "users", :force => true do |t|
-    t.column "city_id",                   :integer,                  :null => false
+    t.column "city_id",                   :integer,                                :null => false
     t.column "name",                      :string
-    t.column "login",                     :string,   :default => "", :null => false
+    t.column "login",                     :string,                 :default => "", :null => false
     t.column "email",                     :string
-    t.column "crypted_password",          :string
+    t.column "crypted_password",          :string,   :limit => 40
     t.column "birth",                     :datetime
     t.column "lastacess",                 :datetime
-    t.column "salt",                      :string
+    t.column "salt",                      :string,   :limit => 40
     t.column "created_at",                :datetime
     t.column "updated_at",                :datetime
     t.column "remember_token",            :string

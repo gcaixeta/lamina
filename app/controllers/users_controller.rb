@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   # render new.rhtml
   def new
-#    @user = User.new
+  #    @user = User.new
   #  @cities = City.find(:all).collect{|c|[c.name,c.id]}
   
 	end

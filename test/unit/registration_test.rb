@@ -80,16 +80,16 @@ end
 def test_should_check_registration_users_authorship
  
 # check all fixtures were loaded
-  assert_equal 2, users(:Jaum).registrations.size, "users should have had 2 registrations"
+  assert_equal 2, users(:quentin).registrations.size, "users should have had 2 registrations"
 
   # assign a post without user_id
    registration = create(:user_id => nil)
 
  # then, assign a users using the relationship method
-  users(:Jaum).registrations << registration
+  users(:quentin).registrations << registration
   
   #now, check if registration have one more users
-  assert_equal 3, users(:Jaum).registrations.size, "profiles should have had 3 registrations"
+  assert_equal 3, users(:quentin).registrations.size, "profiles should have had 3 registrations"
 
   # assign a registration to a profile that doesn't exist
     registration = create(:user_id => 100)

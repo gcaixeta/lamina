@@ -10,6 +10,7 @@ quentin:
   #crypted_password: "ce2/iFrNtQ8=\n" # quentin, use only if you're using 2-way encryption
   created_at: <%= 5.days.ago.to_s :db %>
   # activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups
+
 aaron:
   id: 2
   city_id: 1
@@ -27,12 +28,19 @@ Jaum:
   city_id: 1
   name: Joao
   login: jaum
-  email: jaumaaa	
+  email: jaum@yahoo.com.br
+	crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  created_at: <%= 1.days.ago.to_s :db %>
+  
   
 Yue:
   id: 4
   city_id: 1
   name: Gustavo
   login: guga
-  email: gugada
+  email: yue@yue.com.br
+	crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  created_at: <%= 1.days.ago.to_s :db %>
 

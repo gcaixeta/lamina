@@ -171,7 +171,7 @@ end
     def create_user(options = {})
       User.create({ 
         :login => 'quire', 
-			 :name => "Joao",
+			  :name => "Joao",
         :email => 'quire@example.com', 
         :password => 'quire', 
         :password_confirmation => 'quire', 

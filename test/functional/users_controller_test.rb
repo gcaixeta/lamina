@@ -20,7 +20,7 @@ class UsersControllerTest < Test::Unit::TestCase
   def test_should_allow_signup
     assert_difference 'User.count' do
       create_user
-      assert_response :redirect
+    assert_response :redirect
     end
   end
 
@@ -59,7 +59,6 @@ class UsersControllerTest < Test::Unit::TestCase
 
   protected
     def create_user(options = {})
-      post :create, :user => { :name => 'alguem', :login => 'quire', :city_id => 1, :email => 'quire@example.com',
-        :password => 'quire', :password_confirmation => 'quire' }.merge(options)
+      post :create, :user => { :name => 'alguem', :login => 'quire', :city_id => 1, :email => 'quire@example.com',  :password => 'quire', :password_confirmation => 'quire' }.merge(options)
     end
 end

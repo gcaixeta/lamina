@@ -1,5 +1,5 @@
 class InstitutionsController < ApplicationController
-
+before_filter :login_required, :only => [ :signup ]
 	#usuario
 
   def signup

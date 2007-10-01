@@ -1,11 +1,11 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class InstitutionTest < Test::Unit::TestCase
-  fixtures :institutions
+  fixtures :institutions, :users
 
 	# Proibi criacao dados em branco
    def test_should_be_invalid
-    instituition = create(:name => nil, :cnpj => nil, :telephone => nil, :email => nil, :active => nil)
+    instituition = create(:name => nil, :cnpj => nil, :telephone => nil, :email => nil, :active => nil, :user_who_create => nil)
     assert_invalid instituition, "instituition shouldn't be created"
    end
 
@@ -55,6 +55,8 @@ class InstitutionTest < Test::Unit::TestCase
     assert_invalid intitution, "User shouldn't be created"
   end
 
+
+
 	#criar dados de Institution
   private
     def create(options={})
@@ -63,7 +65,8 @@ class InstitutionTest < Test::Unit::TestCase
 		:cnpj => 321,
 		:telephone => 321456,
 		:email => "joao@uol.com.br",
-		:active => 0
+		:active => 0,
+		:user_who_create => 1
         }.merge(options))
     end
 

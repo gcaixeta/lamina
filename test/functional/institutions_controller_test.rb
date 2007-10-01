@@ -14,7 +14,7 @@ class InstitutionsControllerTest < Test::Unit::TestCase
 
   def test_should_get_new_institution
   	get :signup
-  	assert_response :success
+  	assert_response :redirect
 
   end
 

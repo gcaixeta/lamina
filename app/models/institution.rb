@@ -1,5 +1,6 @@
 class Institution < ActiveRecord::Base
 attr_protected :active
+attr_protected :active
 has_many  :registrations
 has_many :users, :through => :registrations
 

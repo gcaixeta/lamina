@@ -1,0 +1,19 @@
+<%= error_messages_for :user %>
+<% form_for :user, :url => {:action => "create" } do |f| -%>
+
+<h3>Cadastro</h3>
+
+
+<p><label for="registration_user_id">Usuario</label><br/>
+<%= select("registration","user_id", User.find(:all).collect{|c|[c.name,c.id]} ) %></p>
+
+
+<p><label for="registration_institution_id">Intituicao</label><br/>
+<%= select("registration","institution_id", Institution.find(:all).collect{|c|[c.name,c.id]} ) %></p>
+
+<p><label for="registration_profile_id">Profile</label><br/>
+<%= select("registration","profile_id", Profile.find(:all).collect{|c|[c.description,c.id]} ) %></p>
+
+
+<p><%= submit_tag 'Sign up' %></p>
+<% end -%>

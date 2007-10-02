@@ -27,4 +27,22 @@ class InstitutionNewTest < ActionController::IntegrationTest
 		assert_response :success
 		assert_template 'site/index'
 	end
+
+
+		def test_should_cadastre_institution
+			get '/registrations/signup'
+			assert_response :redirect
+			follow_redirect!
+			assert_template 'session/new'
+			post 'session/create', :login => 'jaum', :password => 'test'
+		  follow_redirect!
+			assert_response :success
+			assert_template 'registrations/signup'
+			post 'registrations/create', :registration => { :institution_id => 1, :user_id => 1, :profile_id => 1 }
+  		assert_response :redirect
+			follow_redirect!
+		  assert_response :success
+			assert_template 'site/index'	
+
+		end
 end

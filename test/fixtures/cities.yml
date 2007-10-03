@@ -6,5 +6,10 @@ rp:
 
 rb:
   id: 2
-  name: Rio Branco
+  name: Ribeirao Preto
   state_id: 1
+
+riodejaneiro:
+  id: 3
+  name: Rio de Janeiro
+  state_id: 2

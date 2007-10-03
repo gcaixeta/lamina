@@ -2,6 +2,7 @@
 Aluno:
   id: 1
   description: Aluno
+
 Professor:
   id: 2
   description: Professor

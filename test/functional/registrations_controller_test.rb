@@ -18,9 +18,10 @@ fixtures :users
   end
 
 	def test_institution_in_registration_needs_to_existes_who_create
-#				login_as 'jaum', 'test'				
-			#	post :create, :invite => "gustavo", :institution =>"1"
-#				assert_nill Registration.find_by_user_and_institution(:user => @request.session[:user], :institution => '1')
+				login_as 'jaum', 'test'				
+				post :create, :invite => "gustavo", :institution =>"1"
+				assert_not_nil @request.session[:user] , "Usuario deve logar"
+				assert_nil Registration.find(:first)#find_by_user_and_institution(:user => @request.session[:user], :institution => '1')
 		#		assert_response :redirect, "Deve ser redirecionado"
 	#			assert_template "registrations/index"
 	end

@@ -16,5 +16,7 @@ class RegistrationsControllerTest < Test::Unit::TestCase
     assert true
   end
 
-	
+  
+
+
 end

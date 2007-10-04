@@ -31,8 +31,12 @@ def deny(condition, message="")
 end
  
 def assert_invalid(record, message="")
-  deny record.valid?, message
+	deny record.valid?, message
 end
 
+
+def login_as(login, password, opts={})
+	post 'session/create', opts.update(:login => login, :password => password)
+end
 
 end

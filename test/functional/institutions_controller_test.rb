@@ -18,9 +18,12 @@ class InstitutionsControllerTest < Test::Unit::TestCase
 
   end
 
-  def test_should_new_institutions
+  def test_should_need_login
     post :signup, :institutions => { :name => 'Fatec', :cnpj => '123456', :telephone => '1234561', :email => 'fatec@fatecriopreto.com' }
-    end
+	assert_response :success
+	assert_template
+	assert_template 'site/index'
+  end
 
 
 

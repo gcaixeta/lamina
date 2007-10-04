@@ -21,7 +21,7 @@ fixtures :users
 				login_as 'jaum', 'test'				
 				post :create, :invite => "gustavo", :institution =>"1"
 				assert_not_nil @request.session[:user] , "Usuario deve logar"
-				assert_nil Registration.find(:first)#find_by_user_and_institution(:user => @request.session[:user], :institution => '1')
+				assert_nil Registration.find_by_user_id_and_institution_id(@request.session[:user_id], '1')
 		#		assert_response :redirect, "Deve ser redirecionado"
 	#			assert_template "registrations/index"
 	end

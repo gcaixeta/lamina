@@ -16,7 +16,23 @@ class RegistrationsControllerTest < Test::Unit::TestCase
     assert true
   end
 
-  
+	def test_get_registration_signup
+				login_as 'jaum', 'test'
+				get :signup
+				assert_response :success , "Apos logado o usuario tem acesso ao cadastro"
+				assert_template 'registrations/signup'
+	end
+
+	def test_should_login_to_create
+				get :signup
+				assert_response :redirect
+	end
+
+  def login_as(login, password)
+	@request.session[:user] = User.authenticate(login,password)
+end
+
+
 
 
 end

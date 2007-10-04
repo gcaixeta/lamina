@@ -1,7 +1,9 @@
 class RegistrationsController < ApplicationController
 before_filter :login_required, :only => [ :signup ]
 
-
+	def index
+	
+	end
   def signup
     @registration = Registration.new
   end

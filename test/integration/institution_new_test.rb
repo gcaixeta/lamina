@@ -10,12 +10,10 @@ class InstitutionNewTest < ActionController::IntegrationTest
     assert true
   end
 
-	def test_need_login
-	get '/institutions/signup'
-	end
+
 
 	def test_create_new_institution
-		login_as 'jaum', 'test'
+		login_as 'jaum'
 		get '/institutions/signup'
 		assert_response :success
 		assert_template 'institutions/signup'

@@ -19,9 +19,20 @@ class SiteControllerTest < Test::Unit::TestCase
 	def test_index
 		get :index
 		assert_response :success
-
 	end
-
+	
+	def test_blbla
+				login_as "jaum" , "test"
+				get :index
+				assert_equal 3, @request.session[:user] 
+				assert_equal "jaum" , User.find(@request.session[:user]).login
+	end
+	
+	
+	
+	def login_as(login, password)
+	@request.session[:user] = User.authenticate(login,password)
+	end
 
   
 end

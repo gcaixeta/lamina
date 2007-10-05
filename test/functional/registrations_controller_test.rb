@@ -32,10 +32,11 @@ fixtures :users, :registrations, :institutions
 	
 	def	test_check_params_of_post
 		login_as 'quentin', 'test'
-		get :signup,  :institution =>1
+		get :signup,  :id =>1
 		assert_template 'registrations/signup'
 		#usuario preenche os dados
-		assert_equal  1, assigns[:institution]
+		#FIXME Corrigir esse erro
+		assert_equal  1, assigns[:id]
 		
 		
 		post :create, :invite => "theyue@yahoo.com.br", :institution =>1

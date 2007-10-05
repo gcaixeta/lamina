@@ -1,13 +1,14 @@
-<%= error_messages_for :user %>
-<% form_for :user, :url => {:action => "create" } do |f| -%>
+
+<% form_tag :action => 'create'  do  -%>
 
 <h3>Cadastro</h3>
 
-<%= hidden_field :institution, @institution %>
+<%= hidden_field_tag :institution, @institution %>
 
 <p><label for="invite">Login ou Email da pessoa a ser convidada</label><br/>
-<%= f.text_field :invite %></p>
+<%= text_field_tag :invite %></p>
 
 
 <p><%= submit_tag 'Sign up' %></p>
+
 <% end -%>

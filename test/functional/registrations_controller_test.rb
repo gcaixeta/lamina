@@ -18,7 +18,7 @@ fixtures :users, :registrations, :institutions
   end
 
 
-	def test_should_login_to_signup
+	def test_require_login_to_signup
 				get :signup
 				assert_response :redirect, "deve redirecionar para que o usuario loge"
 				assert_template nil
@@ -28,6 +28,22 @@ fixtures :users, :registrations, :institutions
 	     get :create
 	     assert_response :redirect, " deve redirecionar para que o usuario cadastrar"
 	     assert_template nil
+	end
+	
+	def	test_check_params_of_post
+		login_as 'quentin', 'test'
+		get :signup,  :institution =>1
+		assert_template 'registrations/signup'
+		#usuario preenche os dados
+		assert_equal  1, assigns[:institution]
+		
+		
+		post :create, :invite => "theyue@yahoo.com.br", :institution =>1
+		assert_equal 1, @request.session[:user], "O id do usuario deve bater"
+		assert_equal "theyue@yahoo.com.br", "theyue@yahoo.com.br", "O email deve ser igual"
+		assert_equal 1, 1, "A instituicao escolhida deve conferir"
+		
+				
 	end
 
 	def test_institution_in_registration_needs_to_existes_who_create

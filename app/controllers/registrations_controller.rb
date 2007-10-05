@@ -5,7 +5,7 @@ before_filter :login_required, :only => [ :signup, :create ]
 	
 	end
   def signup
-    @registration = Registration.new
+    @institution = params[:institution]
   end
 
 

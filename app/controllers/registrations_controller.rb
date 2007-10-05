@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-before_filter :login_required, :only => [ :signup ]
+before_filter :login_required, :only => [ :signup, :create ]
 
 	def index
 	

@@ -5,7 +5,7 @@ require 'registrations_controller'
 class RegistrationsController; def rescue_action(e) raise e end; end
 
 class RegistrationsControllerTest < Test::Unit::TestCase
-fixtures :users
+fixtures :users, :registrations
   def setup
     @controller = RegistrationsController.new
     @request    = ActionController::TestRequest.new
@@ -22,14 +22,18 @@ fixtures :users
 				post :create, :invite => "gustavo", :institution =>"1"
 				assert_not_nil @request.session[:user] , "Usuario deve logar"
 				assert_nil Registration.find_by_user_id_and_institution_id(@request.session[:user_id], '1')
-		#		assert_response :redirect, "Deve ser redirecionado"
+			#	assert_response :redirect, "Deve ser redirecionado"
 	#			assert_template "registrations/index"
 	end
 
 	def test_require_login_to_create
+	     get :create
+	     assert_response :redirect, " deve redirecionar para que o usuario cadastrar"
 	end
 
 	def test_need_to_be_in_institution_to_invite_others
+		login_as 'quentin', 'test'
+		assert_equal @request.session[:user].id, registrations(:two).user_id
 	end
 
 	def test_get_registration_signup

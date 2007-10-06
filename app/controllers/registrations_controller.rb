@@ -6,16 +6,36 @@ before_filter :login_required, :only => [ :signup, :create ]
 	end
   def signup
     @institution = params[:id]
+
   end
 
 
   def create
-    @registration = Registration.new(params[:registration])
-    if @registration.save
-      flash[:notice] = 'Registrado com sucesso.'
-      redirect_to :controller => 'site' , :action => 'index'
-    else
-      render :action => 'signup'
-    end
+  #verifica se tem algum usuario com o parametro de invite que foi passado pelo formulario
+  
+  	@usuario = User.find(:first, :conditions => ["login = ? OR email =?" , params[:invite], params[:invite]])
+  	
+
+  	if @usuario == nil
+  	
+
+  	#flash[:notice] = ' Usuario não está cadastrado no sistema'	
+  	else
+
+	 #@registration = Registration.create(:user_id => 1, :institution_id => 1, :profile_id => 1)
+	@registration = Registration.new(:user_id => "1", :institution_id => "1", :profile_id => 1)
+  		puts @registration.save
+  	
+
+  
+    #@registration = Registration.new(params[:registration])
+    #if @registration.save
+      #flash[:notice] = 'Registrado com sucesso.'
+      #redirect_to :controller => 'site' , :action => 'index'
+    #else
+     # render :action => 'signup'
+  		#end
+  		end
+  			redirect_to :controller => 'site' , :action => 'index'
   end
 end

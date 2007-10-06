@@ -5,7 +5,7 @@ require 'registrations_controller'
 class RegistrationsController; def rescue_action(e) raise e end; end
 
 class RegistrationsControllerTest < Test::Unit::TestCase
-fixtures :users, :registrations, :institutions
+fixtures :users, :registrations, :institutions, :cities, :states
   def setup
     @controller = RegistrationsController.new
     @request    = ActionController::TestRequest.new
@@ -30,24 +30,24 @@ fixtures :users, :registrations, :institutions
 	     assert_template nil
 	end
 	
-	def	test_check_params_of_post
+	
+	
+	def test_check_creation_of_registration
 		login_as 'quentin', 'test'
-		get :signup,  :id =>1
-		assert_template 'registrations/signup'
-		#usuario preenche os dados
-		#FIXME Corrigir esse erro
-		assert_equal  1, assigns[:id]
+		assert_nil Registration.find_by_user_id_and_institution_id(users(:Jaum).id, 1), "O usuario não deve estar registrado"
+		
+		post :create, :invite => users(:Jaum).email , :institution => 1
+		
+	assert_equal "jaum@yahoo.com.br", User.find(:first, :conditions => ["login = ? OR email =?" , users(:Jaum).login, users(:Jaum).login]).email
+		
+		assert_not_nil Registration.find_by_user_id_and_institution_id(users(:Jaum).id, 1), "O usuario deve estar registrado"
 		
 		
-		post :create, :invite => "theyue@yahoo.com.br", :institution =>1
-		assert_equal 1, @request.session[:user], "O id do usuario deve bater"
-		assert_equal "theyue@yahoo.com.br", "theyue@yahoo.com.br", "O email deve ser igual"
-		assert_equal 1, 1, "A instituicao escolhida deve conferir"
-		
-				
+	
 	end
-
-	def test_institution_in_registration_needs_to_existes_who_create
+	
+	
+		def test_institution_in_registration_needs_to_existes_who_create
 				login_as 'quentin', 'test'
 							
 				post :create, :invite => "theyue@yahoo.com.br", :institution =>"1"
@@ -59,9 +59,8 @@ fixtures :users, :registrations, :institutions
 			#	assert_response :redirect, "Deve ser redirecionado"
 	#			assert_template "registrations/index"
 	end
-
-
-
+	
+	
 	def test_need_to_be_in_institution_to_invite_others
 	#	login_as 'quentin', 'test'
 #		puts @request.session[:user_id]
@@ -86,9 +85,38 @@ fixtures :users, :registrations, :institutions
 	    get :signup
 			assert_equal 3, @request.session[:user], "O login do usuario deve ser 3"
 	end
+	
+	
+	
+	def	test_check_params_of_post
+	
+		login_as 'quentin', 'test'
+		get :signup,  :id =>1
+		assert_template 'registrations/signup'
+		assert_equal  1, assigns["institution"].to_i	
+		post :create, :invite => users(:Jaum).email , :institution => assigns["institution"]
+		
+		
+		#FIXME REMOVE
+		assert_equal 1, @request.session[:user], "O id do usuario deve bater"
+		assert_equal "jaum@yahoo.com.br",  users(:Jaum).email
+	end
+	
+	
+	
+	
+	
+	
+	
 
 
 private
+
+def invite(user,invited)
+
+
+
+end
 
 def login_as(login, password)
 	@request.session[:user] = User.authenticate(login,password)

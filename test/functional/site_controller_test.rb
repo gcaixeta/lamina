@@ -31,7 +31,8 @@ class SiteControllerTest < Test::Unit::TestCase
 	
 	
 	def login_as(login, password)
-	@request.session[:user] = User.authenticate(login,password)
+	@request.session[:user] = User.authenticate(login,password).id
+	
 	end
 
   

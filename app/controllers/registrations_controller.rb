@@ -11,21 +11,16 @@ before_filter :login_required, :only => [ :signup, :create ]
 
   def create
   #verifica se tem algum usuario com o parametro de invite que foi passado pelo formulario
-  
-  	@usuario = User.find(:first, :conditions => ["login = ? OR email =?" , params[:invite], params[:invite]])
+  	usuario = User.find(:first, :conditions => ["login = ? OR email =?" , params[:invite], params[:invite]])
   	
 
-  	if @usuario == nil
-  	
+  	if usuario == nil
 
-  	#flash[:notice] = ' Usuario não está cadastrado no sistema'	
+  	flash[:notice] = ' Usuario não está cadastrado no sistema'	
   	else
 
-	 @registration = Registration.create(:user_id => @usuario.id, :institution_id => params["institution"], :profile_id => 1)
-  		if @registration.save
-  		puts @registration.id
-  		end
-
+	 @registration = Registration.create(:user_id => usuario.id, :institution_id => params["institution"], :profile_id => 1)
+  	
   
     #@registration = Registration.new(params[:registration])
     #if @registration.save

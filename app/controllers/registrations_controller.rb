@@ -6,7 +6,6 @@ before_filter :login_required, :only => [ :signup, :create ]
 	end
   def signup
     @institution = params[:id]
-
   end
 
 
@@ -22,10 +21,10 @@ before_filter :login_required, :only => [ :signup, :create ]
   	#flash[:notice] = ' Usuario não está cadastrado no sistema'	
   	else
 
-	 #@registration = Registration.create(:user_id => 1, :institution_id => 1, :profile_id => 1)
-	@registration = Registration.new(:user_id => "1", :institution_id => "1", :profile_id => 1)
-  		puts @registration.save
-  	
+	 @registration = Registration.create(:user_id => @usuario.id, :institution_id => params["institution"], :profile_id => 1)
+  		if @registration.save
+  		puts @registration.id
+  		end
 
   
     #@registration = Registration.new(params[:registration])

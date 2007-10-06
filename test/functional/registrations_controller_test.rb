@@ -5,7 +5,7 @@ require 'registrations_controller'
 class RegistrationsController; def rescue_action(e) raise e end; end
 
 class RegistrationsControllerTest < Test::Unit::TestCase
-fixtures :users, :registrations, :institutions, :cities, :states
+fixtures :users, :registrations, :institutions, :cities, :states, :profiles
   def setup
     @controller = RegistrationsController.new
     @request    = ActionController::TestRequest.new

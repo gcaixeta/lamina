@@ -44,3 +44,45 @@ Yue:
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
   created_at: <%= 1.days.ago.to_s :db %>
 
+Usa1:
+  id: 5
+  city_id: 2
+  name: Usa
+  login: usa
+  email: usa@usa.com.br
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  created_at: <%= 1.days.ago.to_s :db %>
+
+Usp1:
+  id: 6
+  city_id: 2
+  name: Usp
+  login: usp
+  email: usp@usp.com.br
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  created_at: <%= 1.days.ago.to_s :db %>
+
+Usr1:
+  id: 7
+  city_id: 2
+  name: Usr
+  login: usr
+  email: usr@usr.com.br
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  created_at: <%= 1.days.ago.to_s :db %>
+
+Usa2:
+  id: 8
+  city_id: 2
+  name: Usa1
+  login: usa1
+  email: usa1@usa.com.br
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  created_at: <%= 1.days.ago.to_s :db %>
+
+
+

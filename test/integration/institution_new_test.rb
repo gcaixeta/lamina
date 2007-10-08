@@ -13,7 +13,7 @@ class InstitutionNewTest < ActionController::IntegrationTest
 
 
 	def test_create_new_institution
-		login_as 'jaum', 'test'
+		login_as_post 'jaum', 'test'
 		get '/institutions/signup'
 		assert_response :success
 		assert_template 'institutions/signup'

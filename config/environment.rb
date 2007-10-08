@@ -60,4 +60,4 @@ end
 
 # Include your application configuration below
 require "#{RAILS_ROOT}/app/overrides/messages"
-require 'redgreen'
+#require 'redgreen'

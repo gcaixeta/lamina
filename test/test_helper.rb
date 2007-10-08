@@ -4,7 +4,7 @@ require 'test_help'
 
 class Test::Unit::TestCase
 
-  #include AuthenticatedTestHelper
+  include AuthenticatedTestHelper
   # Transactional fixtures accelerate your tests by wrapping each test method
   # in a transaction that's rolled back on completion.  This ensures that the
   # test database remains unchanged so your fixtures don't have to be reloaded
@@ -37,7 +37,7 @@ def assert_invalid(record, message="")
 end
 
 
-def login_as(login, password, opts={})
+def login_as_post(login, password, opts={})
 	post 'session/create', opts.update(:login => login, :password => password)
 end
 

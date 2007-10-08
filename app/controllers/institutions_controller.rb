@@ -9,7 +9,7 @@ before_filter :login_required, :only => [ :signup ]
   def create
     @institution = Institution.new(params[:institution])
     if @institution.save
-      flash[:notice] = 'Institicao criada com sucesso.'
+      flash[:notice] = 'Instituicao criada com sucesso.'
       redirect_to :controller => 'site' , :action => 'index'
     else
       render :action => 'signup'

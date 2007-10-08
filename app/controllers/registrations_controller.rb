@@ -10,26 +10,36 @@ before_filter :login_required, :only => [ :signup, :create ]
 
 
   def create
-  #verifica se tem algum usuario com o parametro de invite que foi passado pelo formulario
-  	usuario = User.find(:first, :conditions => ["login = ? OR email =?" , params[:invite], params[:invite]])
-  	
+	#TODO Validar parametros passados, invite e institution. Verificar existencia antes de fazer a busca
+	#verifica qual profile pode ser criado nessa registration
+	profile_id = 
+		case Registration.find_by_user_id_and_institution_id(session[:user],params[:institution]).profile_id
+			when 1
+				nil
+			when 2
+				1
+			when 3
+				2
+		end
 
-  	if usuario == nil
+#Verifica se o usuario já existe no sistema, pelos parametros de convite
+	usuario = User.find(:first, :conditions => ["login = ? OR email =?" , params[:invite], params[:invite]])
 
-  	flash[:notice] = ' Usuario não está cadastrado no sistema'	
-  	else
 
-	 @registration = Registration.create(:user_id => usuario.id, :institution_id => params["institution"], :profile_id => 1)
-  	
-  
-    #@registration = Registration.new(params[:registration])
-    #if @registration.save
-      #flash[:notice] = 'Registrado com sucesso.'
-      #redirect_to :controller => 'site' , :action => 'index'
-    #else
-     # render :action => 'signup'
-  		#end
-  		end
-  			redirect_to :controller => 'site' , :action => 'index'
+	if usuario == nil
+		#TODO Fazer com que o usuario seja convidado para entrar no sistema
+		# Criar usuario em branco com codigo para ser ativado?
+		# Criar uma tabela de convites para instituição, com codigo para o usuario ser convidado?
+
+  	flash[:error] = ' Usuario não está cadastrado no sistema'	
+		redirect_to :controller => 'site' , :action => 'index'
+  elsif profile_id ==nil
+   	flash[:error] = ' Seu usuario não tem autorizacao para cadastrar outro usuario nesta instituicao'	
+    redirect_to :action => 'signup'
+  else
+		@registration = Registration.create(:user_id => usuario.id, :institution_id => params[:institution], :profile_id => profile_id)
+		redirect_to :controller => 'site' , :action => 'index'	
+	end  
+
   end
 end

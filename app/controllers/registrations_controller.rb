@@ -14,7 +14,8 @@ before_filter :login_required, :only => [ :signup, :create ]
 	#verifica qual profile pode ser criado nessa registration
 	profile_id = 
 		case Registration.find_by_user_id_and_institution_id(session[:user],params[:institution]).profile_id
-			when 1
+
+			when 1 || nil
 				nil
 			when 2
 				1

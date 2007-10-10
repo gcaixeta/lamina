@@ -1,11 +1,18 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-link1:
+lik1:
   id: 1
   theme_id: 1
   address: www.uol.com.br/tecnologia
   description: tecno
-Link2:
+
+lik2:
   id: 2
   theme_id: 1
   address: www.terra.com.br/tecnologia
   description: tecno
+
+lik3:
+  id: 3
+  theme_id: 2
+  address: www.yahoo.com.br/tecnologia
+  description: net

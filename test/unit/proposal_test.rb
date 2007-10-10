@@ -72,17 +72,17 @@ end
   def test_should_check_proposal_registration_authorship
  
   # check all fixtures were loaded
-  assert_equal 2, registrations(:one).proposals.size, "registration should have had 2 proposals"
+  assert_equal 3, registrations(:reg5).proposals.size, "registration should have had 3 proposals"
 
   
   # assign a link without registration_id
    proposal = create(:registration_id => nil)
 
   # then, assign a registrations using the relationship method
-  registrations(:one).proposals << proposal
+  registrations(:reg5).proposals << proposal
 
   #now, check if registration have one more links
-  assert_equal 3, registrations(:one).proposals.size, "registration should have had 3 proposals"
+  assert_equal 4, registrations(:reg5).proposals.size, "registration should have had 4 proposals"
 
   # assign a proposal to a registration_id that doesn't exist
     proposal = create(:registration_id => 100)

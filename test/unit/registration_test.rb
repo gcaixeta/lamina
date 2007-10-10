@@ -60,7 +60,7 @@ class RegistrationTest < Test::Unit::TestCase
 
 def test_should_check_registration_profiles_authorship
   # check all fixtures were loaded
-  assert_equal 2, profiles(:Aluno).registrations.size, "profiles should have had 2 registrations"
+  assert_equal 6, profiles(:Aluno).registrations.size, "profiles should have had 2 registrations"
 
   # assign a post without profile_id
    registration = create(:profile_id => nil)
@@ -69,7 +69,7 @@ def test_should_check_registration_profiles_authorship
   profiles(:Aluno).registrations << registration
   
   #now, check if registration have one more profile
-  assert_equal 3, profiles(:Aluno).registrations.size, "profiles should have had 3 registrations"
+  assert_equal 7, profiles(:Aluno).registrations.size, "profiles should have had 3 registrations"
 
   # assign a registration to a profile that doesn't exist
     registration = create(:profile_id => 100)
@@ -100,7 +100,7 @@ end
 def test_should_check_registration_institutions_authorship
  
   # check all fixtures were loaded
-  assert_equal 2, institutions(:Fatec).registrations.size, "institutions should have had 2 registrations"
+  assert_equal 4, institutions(:Fatec).registrations.size, "institutions should have had 2 registrations"
 
   # assign a post without institution_id
    registration = create(:institution_id => nil)
@@ -109,7 +109,7 @@ def test_should_check_registration_institutions_authorship
   institutions(:Fatec).registrations << registration
   
   #now, check if registration have one more institutions
-  assert_equal 3, institutions(:Fatec).registrations.size, "profiles should have had 3 registrations"
+  assert_equal 5, institutions(:Fatec).registrations.size, "profiles should have had 3 registrations"
 
   # assign a registration to a profile that doesn't exist
     registration = create(:institution_id => 100)
@@ -120,7 +120,7 @@ end
 	# criar dados na tabela Registration
     def create(options={})
       Registration.create({
-   	:profile_id => 1,
+  	:profile_id => 1,
 	:user_id => 1,
 	:institution_id => 1
       }.merge(options))

@@ -12,7 +12,38 @@ group3:
   id: 3
   theme_id: 2
   name: yellow
+
 group4:
   id: 4
   theme_id: 2
+  name: gren
+
+group5:
+  id: 5
+  theme_id: 3
+  name: red
+
+group6:
+  id: 6
+  theme_id: 3
+  name: gren
+
+group7:
+  id: 7
+  theme_id: 4
+  name: gren
+
+group8:
+  id: 8
+  theme_id: 4
+  name: red
+
+group9:
+  id: 9
+  theme_id: 5
+  name: red
+
+group10:
+  id: 10
+  theme_id: 5
   name: gren

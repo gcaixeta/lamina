@@ -2,10 +2,34 @@
 pro1:
   id: 1
   theme_id: 1
-  registration_id: 1
+  registration_id: 8
   active: 1
 pro2:
   id: 2
   theme_id: 1
-  registration_id: 1
+  registration_id: 7
   active: 0
+
+pro3:
+  id: 3
+  theme_id: 2
+  registration_id: 8
+  active: 1
+
+pro4:
+  id: 4
+  theme_id: 3
+  registration_id: 7
+  active: 1
+
+pro5:
+  id: 5
+  theme_id: 4
+  registration_id: 8
+  active: 1
+
+pro6:
+  id: 6
+  theme_id: 5
+  registration_id: 7
+  active: 1

@@ -1,14 +1,22 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-Arq1:
+arq1:
   id: 1
   theme_id: 1
   name: Photo
   description: Imagen today
   heading: I go 
 
-Arq2:
+arq2:
   id: 2
   theme_id: 1
   name: Movie
   description: Movie today
+  heading: I'am good
+
+
+arq3:
+  id: 3
+  theme_id: 2
+  name: Photo
+  description: Imagens dead
   heading: I'am good

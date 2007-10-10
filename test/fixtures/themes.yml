@@ -13,4 +13,28 @@ War:
   configuration_id: 1
   summary: the war today
   active: 0
-  password: 456
+  password: 123  
+
+the1:
+  id: 3
+  name: Citologia
+  configuration_id: 1
+  summary: celulas humas
+  active: 1
+  password: 123  
+
+the2:
+  id: 4
+  name: Brasil
+  configuration_id: 1
+  summary: Estados e capitais
+  active: 0
+  password: 123 
+
+the3:
+  id: 5
+  name: Historia do Brasil
+  configuration_id: 1
+  summary: Independecia
+  active: 0
+  password: 123

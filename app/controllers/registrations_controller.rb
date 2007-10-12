@@ -2,8 +2,10 @@ class RegistrationsController < ApplicationController
   before_filter :login_required, :only => [ :signup, :create ]
 
   def index
-	
+
   end
+
+
   def signup
     @institution = params[:id]
   end

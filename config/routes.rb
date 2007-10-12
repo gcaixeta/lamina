@@ -4,7 +4,10 @@ ActionController::Routing::Routes.draw do |map|
 
 #institutions/id/registrations/ID do profile???
 #Institution.find(2).registrations.find_all_by_profile_id(3)
-#
+
+  map.resources :institutions,  :collection => {:signup => :get} do |institutions|
+    institutions.resources :registrations
+  end
 
 #FIXME Problemas, ver URLS para acessar dados necessários
 # /institutions/:id/participations/

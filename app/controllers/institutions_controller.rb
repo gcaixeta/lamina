@@ -2,6 +2,9 @@ class InstitutionsController < ApplicationController
 before_filter :login_required, :only => [ :signup ]
 	#usuario
 
+  def index
+  end
+
   def signup
     @institution = Institution.new
   end

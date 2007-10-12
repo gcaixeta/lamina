@@ -1,6 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
 
+
+#institutions/id/registrations/ID do profile???
+#Institution.find(2).registrations.find_all_by_profile_id(3)
+#
+
 #FIXME Problemas, ver URLS para acessar dados necessários
 # /institutions/:id/participations/
 

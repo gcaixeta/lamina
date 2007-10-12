@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
 has_many  :registrations
 belongs_to :city
 
-  attr_accessor :password
+  attr_accessor :password, :admin
+
 
 
   validates_presence_of :email, :login, :name

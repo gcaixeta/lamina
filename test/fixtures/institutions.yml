@@ -5,7 +5,8 @@ Fatec:
   cnpj: 123456
   telephone: 1234561
   email: fatec@fatecriopreto.com
-  user_who_create: 1 
+  user_who_create: 1
+  active: false
   
 Phila:
   id: 2
@@ -14,5 +15,5 @@ Phila:
   telephone: 987654
   email: phila@com.br
   user_who_create: 1
-  active: false
+  active: true
 

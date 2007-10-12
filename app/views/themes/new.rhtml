@@ -1,10 +1,19 @@
 
-<% form_tag :action => 'create'  do  -%>
+<% form_for(:theme, :url=>themes_path)  do |f|  -%>
+<fieldset>
+<h3>Cadastro de Temas</h3>
 
-<h3>Cadastro</h3>
+<%= render :partial => 'form', :locals => {:f =>f} %>
 
 
+<p><label for="">Max Participantes</label><br/>
+<%= text_field_tag 'configuration[questions_max]' %></p>
 
-<p><%= submit_tag 'Sign up' %></p>
+<p><label for="">Number Participantes</label><br/>
+<%= text_field_tag 'configuration[number_participants]' %></p>
 
+
+<p><%= submit_tag 'Create' %></p>
+</fieldset>
 <% end -%>
+

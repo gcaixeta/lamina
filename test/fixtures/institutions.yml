@@ -14,4 +14,5 @@ Phila:
   telephone: 987654
   email: phila@com.br
   user_who_create: 1
+  active: false
 

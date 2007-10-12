@@ -5,6 +5,7 @@ require 'institutions_controller'
 class InstitutionsController; def rescue_action(e) raise e end; end
 
 class InstitutionsControllerTest < Test::Unit::TestCase
+  fixtures :users, :registrations, :institutions, :cities, :states, :profiles
   def setup
     @controller = InstitutionsController.new
     @request    = ActionController::TestRequest.new
@@ -12,7 +13,7 @@ class InstitutionsControllerTest < Test::Unit::TestCase
   end
 
   def test_should_need_login
-
+#TODO Refatorar essa parte...
     get :signup
     assert_response :redirect
 
@@ -25,8 +26,11 @@ class InstitutionsControllerTest < Test::Unit::TestCase
   end
 
   def test_should_get_list_unactive_registration
-
-
+    login_as :quentin
+    get :inactive
+    assert_response :success
+    assert_template 'institutions/inactive'
+    assert_not_nil assigns(:institutions)
   end
 
 

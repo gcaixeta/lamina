@@ -7,23 +7,24 @@ class RegistrationsController < ApplicationController
 
 
   def signup
-    @institution = params[:id]
+    #@institution = params[:id]
   end
 
 
   def create
     #TODO Validar parametros passados, invite e institution. Verificar existencia antes de fazer a busca
     #verifica qual profile pode ser criado nessa registration
-    profile_id = 
-      case Registration.find_by_user_id_and_institution_id(session[:user],params[:institution]).profile_id
+registration = Registration.find_by_user_id_and_institution_id(session[:user],params[:institution_id])
 
-    when 1 || nil
-      nil
-    when 2
-      1
-    when 3
-      2
-    end
+if registration == nil
+  profile_id = nil
+elsif registration == 2
+  profile_id = 1
+elsif registration == 3
+  profile_id = 2
+else
+  profile_id = nil
+end
 
     #Verifica se o usuario já existe no sistema, pelos parametros de convite
     usuario = User.find(:first, :conditions => ["login = ? OR email =?" , params[:invite], params[:invite]])

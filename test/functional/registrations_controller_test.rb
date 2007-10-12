@@ -41,7 +41,7 @@ class RegistrationsControllerTest < Test::Unit::TestCase
     #Registro tem que se cadastrado, em usuario sem registration
     login_as :usp1
     assert_nil Registration.find_by_user_id_and_institution_id(users(:Jaum).id, 2), "O usuario não deve estar registrado"
-    post :create, :invite => users(:Jaum).email , :institution => 2
+    post :create, :invite => users(:Jaum).email
     assert_not_nil Registration.find_by_user_id_and_institution_id(users(:Jaum).id, 2), "O usuario deve estar registrado"
   end
 

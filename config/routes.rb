@@ -1,6 +1,20 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
-  
+
+#FIXME Problemas, ver URLS para acessar dados necessários
+# /institutions/:id/participations/
+
+#url de acesso ao ambiente de desenvolvimento de perguntas e respostas
+#/groups/:id
+# tenho id da institutions? Precisa? tenho através do registration
+#Group.find(1).registrations
+
+#themes/theme_id/groups/id
+  map.resources :themes do |themes|
+    themes.resources :groups
+  end
+
+
 
   map.resources :users
   map.resource  :session

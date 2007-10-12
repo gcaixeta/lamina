@@ -1,5 +1,5 @@
 class InstitutionsController < ApplicationController
-before_filter :login_required, :only => [ :signup, :create ]
+before_filter :login_required, :only => [ :signup, :create, :inactive ]
 	#usuario
 
   def index
@@ -22,9 +22,12 @@ before_filter :login_required, :only => [ :signup, :create ]
 	# administrador 
 
   def list
-    @institutions = Institution.find_all_by_active(:false)
+    
   end
 
+  def inactive
+    @institutions = Institution.find_all_by_active(:false)
+  end
 
   def active
 	render :layout => false

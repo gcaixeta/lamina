@@ -11,18 +11,23 @@ class InstitutionsControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
   end
 
-
-  def test_should_get_new_institution
-  	get :signup
-  	assert_response :redirect
-  end
-
   def test_should_need_login
+
+    get :signup
+    assert_response :redirect
+
     post :create, :institutions => { :name => 'Fatec', :cnpj => '123456', :telephone => '1234561', :email => 'fatec@fatecriopreto.com' }
-	assert_response :redirect
-	assert_template nil, "o redirecionamento deve encaminhar para outro controlador, de login"
+    assert_response :redirect
+
+    get :inactive
+    assert_response :redirect
+
   end
 
+  def test_should_get_list_unactive_registration
+
+
+  end
 
 
 

@@ -1,7 +1,7 @@
 class ThemesController < ApplicationController
-before_filter :login_required,  :only => [ :signup, :create ] 
+before_filter :login_required,  :only => [ :new, :create ] 
 
-def signup
+def new
 end
 
 def create

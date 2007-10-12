@@ -13,7 +13,7 @@ fixtures :users, :registrations, :institutions, :cities, :states, :profiles
   end
 
   def test_sigunp
-    get :signup    
+    get :new    
     assert_response :redirect
     assert_template nil
   end
@@ -26,14 +26,14 @@ fixtures :users, :registrations, :institutions, :cities, :states, :profiles
 
   def test_user_session
     login_as :usp1
-    get :signup    
+    get :new    
     assert_response :success           
     assert_equal 9, @request.session[:user] 
   end  
 
   def test_user_profile_professor
     login_as :usp1
-    get :signup    
+    get :new    
     assert_response :success           
     assert_equal 9,@request.session[:user]    
     assert_equal 2, Registration.find_by_user_id_and_institution_id(session[:user], 2).profile_id      

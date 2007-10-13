@@ -5,15 +5,8 @@
 
 <%= render :partial => 'form', :locals => {:f =>f} %>
 
+<p><%= submit_tag 'Criar' %></p>
 
-<p><label for="">Numeros de Questoes Minimas</label><br/>
-<%= text_field_tag 'configuration[questions_max]' %></p>
-
-<p><label for="">Number Participantes</label><br/>
-<%= text_field_tag 'configuration[number_participants]' %></p>
-
-
-<p><%= submit_tag 'Create' %></p>
 </fieldset>
 <% end -%>
 

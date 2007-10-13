@@ -46,4 +46,32 @@ fixtures :users, :registrations, :institutions, :cities, :states, :profiles, :th
       assert_equal old_count +1 , Theme.count
   end
 
+  def test_should_get_edit
+    get :edit, :id => 1
+    assert_response :success
+  end
+
+  def test_should_show_theme
+    get :show, :id => 1
+    assert_response :success
+  end
+
+  def test_should_get_index
+    get :index
+    assert_response :success
+    assert assigns(:theme)
+  end
+
+
+  
+  def test_should_destroy_theme
+    old_count = Theme.count
+    delete :destroy, :id => 1
+    assert_equal old_count-1, Theme.count
+    
+    assert_redirected_to theme_path
+  end
+
+
+
 end

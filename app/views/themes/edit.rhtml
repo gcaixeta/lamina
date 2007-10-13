@@ -1,0 +1,16 @@
+
+<h1>Editar Tema</h1>
+
+<% form_for(:theme, 
+            :url => theme_path(@theme), 
+            :html => { :method => :put }) do |f| %>
+            
+  <%= render :partial => 'form', :locals => {:f => f} %>
+   
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', theme_path(@theme) %> |
+<%= link_to 'Back', theme_path %>

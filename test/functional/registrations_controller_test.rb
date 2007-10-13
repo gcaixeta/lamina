@@ -56,28 +56,28 @@ class RegistrationsControllerTest < Test::Unit::TestCase
 
 
   def test_institution_in_registration_needs_to_existes_who_create
-#     #O usuario para criar um registration na instituicao(parametro), deve estar cadastrado nela				
-#     login_as :quentin
-#     post :create, :invite => "theyue@yahoo.com.br", :institution => 1
-#     assert_not_nil Registration.find_by_user_id_and_institution_id(@request.session[:user] , '1'), "Para o usuario convida alguem para uma instituicao o mesmo deve estar nela" 
+    #O usuario para criar um registration na instituicao(parametro), deve estar cadastrado nela				
+    login_as :quentin
+    post :create, :invite => "theyue@yahoo.com.br", :institution_id => 1
+    assert_not_nil Registration.find_by_user_id_and_institution_id(@request.session[:user] , '1'), "Para o usuario convida alguem para uma instituicao o mesmo deve estar nela" 
   end
 
 
   def test_need_params_to_invite
-#     login_as :usp1
-#     assert_nil Registration.find_by_user_id_and_institution_id(users(:Jaum).id, 2), "O usuario não deve estar registrado"
-#     post :create, :invite => users(:Jaum).email , :institution => 2
-#     assert_not_nil Registration.find_by_user_id_and_institution_id(users(:Jaum).id, 2), "O usuario deve estar registrado"
+    login_as :usp1
+    assert_nil Registration.find_by_user_id_and_institution_id(users(:Jaum).id, 2), "O usuario não deve estar registrado"
+    post :create, :invite => users(:Jaum).email , :institution_id => 2
+    assert_not_nil Registration.find_by_user_id_and_institution_id(users(:Jaum).id, 2), "O usuario deve estar registrado"
 
 
   end
 
 
   def test_need_to_be_in_institution_to_invite_others
-#     #todo Esse teste tá tosco
-#     login_as :quentin
-#     #assert_not_nil Registration.find_by_user_id_and_institution_id(@request.session[:user])
-#     #assert_equal @request.session[:user].id, registrations(:two).user_id
+    #todo Esse teste tá tosco
+    login_as :quentin
+    #assert_not_nil Registration.find_by_user_id_and_institution_id(@request.session[:user])
+    #assert_equal @request.session[:user].id, registrations(:two).user_id
   end
 
   def test_get_registration_signup

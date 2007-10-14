@@ -88,9 +88,9 @@ ActiveRecord::Schema.define(:version => 3) do
   end
 
   create_table "proposals", :force => true do |t|
-    t.column "theme_id",        :integer, :null => false
-    t.column "registration_id", :integer, :null => false
-    t.column "active",          :boolean
+    t.column "theme_id",        :integer,                    :null => false
+    t.column "registration_id", :integer,                    :null => false
+    t.column "active",          :boolean, :default => false
   end
 
   create_table "questions", :force => true do |t|

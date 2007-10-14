@@ -91,7 +91,7 @@ class CreatePerTables < ActiveRecord::Migration
   create_table "proposals" do |t|
     t.column "theme_id",        :integer, :null => false
     t.column "registration_id", :integer, :null => false
-    t.column "active",           :boolean
+    t.column "active",           :boolean, :default => false
   end
 
   create_table "groups" do |t|

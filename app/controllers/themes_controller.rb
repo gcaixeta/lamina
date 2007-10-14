@@ -1,5 +1,7 @@
 class ThemesController < ApplicationController
-before_filter :login_required,  :only => [ :new, :create, :update]
+before_filter :login_required,  :only => [ :new, :create, :update, :destroy, :show, :edit, :index]
+
+
 
 def index
     @theme = Theme.find(:all)

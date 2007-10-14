@@ -47,16 +47,19 @@ fixtures :users, :registrations, :institutions, :cities, :states, :profiles, :th
   end
 
   def test_should_get_edit
+    login_as :usp1
     get :edit, :id => 1
     assert_response :success
   end
 
   def test_should_show_theme
+    login_as :usp1
     get :show, :id => 1
     assert_response :success
   end
 
   def test_should_get_index
+    login_as :usp1
     get :index
     assert_response :success
     assert assigns(:theme)
@@ -65,6 +68,7 @@ fixtures :users, :registrations, :institutions, :cities, :states, :profiles, :th
 
   
   def test_should_destroy_theme
+    login_as :usp1
     old_count = Theme.count
     delete :destroy, :id => 1
     assert_equal old_count-1, Theme.count

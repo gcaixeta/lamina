@@ -2,6 +2,11 @@ class ThemesController < ApplicationController
 before_filter :login_required,  :only => [ :new, :create, :update, :destroy, :show, :edit, :index]
 
 
+before_filter :is_teacher, :only => [:new]
+
+def new
+#  @registrations = Registration.find_all_by_user_id_and_profile_id(session[:user]),2)
+end
 
 def index
     @theme = Theme.find(:all)
@@ -71,5 +76,22 @@ def update
       end
   end
 end
+
+
+
+
+private
+        def is_teacher
+                reg = Registration.find_by_user_id_and_profile_id(session[:user], 2)
+                if reg == nil
+                    flash[:notice] = "Voce não tem permissao para cadastrar um tema"
+                  redirect_to themes_path
+                    #render :action => 'index'
+                end
+        end
+
+
+
+
 
 end

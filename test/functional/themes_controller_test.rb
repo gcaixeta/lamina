@@ -42,7 +42,7 @@ fixtures :users, :registrations, :institutions, :cities, :states, :profiles, :th
   def test_should_create_post_theme
         login_as :usp1
         old_count = Theme.count
-        post :create, :theme => {:name => 'Tecnologia',  :summary => 'Mundo Atual', :active => '1', :password => '1234'}, :configuration => {:questions_max => '10', :number_participants => 5}
+        post :create, :theme => {:name => 'Tecnologia',  :summary => 'Mundo Atual', :active => '1', :password => '1234'}, :configuration => {:questions_max => '10', :number_participants => 5}, :registration => {:id => '7'}
       assert_equal old_count +1 , Theme.count
   end
 

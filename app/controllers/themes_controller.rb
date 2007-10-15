@@ -36,8 +36,8 @@ def create
     @theme.configuration_id = configuration.id
     if @theme.save
       #arumar uma forma de pegar o id do registration que é passado no combobox
-      id = params["registration[id]"]
-      r = Registration.find(id)
+      
+      r = Registration.find(params[:registration][:id])
       @theme.registrations << r
       flash[:notice] = 'Theme criada com sucesso.'
       redirect_to :controller => 'themes' , :action => 'index'

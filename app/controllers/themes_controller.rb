@@ -5,7 +5,7 @@ before_filter :login_required,  :only => [ :new, :create, :update, :destroy, :sh
 before_filter :is_teacher, :only => [:new]
 
 def new
-#  @registrations = Registration.find_all_by_user_id_and_profile_id(session[:user]),2)
+  @registrations = Registration.find_all_by_user_id_and_profile_id(session[:user],2)
 end
 
 def index
@@ -35,6 +35,8 @@ def create
     configuration = Configuration.create(params[:configuration])
     @theme.configuration_id = configuration.id
     if @theme.save
+      r = Registration.find(params[:registration_id])
+      @theme.registrations << r
       flash[:notice] = 'Theme criada com sucesso.'
       redirect_to :controller => 'themes' , :action => 'index'
     else

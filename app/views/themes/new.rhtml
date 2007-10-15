@@ -3,6 +3,10 @@
 <fieldset>
 <h3>Cadastro de Temas</h3>
 
+<p><label for="user_city">Cidade</label><br/>
+<%= select("registration","id", @registrations.collect{|r|[r.institution.name,r.id]} ) %></p>
+
+
 <%= render :partial => 'form', :locals => {:f =>f} %>
 
 <p><%= submit_tag 'Criar' %></p>

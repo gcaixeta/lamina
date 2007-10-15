@@ -4,7 +4,7 @@ belongs_to :theme
 
 validates_presence_of :theme_id
 validates_presence_of :registration_id
-validates_presence_of :active
+#validates_presence_of :active
 
 validates_presence_of :theme
 validates_associated :theme

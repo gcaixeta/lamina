@@ -19,11 +19,11 @@ class ProposalTest < Test::Unit::TestCase
   end
 
      # validar o active do proposal
- def test_should_require_active
-    proposal = create(:active => nil)
-    assert proposal.errors.invalid?(:active), ":active should be required"
-    assert_invalid proposal, "proposal shouldn't be created"
-  end
+# def test_should_require_active
+#    proposal = create(:active => 1)
+ #  assert proposal.errors.invalid?(:active), ":active should be required"
+ #   assert_invalid proposal, "proposal shouldn't be created"
+ # end
 
 	# validar o int no theme_id do proposal
 def test_should_deny_non_integer_theme_id

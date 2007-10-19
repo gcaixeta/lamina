@@ -1,8 +1,8 @@
 class ThemesController < ApplicationController
-before_filter :login_required,  :only => [ :new, :create, :update, :destroy, :show, :edit, :index]
 
+before_filter :login_required, :only => [ :signup, :create, :update, :destroy, :show, :edit, :index ]
 
-before_filter :is_teacher, :only => [:new]
+before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
 
 def new
   @registrations = Registration.find_all_by_user_id_and_profile_id(session[:user],2)
@@ -93,9 +93,5 @@ private
                     #render :action => 'index'
                 end
         end
-
-
-
-
 
 end

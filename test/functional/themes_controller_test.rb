@@ -46,6 +46,15 @@ fixtures :users, :registrations, :institutions, :cities, :states, :profiles, :th
       assert_equal old_count +1 , Theme.count
   end
 
+
+  def test_should_not_create_post_theme
+        login_as :Jaum
+        get :new
+        assert_response :redirect
+  end
+
+
+
   def test_should_get_edit
     login_as :usp1
     get :edit, :id => 1

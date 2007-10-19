@@ -2,11 +2,24 @@
 
 <table>
   <tr>
+                <td>Nome</td>
+                   <td>Data de Criação</td>
+                      <td>Ativo</td>
+                    <td>Links</td>
+                   <td>Arquivos</td>
+                      <td>Grupos</td>
+                       
   </tr>
   
-<% for theme in @theme %>
+<% for registration in @registrations %>
+     <% for theme in registration.themes %>
   <tr>
     <td><%= theme.name %></td>
+        <td><%= theme.create_at %></td>
+        <td><%= theme.active %></td>
+                <td><%= theme.links.size %></td>
+                 <td><%= theme.archives.size %></td>
+                  <td><%= theme.groups.size %></td>
     <td><%= link_to 'Ver', theme_path(theme) %></td>
     <td><%= link_to 'Editar', edit_theme_path(theme) %></td>
     <td><%= link_to_remote 'Apagar', 
@@ -14,6 +27,8 @@
                     :confirm => 'Are you sure?', 
                     :method => :delete %></td>
   </tr>
+<% end %>
+
 <% end %>
 </table>
 

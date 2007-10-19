@@ -12,16 +12,33 @@ fixtures :users, :registrations, :institutions, :cities, :states, :profiles, :th
     @response   = ActionController::TestResponse.new
   end
 
-  def test_sigunp
+  def test_new
     get :new    
     assert_response :redirect
-    assert_template nil
   end
 
   def test_create
     get :create    
     assert_response :redirect
-    assert_template nil
+  end
+  
+    def test_should_get_edit
+    login_as :usp1
+    get :edit, :id => 1
+    assert_response :success
+  end
+
+  def test_should_show_theme
+    login_as :usp1
+    get :show, :id => 1
+    assert_response :success
+  end
+
+  def test_should_get_index
+    login_as :usp1
+    get :index
+    assert_response :success
+    assert assigns(:registrations)
   end
 
   def test_user_session
@@ -47,7 +64,7 @@ fixtures :users, :registrations, :institutions, :cities, :states, :profiles, :th
   end
 
 
-  def test_should_not_create_post_theme
+  def test_should_not_user_professor_not_create
         login_as :Jaum
         get :new
         assert_response :redirect
@@ -55,24 +72,7 @@ fixtures :users, :registrations, :institutions, :cities, :states, :profiles, :th
 
 
 
-  def test_should_get_edit
-    login_as :usp1
-    get :edit, :id => 1
-    assert_response :success
-  end
 
-  def test_should_show_theme
-    login_as :usp1
-    get :show, :id => 1
-    assert_response :success
-  end
-
-  def test_should_get_index
-    login_as :usp1
-    get :index
-    assert_response :success
-    assert assigns(:theme)
-  end
 
 
   

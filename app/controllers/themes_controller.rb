@@ -9,7 +9,10 @@ def new
 end
 
 def index
-    @theme = Theme.find(:all)
+    #@theme = Theme.find(:all)
+      @registrations = Registration.find_all_by_user_id(session[:user])
+      
+      
         
     respond_to do |format|
       format.html # index.rhtml
@@ -93,5 +96,9 @@ private
                     #render :action => 'index'
                 end
         end
+        
+       def is_owner_of_theme_is_prorposals
+         #filtro para identificar se o professor tem um proposals senao ele nao podera edit e update
+       end
 
 end

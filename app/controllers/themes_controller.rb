@@ -1,6 +1,6 @@
 class ThemesController < ApplicationController
 
-before_filter :login_required, :only => [ :signup, :create, :update, :destroy, :show, :edit, :index ]
+before_filter :login_required, :only => [ :new, :create, :update, :destroy, :show, :edit, :index ]
 
 before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
 

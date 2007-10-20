@@ -1,0 +1,11 @@
+<h1>Novo Link</h1>
+
+<% form_for(:link, :url => links_path) do |f| %>
+  <p>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+
+    <%= submit_tag "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', links_path(@theme) %>

@@ -1,10 +1,18 @@
-<h1>Links</h1>
+<h1>Lista de Link</h1>
 
-<ul>
+<table>
+  <tr>
+  </tr>
+  
 <% for link in @links %>
-  <li>
-    <%= link_to h(link.address), link_path(link.theme_id, link) %> 
-
-  </li>
+  <tr>
+    <td><%= link_to 'Show', link_path(@theme, link) %></td>
+    <td><%= link_to 'Edit', edit_link_path(@theme, link) %></td>
+    <td><%= link_to 'Destroy', link_path(@theme, link), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
 <% end %>
-</ul>
+</table>
+
+<br />
+
+<%= link_to 'Novo Link', new_link_path %>

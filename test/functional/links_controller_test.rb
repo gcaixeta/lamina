@@ -58,10 +58,10 @@ fixtures :users, :links, :registrations, :institutions, :cities, :states, :profi
     assert_response :success
   end
 
-  def test_should_update_episode
+  def test_should_update_link
    login_as :usp1
-    put :update, :id => 1, :link => { }, :theme_id => 1
-    assert_redirected_to theme_url(assigns(:link).theme_id)
+    put :update, :id => 1, :link => { :address => "www.uol.aacom.br/tecnologia", :description => "tecnoddd" }, :theme_id => 1
+    assert_redirected_to theme_link_url(assigns(:link).theme, assigns(:link))
   end
   
     def test_should_destroy_link

@@ -1,0 +1,33 @@
+<h1>Lista de Archives</h1>
+
+<table>
+  <tr>
+           <td> Nome</td>
+
+          <td> Descrição</td>
+
+
+           <td> Arquivo</td>
+  </tr>
+  
+<% for archive in @archives %>
+  <tr>
+  
+  <td> <%= archive.name %></td>
+
+ <td> <%= archive.description %></td>
+
+
+<td> <%= archive.heading %></td>
+
+    <td><%= link_to 'Show', archive_path(@theme, archive) %></td>
+    <td><%= link_to 'Edit', edit_archive_path(@theme, archive) %></td>
+    <td><%= link_to 'Destroy', archive_path(@theme, archive), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Novo Arquivo', new_archive_path %>
+

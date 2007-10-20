@@ -70,7 +70,7 @@ before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
     
     respond_to do |format|
       if @link.update_attributes(params[:link])
-        format.html { redirect_to theme_url(@link.theme_id) }
+        format.html { redirect_to theme_link_url(@link.theme, @link) }
         format.xml  { render :nothing => true }
       else
         format.html { render :action => "edit" }

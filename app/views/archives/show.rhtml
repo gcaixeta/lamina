@@ -1,0 +1,16 @@
+
+
+
+<p> Nome: <%= @archive.name %></p>
+
+ <p> Descrição:<%= @archive.description %></p>
+
+
+<p> Arquivo: <%= @archive.heading %></p>
+
+
+<%= link_to 'Edit', edit_theme_archive_path(@archive.theme, @archive) %> |
+<%= link_to 'Back', archives_path %>
+
+
+

@@ -1,0 +1,12 @@
+<h1>Editar</h1>
+
+<%= error_messages_for :archive %>
+
+<% form_for(:link, :url => theme_archive_path(@archive.theme_id, @archive), :html => { :method => :put }) do |f| %>
+
+  <%= render :partial => 'form', :locals => {:f => f} %>
+
+ <%= submit_tag "Update" %> or <%= link_to 'Cancel', theme_archives_path(@archive.theme_id) %>
+
+<% end %>
+

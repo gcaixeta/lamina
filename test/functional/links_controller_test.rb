@@ -34,7 +34,9 @@ fixtures :users, :links, :registrations, :institutions, :cities, :states, :profi
     post :create, :theme_id => 1, :link => { :address => "www.uol.com.br/tecnologia", :description => "tecno" }
     assert_equal old_count+1, Link.count
     
-    assert_redirected_to theme_url(assigns(:link).theme_id)
+    assert_redirected_to theme_link_url(assigns(:link).theme, assigns(:link))
+
+    
   end
 
 

@@ -40,15 +40,15 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.xml
   def create
-    @theme = Theme.new(params[:theme])
     
     @link = Link.new(params[:link])
+    theme = Theme.find(params[:theme_id])
     
     respond_to do |format|
-      if @link.save
-        flash[:notice] = 'Episode was successfully created.'
+      if theme.links << @link
+        flash[:notice] = 'Link foi criado com sucesso.'
         
-        format.html { redirect_to link_url(@link) }
+        format.html { redirect_to theme_link_url(@link.theme, @link) }
         format.xml do
           headers["Location"] = link_url(@link)
           render :nothing => true, :status => "201 Created"

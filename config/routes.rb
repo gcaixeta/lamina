@@ -20,8 +20,14 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :themes do |themes|
     themes.resources :links
-    themes.resources :groups
+    themes.resources :groups, :name_prefix => "theme_"
+    themes.resources :archives
   end
+
+  map.resources :groups do |groups|
+
+  end
+
 
 
 

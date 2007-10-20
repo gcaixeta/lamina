@@ -28,7 +28,7 @@ fixtures :users, :links, :registrations, :institutions, :cities, :states, :profi
   end
 
 
-  def test_should_create_episode
+  def test_should_create_link
     login_as 'usp1'
     old_count = Link.count
     post :create, :theme_id => 1, :link => { :address => "www.uol.com.br/tecnologia", :description => "tecno" }

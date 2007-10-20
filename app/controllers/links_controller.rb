@@ -1,5 +1,8 @@
 class LinksController < ApplicationController
 
+before_filter :login_required, :only => [ :new, :create, :update, :destroy, :show, :edit, :index ]
+
+before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
 
   before_filter :find_theme
 
@@ -84,7 +87,7 @@ class LinksController < ApplicationController
     @link.destroy
     
     respond_to do |format|
-      format.html { redirect_to links_url   }
+      format.html { redirect_to theme_url(params[:theme_id]) }
       format.xml  { render :nothing => true }
     end
   end
@@ -95,5 +98,14 @@ private
   def find_theme
     @theme = Theme.find params[:theme_id]
   end
+  
+        def is_teacher
+                reg = Registration.find_by_user_id_and_profile_id(session[:user], 2)
+                if reg == nil
+                    flash[:notice] = "Voce não tem permissao para cadastrar um tema"
+                  redirect_to themes_path
+                    #render :action => 'index'
+                end
+        end
 
 end

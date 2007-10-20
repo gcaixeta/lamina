@@ -67,7 +67,7 @@ class LinksController < ApplicationController
     
     respond_to do |format|
       if @link.update_attributes(params[:link])
-        format.html { redirect_to link_url(@link) }
+        format.html { redirect_to theme_url(@link.theme_id) }
         format.xml  { render :nothing => true }
       else
         format.html { render :action => "edit" }
@@ -75,6 +75,7 @@ class LinksController < ApplicationController
       end
     end
   end
+  
   
   # DELETE /links/1
   # DELETE /links/1.xml

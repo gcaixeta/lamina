@@ -36,10 +36,30 @@ fixtures :users, :links, :registrations, :institutions, :cities, :states, :profi
     
     assert_redirected_to theme_link_url(assigns(:link).theme, assigns(:link))
 
-    
+  end
+  
+    def test_should_show_link
+    get :show, :id => 1, :theme_id => 1
+    assert_response :success
   end
 
+  def test_should_get_edit
+    get :edit, :id => 1, :program_id => @program.id
+    assert_response :success
+  end
+  
+  
+  def test_should_get_edit
+    get :edit, :id =>1 , :theme_id => 1
+    assert_response :success
+  end
 
+  def test_should_update_episode
+    #login_as 'usp1'
+    put :update, :id => 1, :link => { }, :theme_id => 1
+    assert_redirected_to theme_url(assigns(:link).theme_id)
+  end
+  
 
 
 end

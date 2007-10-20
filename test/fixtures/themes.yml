@@ -4,37 +4,37 @@ Paz:
   name: Paz
   configuration_id: 1
   summary: the paz today
-  active: 1
-  password: 123
+  active: true
+  password: 1234
   
 War:
   id: 2
   name: War
   configuration_id: 1
   summary: the war today
-  active: 0
-  password: 123  
+  active: false
+  password: 1234  
 
 the1:
   id: 3
   name: Citologia
   configuration_id: 1
   summary: celulas humas
-  active: 1
-  password: 123  
+  active: true
+  password: 1234  
 
 the2:
   id: 4
   name: Brasil
   configuration_id: 1
   summary: Estados e capitais
-  active: 0
-  password: 123 
+  active: false
+  password: 1234 
 
 the3:
   id: 5
   name: Historia do Brasil
   configuration_id: 1
   summary: Independecia
-  active: 0
-  password: 123
+  active: true
+  password: 1234

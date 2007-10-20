@@ -40,6 +40,8 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.xml
   def create
+    @theme = Theme.new(params[:theme])
+    
     @link = Link.new(params[:link])
     
     respond_to do |format|

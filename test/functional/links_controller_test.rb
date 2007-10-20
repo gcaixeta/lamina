@@ -15,4 +15,11 @@ class LinksControllerTest < Test::Unit::TestCase
   def test_truth
     assert true
   end
+
+  def test_should_get_index
+    get :index, :themes_id => 1
+    assert_response :success
+    assert_not_nil assigns(:links)
+  end
+
 end

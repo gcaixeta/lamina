@@ -1,0 +1,10 @@
+<h1>Links</h1>
+
+<ul>
+<% for link in @links %>
+  <li>
+    <%= link_to h(link.address), link_path(link.theme_id, link) %> 
+
+  </li>
+<% end %>
+</ul>

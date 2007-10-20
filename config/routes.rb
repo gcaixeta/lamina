@@ -17,15 +17,13 @@ ActionController::Routing::Routes.draw do |map|
 # tenho id da institutions? Precisa? tenho através do registration
 #Group.find(1).registrations
 
-#themes/theme_id/groups/id
+
   map.resources :themes do |themes|
+    themes.resources :links
     themes.resources :groups
   end
 
-#themes/theme_id/links/id
-  map.resources :themes do |themes|
-    themes.resources :links
-  end
+
 
 
   map.resources :users

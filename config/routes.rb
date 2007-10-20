@@ -22,6 +22,10 @@ ActionController::Routing::Routes.draw do |map|
     themes.resources :groups
   end
 
+#themes/theme_id/links/id
+  map.resources :themes do |themes|
+    themes.resources :links
+  end
 
 
   map.resources :users

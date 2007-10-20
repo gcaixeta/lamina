@@ -11,12 +11,10 @@ end
 def index
     #@theme = Theme.find(:all)
       @registrations = Registration.find_all_by_user_id(session[:user])
-      
-      
         
     respond_to do |format|
       format.html # index.rhtml
-      format.xml  { render :xml => @theme.to_xml }
+      format.xml  { render :xml => @registrations.to_xml }
     end
 end
 

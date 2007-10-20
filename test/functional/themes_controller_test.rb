@@ -71,11 +71,6 @@ fixtures :users, :registrations, :institutions, :cities, :states, :profiles, :th
   end
 
 
-
-
-
-
-  
   def test_should_destroy_theme
     login_as :usp1
     old_count = Theme.count

@@ -26,12 +26,17 @@ ActionController::Routing::Routes.draw do |map|
 
 #Planejamento de URL do Grupos
 #URLs de acesso do Professor
-#/themes/:theme_id/groups/new
-#/themes/:theme_id/groups/create
-#/themes/:theme_id/groups/edit
-#/themes/:theme_id/groups/update
+#/themes/:theme_id/groups/new -get
+#/themes/:theme_id/groups/create - post
+#/themes/:theme_id/groups/edit - get
+#/themes/:theme_id/groups/update - put
+#/themes/:theme_id/groups/update - delete
 #/themes/:theme_id/groups/list - Listar por ultima interacao
 
+
+
+#/groups/id - show - acessa o ambiente
+#/groups/index - listar os grupos do aluno (e do professor?)
 
   map.resources :groups do |groups|
 

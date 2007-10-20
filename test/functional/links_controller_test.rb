@@ -5,6 +5,8 @@ require 'links_controller'
 class LinksController; def rescue_action(e) raise e end; end
 
 class LinksControllerTest < Test::Unit::TestCase
+
+fixtures :users, :links, :registrations, :institutions, :cities, :states, :profiles, :themes, :configurations, :proposals
   def setup
     @controller = LinksController.new
     @request    = ActionController::TestRequest.new
@@ -17,7 +19,7 @@ class LinksControllerTest < Test::Unit::TestCase
   end
 
   def test_should_get_index
-    get :index, :themes_id => 1
+    get :index, :theme_id => 1
     assert_response :success
     assert_not_nil assigns(:links)
   end

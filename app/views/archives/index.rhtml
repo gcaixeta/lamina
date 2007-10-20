@@ -22,7 +22,7 @@
 
     <td><%= link_to 'Show', archive_path(@theme, archive) %></td>
     <td><%= link_to 'Edit', edit_archive_path(@theme, archive) %></td>
-    <td><%= link_to 'Destroy', archive_path(@theme, archive), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', theme_archive_path(@theme, archive), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

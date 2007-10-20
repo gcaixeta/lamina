@@ -2,7 +2,7 @@
 
 <%= error_messages_for :archive %>
 
-<% form_for(:link, :url => theme_archive_path(@archive.theme_id, @archive), :html => { :method => :put }) do |f| %>
+<% form_for(:archive, :url => theme_archive_path(@archive.theme_id, @archive), :html => { :method => :put }) do |f| %>
 
   <%= render :partial => 'form', :locals => {:f => f} %>
 

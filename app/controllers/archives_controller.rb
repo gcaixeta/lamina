@@ -43,7 +43,7 @@ class ArchivesController < ApplicationController
     respond_to do |format|
       if  theme.archives << @archive
         flash[:notice] = 'Archives was successfully created.'
-        format.html { redirect_to theme_archive_url(@archive.theme, @archive) }
+        format.html { redirect_to theme_archives_url  }
         format.xml  { head :created, :location => archives_url(@archive) }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class ArchivesController < ApplicationController
     respond_to do |format|
       if @archive.update_attributes(params[:archive])
         flash[:notice] = 'Archives was successfully updated.'
-        format.html { redirect_to theme_archive_url(@archive.theme, @archive) }
+        format.html { redirect_to theme_archives_url  }
         format.xml  { render :nothing => true }
       else
         format.html { render :action => "edit" }
@@ -76,7 +76,7 @@ class ArchivesController < ApplicationController
     @archive.destroy
 
     respond_to do |format|
-      format.html { redirect_to theme_archive_url }
+      format.html { redirect_to theme_archives_url }
       format.xml  { head :ok }
     end
   end

@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
 
   before_filter :find_theme
 
+# p = Participation.find_all_by_group_id(1, :include=>[:interactions])
 
   def index
     @groups = @theme.groups

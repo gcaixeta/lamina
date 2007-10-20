@@ -11,6 +11,15 @@ class GroupsControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
   end
 
+# Dados para Testes
+# use 7 8
+# kiko nanda
+# reg 5 6
+# par 3 4
+# theme 3
+# group 5
+
+
   # Replace this with your real tests.
   def test_truth
     assert true

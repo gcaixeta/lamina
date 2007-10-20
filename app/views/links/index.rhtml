@@ -2,10 +2,19 @@
 
 <table>
   <tr>
+  
+             <td> Endereço</td>
+
+          <td> Descrição</td>
+
+           
   </tr>
   
 <% for link in @links %>
   <tr>
+    <td> <%= link.address %></td>
+
+     <td> <%= link.description %></td>
     <td><%= link_to 'Show', link_path(@theme, link) %></td>
     <td><%= link_to 'Edit', edit_link_path(@theme, link) %></td>
     <td><%= link_to 'Destroy', link_path(@theme, link), :confirm => 'Are you sure?', :method => :delete %></td>

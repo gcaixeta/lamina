@@ -24,6 +24,15 @@ ActionController::Routing::Routes.draw do |map|
     themes.resources :archives
   end
 
+#Planejamento de URL do Grupos
+#URLs de acesso do Professor
+#/themes/:theme_id/groups/new
+#/themes/:theme_id/groups/create
+#/themes/:theme_id/groups/edit
+#/themes/:theme_id/groups/update
+#/themes/:theme_id/groups/list - Listar por ultima interacao
+
+
   map.resources :groups do |groups|
 
   end

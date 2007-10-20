@@ -9,4 +9,16 @@ part2:
   group_id: 1
   registration_id: 1
   leader: 0
-  
+part3:
+  id: 3
+  group_id: 5
+  registration_id: 5
+  leader: 0
+part4:
+  id: 4
+  group_id: 5
+  registration_id: 6
+  leader: 1
+
+
+

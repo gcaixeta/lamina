@@ -51,7 +51,7 @@ fixtures :users, :registrations, :institutions, :profiles, :groups, :participati
     assert_response :success
   end
   
-    def test_get_show_without_permission
+  def test_get_show_without_permission
     login_as :quentin
     get :show, :id => 5
     assert_response :success

@@ -5,6 +5,9 @@ require 'groups_controller'
 class GroupsController; def rescue_action(e) raise e end; end
 
 class GroupsControllerTest < Test::Unit::TestCase
+
+fixtures :registrations, :institutions, :profiles, :groups, :participations, :interactions
+
   def setup
     @controller = GroupsController.new
     @request    = ActionController::TestRequest.new
@@ -28,7 +31,11 @@ class GroupsControllerTest < Test::Unit::TestCase
   def test_get_index
     get :index
     assert_response :success
-    
+  end
+  
+  def test_get_show
+    get :show, :id => 1
+    assert_response :success
   end
   
   

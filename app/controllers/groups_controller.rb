@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_filter :login_required, :only => [ :index, :show ]
-  before_filter :find_theme, :except => [:index, :show]
+  before_filter :find_theme, :except => [:index, :show, :last_msgs]
   before_filter :have_permission_to_view, :only => [:show]
   
 
@@ -24,9 +24,17 @@ class GroupsController < ApplicationController
     #TODO colocar caso o usuario coloque um theme e grupo que nao bata
     #end
     respond_to do |format|
-      format.html
+      format.html do
+
+      end
       format.xml  { render :xml => @group.to_xml }
     end
+  end
+  
+  def last_msgs
+  p = Participation.find_all_by_group_id(5, :include=>[:messages])
+  @messages = p.first.messages
+  page.insert_html :bottom, 'messages', :partial => 'message', :collection => @messages
   end
 
 private

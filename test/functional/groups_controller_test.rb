@@ -67,6 +67,9 @@ fixtures :users, :registrations, :institutions, :profiles, :groups, :participati
     assert_response :redirect
   end
   
+  #TESTs CHAT
+  
+  
   
   
   

@@ -37,20 +37,23 @@ private
   
   def have_permission_to_view
     #pega o id do grupo
-    group = Group.find(params[:id])
-    participations = Participation.find_all_by_group_id(group, :include=>[:registration])
-    
-    for participation in participations do
-    if participation.registration.user_id == session[:user]
-    puts "usuario #{session[:user]} autorizado!!!"
-    else
-    puts "usuario #{session[:user]} NAO autorizado!!!"
-    end
-    
-    end
+      group = Group.find(params[:id])
+      participations = Participation.find_all_by_group_id(group, :include=>[:registration])
 
-    #verifica qual instituicao? e ve se o usuario tem registration nela?
-    #verifica se ele tem participation, ou proposal no theme do grupo
+      for participation in participations do
+
+       if participation.registration.user_id != session[:user]
+          autorized = false
+        else
+          autorized = true
+          break #stop the verification of participation / registration
+        end
+      end
+
+      if autorized == false
+        redirect_to :controller => '/site', :action => 'index'
+      end
+
     
   end
 end

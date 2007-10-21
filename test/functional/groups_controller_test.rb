@@ -24,11 +24,7 @@ fixtures :users, :registrations, :institutions, :profiles, :groups, :participati
 # group 5
 
 
-  # Replace this with your real tests.
-  def test_truth
-    assert true
-  end
-  
+
   def test_get_index_and_require_login
     get :index
     assert_response :redirect
@@ -54,7 +50,7 @@ fixtures :users, :registrations, :institutions, :profiles, :groups, :participati
   def test_get_show_without_permission
     login_as :quentin
     get :show, :id => 5
-    assert_response :success
+    assert_response :redirect
   end
   
   

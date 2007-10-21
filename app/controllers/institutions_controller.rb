@@ -8,6 +8,7 @@ before_filter :is_teacher, :only => [ :signup, :create, :inactive]
     @institutions = Registration.find_all_by_user_id(session[:user])
   end
 
+
   def signup
    #@institution = Institution.new
   end
@@ -24,9 +25,6 @@ before_filter :is_teacher, :only => [ :signup, :create, :inactive]
   
 	# administrador 
 
-
-  def list
-  end
 
   def inactive
     @institutions = Institution.find_all_by_active(:false)

@@ -22,12 +22,7 @@
         <td><%= institution.institution.telephone %></td>
         <td><%= institution.institution.email %></td>
 
-    <td><%= link_to 'Ver', institution_path(institution) %></td>
-    <td><%= link_to 'Editar', edit_institution_path(institution) %></td>
-    <td><%= link_to_remote 'Apagar', 
-                    :url => institution_path(institution), 
-                    :confirm => 'Are you sure?', 
-                    :method => :delete %></td>
+    <td><%= link_to 'Entrar', institution_path(institution) %></td>
   </tr>
 <% end %>
 
@@ -36,7 +31,6 @@
 
 <br />
 
-<%= link_to 'Nova Institution', signup_institution_path %>
 
 
 

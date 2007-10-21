@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
 
 
   def show
-    @group = Group.find(params[:id])
+    
     #rescue RecordNotFound
     #TODO colocar caso o usuario coloque um theme e grupo que nao bata
     #end
@@ -37,8 +37,8 @@ private
   
   def have_permission_to_view
     #pega o id do grupo
-      group = Group.find(params[:id])
-      participations = Participation.find_all_by_group_id(group, :include=>[:registration])
+      @group = Group.find(params[:id])
+      participations = Participation.find_all_by_group_id(@group, :include=>[:registration])
       
       
       
@@ -57,7 +57,7 @@ private
     #TODO Otimizar isso...
     #se nao tiver autorizacao, verifica se é professor da thematica do grupo
     if autorized == false
-      for proposal in group.theme.proposals do
+      for proposal in @group.theme.proposals do
        if proposal.registration.user_id != session[:user]
           autorized = false
         else
@@ -69,6 +69,7 @@ private
 
 
       if autorized == false
+        flash[:error] = ' Seu usuario não tem autorizacao entrar neste ambiente do grupo #{@group.name}'
         redirect_to :controller => '/site', :action => 'index'
       end
 

@@ -1,13 +1,13 @@
 class GroupsController < ApplicationController
 
-  before_filter :find_theme
+  before_filter :find_theme, :except => [:index, :show]
 
 # p = Participation.find_all_by_group_id(1, :include=>[:interactions])
 # p = Participation.find_all_by_group_id(5, :include=>[:messages])
 
 
   def index
-    @groups = @theme.groups
+    @groups = Group.find :all
     respond_to do |format|
       format.html # index.rhtml
       format.xml  { render :xml => @groups.to_xml }
@@ -17,7 +17,7 @@ class GroupsController < ApplicationController
 
 
   def show
-    @group = @theme.groups.find(params[:id])
+    @group = Group.find(params[:id])
     #rescue RecordNotFound
     #TODO colocar caso o usuario coloque um theme e grupo que nao bata
     #end

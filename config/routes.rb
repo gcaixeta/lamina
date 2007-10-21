@@ -30,7 +30,7 @@ ActionController::Routing::Routes.draw do |map|
 #/themes/:theme_id/groups/create - post
 #/themes/:theme_id/groups/edit - get
 #/themes/:theme_id/groups/update - put
-#/themes/:theme_id/groups/update - delete
+#/themes/:theme_id/groups/destroy - delete
 #/themes/:theme_id/groups/list - Listar por ultima interacao
 
 

@@ -54,6 +54,10 @@ ActionController::Routing::Routes.draw do |map|
 
 
 
+#partes do site
+  map.about '/about', :controller => 'site', :action => 'about'
+
+
 
 
   # Sample of regular route:

@@ -5,7 +5,7 @@ before_filter :is_teacher, :only => [ :signup, :create, :inactive]
 	#usuario
 
   def index
-    @institutions = Registration.find_all_by_user_id(session[:user])
+    @registrations = Registration.find_all_by_user_id(session[:user])
   end
 
 

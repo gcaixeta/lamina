@@ -1,10 +1,5 @@
 
 
-
-<p> Para ter acesso ao sistema, a instituição tem que se cadastrar e ser aprovada pelos administradores do Sistema.</p>
-<p> Este processo tem como finalidade restringir e controlar o acesso de instituições ao sistema</p>
-
-
 <h4>Lista de Instituição</h4>
 
 <table>
@@ -15,18 +10,19 @@
                        
   </tr>
   
-<% for institution in @institutions %>
+<% for registration in @registrations %>
+  <% for institution in registration.institutions %>
 
   <tr>
-    <td><%= institution.institution.name %></td>
-        <td><%= institution.institution.telephone %></td>
-        <td><%= institution.institution.email %></td>
+    <td><%= institution.name %></td>
+        <td><%= institution.telephone %></td>
+        <td><%= institution.email %></td>
 
     <td><%= link_to 'Entrar', institution_path(institution) %></td>
   </tr>
 <% end %>
 
-
+<% end %>
 </table>
 
 <br />

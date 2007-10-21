@@ -91,7 +91,10 @@ text-align: center;
 }
 
 #msgs{
-background: green;
+background: 99ffcc;
+}
+#errors{
+background: ff3366;
 }
 
 #content{

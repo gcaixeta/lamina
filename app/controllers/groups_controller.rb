@@ -69,7 +69,7 @@ private
 
 
       if autorized == false
-        flash[:error] = ' Seu usuario não tem autorizacao entrar neste ambiente do grupo #{@group.name}'
+        flash[:error] = "Seu usuario não tem autorizacao entrar neste ambiente do grupo '#{@group.name}'"
         redirect_to :controller => '/site', :action => 'index'
       end
 

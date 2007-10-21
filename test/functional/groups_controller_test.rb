@@ -41,6 +41,8 @@ fixtures :users, :registrations, :institutions, :profiles, :groups, :participati
     assert_response :success
   end
   
+  # TESTs have_permission_to_view
+  
   def test_get_show
     login_as :usa3
     get :show, :id => 5

@@ -3,6 +3,7 @@ before_filter :login_required, :only => [ :signup, :create, :inactive ]
 	#usuario
 
   def index
+    @institutions = Institution.find(:all)
   end
 
   def signup
@@ -22,7 +23,6 @@ before_filter :login_required, :only => [ :signup, :create, :inactive ]
 	# administrador 
 
   def list
-    
   end
 
   def inactive

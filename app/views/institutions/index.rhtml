@@ -1,2 +1,43 @@
+
+
+
 <p> Para ter acesso ao sistema, a instituição tem que se cadastrar e ser aprovada pelos administradores do Sistema.</p>
 <p> Este processo tem como finalidade restringir e controlar o acesso de instituições ao sistema</p>
+
+
+<h4>Lista de Instituição</h4>
+
+<table>
+  <tr>
+                <td>Nome</td>
+                   <td>Telefone</td>
+                      <td>Email</td>
+                       
+  </tr>
+  
+<% for institution in @institutions %>
+  <tr>
+    <td><%= institution.name %></td>
+        <td><%= institution.telephone %></td>
+        <td><%= institution.email %></td>
+
+    <td><%= link_to 'Ver', institution_path(institution) %></td>
+    <td><%= link_to 'Editar', edit_institution_path(institution) %></td>
+    <td><%= link_to_remote 'Apagar', 
+                    :url => institution_path(institution), 
+                    :confirm => 'Are you sure?', 
+                    :method => :delete %></td>
+  </tr>
+<% end %>
+
+
+</table>
+
+<br />
+
+<%= link_to 'Nova Institution', new_institution_path %>
+
+
+
+
+

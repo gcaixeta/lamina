@@ -8,6 +8,7 @@
                     <td>Links</td>
                    <td>Arquivos</td>
                       <td>Grupos</td>
+			<td>Tags</td>
                        
   </tr>
   
@@ -20,6 +21,7 @@
                 <td><%= theme.links.size %></td>
                  <td><%= theme.archives.size %></td>
                   <td><%= theme.groups.size %></td>
+ 			<td><%= theme.tags.size %></td>
     <td><%= link_to 'Ver', theme_path(theme) %></td>
     <td><%= link_to 'Editar', edit_theme_path(theme) %></td>
     <td><%= link_to_remote 'Apagar', 

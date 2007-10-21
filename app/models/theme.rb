@@ -1,4 +1,7 @@
 class Theme < ActiveRecord::Base
+
+acts_as_taggable
+
 has_many :proposals
 has_many :registrations, :through => :proposals
 

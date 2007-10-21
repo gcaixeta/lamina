@@ -4,6 +4,12 @@ before_filter :login_required, :only => [ :new, :create, :update, :destroy, :sho
 
 before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
 
+
+  def tag_cloud
+      @tags = Theme.tag_counts
+  end
+
+
 def new
   @registrations = Registration.find_all_by_user_id_and_profile_id(session[:user],2)
 end

@@ -24,4 +24,21 @@ class GroupsControllerTest < Test::Unit::TestCase
   def test_truth
     assert true
   end
+  
+  def test_get_index
+    get :index
+    assert_response :success
+    
+  end
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 end

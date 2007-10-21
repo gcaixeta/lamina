@@ -1,9 +1,11 @@
 class InstitutionsController < ApplicationController
-before_filter :login_required, :only => [ :signup, :create, :inactive ]
+before_filter :login_required, :only => [:index ]
+
+before_filter :is_teacher, :only => [ :signup, :create, :inactive]
 	#usuario
 
   def index
-    @institutions = Institution.find(:all)
+    @institutions = Registration.find_all_by_user_id(session[:user])
   end
 
   def signup
@@ -21,6 +23,7 @@ before_filter :login_required, :only => [ :signup, :create, :inactive ]
   end
   
 	# administrador 
+
 
   def list
   end
@@ -42,5 +45,17 @@ before_filter :login_required, :only => [ :signup, :create, :inactive ]
 	@institution.active = 0
 	@institution.save
   end
+
+private
+        def is_teacher
+                reg = Registration.find_by_user_id_and_profile_id(session[:user], 2)
+                if reg == nil
+                    flash[:notice] = "Voce não tem permissao para cadastrar um tema"
+                  redirect_to institutions_path
+                    #render :action => 'index'
+                end
+        end
+        
+
 
 end 

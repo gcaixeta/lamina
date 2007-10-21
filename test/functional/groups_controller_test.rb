@@ -53,6 +53,18 @@ fixtures :users, :registrations, :institutions, :profiles, :groups, :participati
     assert_response :redirect
   end
   
+  def test_get_show_as_autorized_teacher
+    login_as :usp1
+    get :show, :id => 5
+    assert_response :success
+  end
+  
+  def test_get_show_as_not_autorized_teacher
+    login_as :usp2
+    get :show, :id => 5
+    assert_response :redirect
+  end
+  
   
   
   

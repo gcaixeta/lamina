@@ -39,7 +39,10 @@ private
     #pega o id do grupo
       group = Group.find(params[:id])
       participations = Participation.find_all_by_group_id(group, :include=>[:registration])
-
+      
+      
+      
+      #loop do verification of participations of students
       for participation in participations do
 
        if participation.registration.user_id != session[:user]
@@ -49,6 +52,21 @@ private
           break #stop the verification of participation / registration
         end
       end
+
+
+    #TODO Otimizar isso...
+    #se nao tiver autorizacao, verifica se é professor da thematica do grupo
+    if autorized == false
+      for proposal in group.theme.proposals do
+       if proposal.registration.user_id != session[:user]
+          autorized = false
+        else
+          autorized = true
+          break #stop the verification of participation / registration
+        end
+      end
+    end
+
 
       if autorized == false
         redirect_to :controller => '/site', :action => 'index'

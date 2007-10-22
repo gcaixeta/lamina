@@ -13,6 +13,23 @@ class RegistrationsControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
   end
 
+  def test_get_signup
+    login_as :quentin
+    get :signup, :institution_id => 1
+    assert_response :success
+    assert_template 'registrations/signup'
+  end
+
+
+  def test_post_create
+    #Registro tem que se cadastrado, em usuario sem registration
+    login_as :usp1
+    post :create, :institution_id => 2#, :invite => users(:Jaum).email 
+    assert_response :redirect
+    assert_template nil, "deve redirecionar e não mostrar template"
+  end
+
+
   def test_require_login_to_signup
     get :signup, :institution_id => 1
     assert_response :redirect, "deve redirecionar para que o usuario loge"
@@ -22,16 +39,16 @@ class RegistrationsControllerTest < Test::Unit::TestCase
 
   def test_require_login_to_create
     post :create, :institution_id => 1
-    assert_response :redirect, " deve redirecionar para que o usuario cadastrar"
+    assert_response :redirect, " deve redirecionar para que o usuario loge"
     assert_template nil
   end
 
 
   def test_user_can_not_create_a_duplicated_registration
     #Usuario não pode se convidar, criando registration duplicada
-    login_as :quentin
+    #login_as :quentin
     #post :create, :invite => users(:quentin).email , :institution_id => 1
-    #assert_equal ' Seu usuario não tem autorizacao para cadastrar outro usuario nesta instituicao', assigns[:error]
+#    assert_equal ' Seu usuario não tem autorizacao para cadastrar outro usuario nesta instituicao', assigns[:errors]
     #	assert_template 'registrations/signup'
     #TODO fazer assert verificando no vetor de erros
   end

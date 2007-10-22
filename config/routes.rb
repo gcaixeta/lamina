@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
 #Institution.find(2).registrations.find_all_by_profile_id(3)
 
   map.resources :institutions,  :collection => {:inactive => :get, :signup => :get}, :member => {}  do |institutions|
-    institutions.resources :registrations, :collection => {:signup => :get}
+    institutions.resources :registrations, :collection => {:signup => :get, :create => :post}
   end
 
 #FIXME Problemas, ver URLS para acessar dados necessários

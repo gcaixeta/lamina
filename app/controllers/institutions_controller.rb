@@ -2,10 +2,12 @@ class InstitutionsController < ApplicationController
 before_filter :login_required, :only => [:index ]
 
 before_filter :is_teacher, :only => [ :signup, :create, :inactive]
+
+before_filter :is_user_registration, :only => [:index ]
 	#usuario
 
   def index
-    @registrations = Registration.find_all_by_user_id(session[:user])
+    @institution = Institution.find(:all)
   end
 
 
@@ -53,7 +55,14 @@ private
                     #render :action => 'index'
                 end
         end
-        
+
+		def is_user_registration
+	        reg =User.find(session[:user]).registrations
+		if reg == []
+		flash[:notice] = "Voce nao esta registrado em uma intitution"
+                redirect_to :controller => '/site', :action => 'index'
+		end
+		end
 
 
 end 

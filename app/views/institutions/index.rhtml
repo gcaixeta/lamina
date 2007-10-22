@@ -10,14 +10,14 @@
                        
   </tr>
   
-<% for institution in @institution %>
+<% for registration in @registrations %>
 
   <tr>
-    <td><%= institution.name %></td>
-        <td><%= institution.telephone %></td>
-        <td><%= institution.email %></td>
+    <td><%= registration.institution.name %></td>
+        <td><%= registration.institution.telephone %></td>
+        <td><%= registration.institution.email %></td>
 
-    <td><%= link_to 'Ver', institution_path(institution) %></td>
+    <td><%= link_to 'Ver', institution_path(registration.institution) %></td>
 
   </tr>
 <% end %>

@@ -7,7 +7,8 @@ before_filter :is_user_registration, :only => [:index ]
 	#usuario
 
   def index
-    @institution = Institution.find(:all)
+    
+
   end
 
 
@@ -57,8 +58,8 @@ private
         end
 
 	def is_user_registration
-	             reg =User.find(session[:user]).registrations
-		if reg == []
+	             @registrations =Registration.find_all_by_user_id(session[:user])
+		if @registrations == []
 		     flash[:notice] = "Voce nao esta registrado em uma intitution"
                       redirect_to :controller => '/site', :action => 'index'
 		end

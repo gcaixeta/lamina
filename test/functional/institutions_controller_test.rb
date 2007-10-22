@@ -26,7 +26,7 @@ class InstitutionsControllerTest < Test::Unit::TestCase
   end
 
   def test_should_get_list_unactive_registration
-    login_as :quentin
+    login_as :usp1
     get :inactive
     assert_response :success
     assert_template 'institutions/inactive'
@@ -34,11 +34,23 @@ class InstitutionsControllerTest < Test::Unit::TestCase
   end
 
   def test_should_get_list_unactive_registration_only_if_is_admin
-    login_as :quentin
+    login_as :usp1
     get :inactive
     assert_response :success
     assert_template 'institutions/inactive'
     assert_not_nil assigns(:institutions)
+  end
+
+  def test_should_get_index_user_permission
+    login_as :quentin
+    get :index
+    assert_response :success
+  end
+
+  def test_should_get_index_user_not_permission
+    login_as :aaron
+    get :index
+    assert_response :redirect
   end
 
 

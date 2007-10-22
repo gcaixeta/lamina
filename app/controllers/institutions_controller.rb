@@ -56,13 +56,13 @@ private
                 end
         end
 
-		def is_user_registration
-	        reg =User.find(session[:user]).registrations
+	def is_user_registration
+	             reg =User.find(session[:user]).registrations
 		if reg == []
-		flash[:notice] = "Voce nao esta registrado em uma intitution"
-                redirect_to :controller => '/site', :action => 'index'
+		     flash[:notice] = "Voce nao esta registrado em uma intitution"
+                      redirect_to :controller => '/site', :action => 'index'
 		end
-		end
+	end
 
 
 end 

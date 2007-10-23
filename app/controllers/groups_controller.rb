@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_filter :login_required, :only => [ :index, :show ]
   before_filter :find_theme, :except => [:index, :show, :last_msgs]
   before_filter :have_permission_to_view, :only => [:show]
-  before_filter :have_proposal_in_theme, :only => [:new]      
+  before_filter :have_proposal_in_theme, :only => [:new, :create]      
 
 # p = Participation.find_all_by_group_id(1, :include=>[:interactions])
 # p = Participation.find_all_by_group_id(5, :include=>[:messages])
@@ -24,7 +24,15 @@ class GroupsController < ApplicationController
   end
 
   def create
-  
+          
+          group = Group.new(params[:group])
+          
+          if @theme.groups << group
+              @theme.save
+              redirect_to list_theme_groups_path(params[:theme_id])          
+          else  
+              render :action => 'new'
+          end
   end
 
   def edit
@@ -127,7 +135,7 @@ private
      if registrations == []
           flash[:error] = "Não tem permissao para criar um grupo'"
           redirect_to themes_path
-     end 
+        end 
 
        end
 end

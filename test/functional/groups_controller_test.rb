@@ -91,6 +91,29 @@ def test_verify_teache_owner_theme_not_new_group
       assert_response :redirect      
 end
   
+
+def test_verify_teache_owner_theme_create_group
+      login_as :usp2
+      post :create, :theme_id =>2
+      assert_response :success
+      assert_template 'groups/new'
+end
+
+def test_verify_teache_owner_theme_not_create_group
+      login_as :usp1
+      post :create, :theme_id =>2
+      assert_response :redirect
+      assert_redirected_to themes_path
+end
+
+def test_should_create_a_group_in_theme
+         login_as :usp2
+        old_count = Group.count
+         post :create,  :group =>{ :name =>"Nome do Grupo"}, :theme_id => 2
+         assert_response :redirect
+         assert_equal old_count+1, Group.count
+         assert_redirected_to list_theme_groups_path(2)
+end
   
   
   

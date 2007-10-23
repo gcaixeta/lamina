@@ -101,8 +101,10 @@ private
                 end
         end
         
-       def is_owner_of_theme_is_prorposals
+       def have_proposal_in_theme
          #filtro para identificar se o professor tem um proposals senao ele nao podera edit e update
+                    
+
        end
 
 end

@@ -2,10 +2,45 @@ class GroupsController < ApplicationController
   before_filter :login_required, :only => [ :index, :show ]
   before_filter :find_theme, :except => [:index, :show, :last_msgs]
   before_filter :have_permission_to_view, :only => [:show]
-  
+  before_filter :have_proposal_in_theme, :only => [:new]      
 
 # p = Participation.find_all_by_group_id(1, :include=>[:interactions])
 # p = Participation.find_all_by_group_id(5, :include=>[:messages])
+
+
+
+
+#Planejamento de URL do Grupos
+#URLs de acesso do Professor
+#/themes/:theme_id/groups/new -get
+#/themes/:theme_id/groups/create - post
+#/themes/:theme_id/groups/edit - get
+#/themes/:theme_id/groups/update - put
+#/themes/:theme_id/groups/destroy - delete
+#/themes/:theme_id/groups/list - Listar por ultima interacao
+
+  def new
+        
+  end
+
+  def create
+  
+  end
+
+  def edit
+  
+  end
+
+  def update
+
+  end
+
+  def destroy
+
+  end
+
+  def list
+  end
 
 
   def index
@@ -83,4 +118,16 @@ private
 
     
   end
+
+
+       def have_proposal_in_theme
+         #filtro para identificar se o professor tem um proposals senao ele nao podera edit e update
+
+     registrations = Theme.find(@theme).registrations.find_all_by_user_id_and_profile_id(session[:user], 2)   
+     if registrations == []
+          flash[:error] = "Não tem permissao para criar um grupo'"
+          redirect_to themes_path
+     end 
+
+       end
 end

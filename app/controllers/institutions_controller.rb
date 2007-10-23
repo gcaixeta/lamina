@@ -8,7 +8,6 @@ before_filter :is_user_registration, :only => [:index ]
 
   def index
     
-
   end
 
 

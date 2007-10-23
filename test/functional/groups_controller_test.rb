@@ -67,13 +67,29 @@ fixtures :users, :registrations, :institutions, :profiles, :groups, :participati
     assert_response :redirect
   end
   
+  
+
   #TESTs CHAT
   
   
   
   
+  #Test da parte de Themes
+
+# Test para verificar se o professor e o autor da tematica para criar o grupo
+def test_verify_teache_owner_theme_new_group
+      login_as :usp2
+      get :new, :theme_id => 2  
+      assert_response :success      
+end
   
-  
+
+# Test que verificar que o professor nao é o dono da tematica assim ele nao cria o grupo 
+def test_verify_teache_owner_theme_not_new_group
+      login_as :usp1
+      get :new, :theme_id => 2  
+      assert_response :redirect      
+end
   
   
   

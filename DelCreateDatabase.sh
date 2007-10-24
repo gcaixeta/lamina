@@ -13,3 +13,5 @@ cp config/database_example.yml config/database.yml
 echo "E finalmente o migrate :)"
 rake db:migrate
 
+echo "Agora carregar dados no banco!!!"
+rake db:fixtures:load

@@ -66,7 +66,7 @@ class GroupsController < ApplicationController
   end
 
   def list
-  @groups = Group.find(:all)
+  @groups = Group.find_all_by_theme_id(@theme)
   end
 
 

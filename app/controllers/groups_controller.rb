@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_filter :login_required, :only => [ :index, :show ]
   before_filter :find_theme, :except => [:index, :show, :last_msgs]
   before_filter :have_permission_to_view, :only => [:show]
-  before_filter :have_proposal_in_theme, :only => [:new, :create]      
+  before_filter :have_proposal_in_theme, :only => [:new, :create, :update, :edit, :destroy]      
 
 # p = Participation.find_all_by_group_id(1, :include=>[:interactions])
 # p = Participation.find_all_by_group_id(5, :include=>[:messages])
@@ -50,7 +50,7 @@ class GroupsController < ApplicationController
         format.xml  { render :nothing => true }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @link.errors.to_xml }        
+        format.xml  { render :xml => @group.errors.to_xml }        
       end
     end
   end

@@ -133,6 +133,11 @@ end
          assert_redirected_to list_theme_groups_path(1)
   end  
 
+  def test_should_not_permission_update_group
+   login_as :usp1
+    put :update, :id => 1,   :theme_id => 2, :group => { :name => "Nome" }
+   assert_response :redirect
+  end  
 
  def test_should_destroy_link
     login_as :usp1
@@ -141,5 +146,13 @@ end
     assert_equal old_count-1, Group.count
     
     assert_redirected_to list_theme_groups_path(1)
+  end  
+
+ def test_should_destroy_link
+    login_as :usp1
+    old_count = Group.count
+    delete :destroy, :id => 1, :theme_id => 2
+    assert_equal old_count, Group.count
+    assert_response :redirect
   end  
 end

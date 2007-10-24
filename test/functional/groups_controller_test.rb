@@ -109,13 +109,23 @@ end
 def test_should_create_a_group_in_theme
          login_as :usp2
         old_count = Group.count
-         post :create,  :group =>{ :name =>"Nome do Grupo"}, :theme_id => 2
-         assert_response :redirect
+         post :create, :theme_id => 1, :group => { :name => "Nome" }
          assert_equal old_count+1, Group.count
-         assert_redirected_to list_theme_groups_path(2)
+         assert_redirected_to list_theme_groups_path(1)
 end
   
-  
+ 
+ def test_should_get_not_ permiss_edit
+    login_as :usp1
+    get :edit, :id =>1 , :theme_id => 2
+    assert_response :redirect
+  end
+ 
+  def test_should_get_edit
+    login_as :usp1
+    get :edit, :id =>1 , :theme_id => 1
+    assert_response :success
+  end
   
   
 end

@@ -29,6 +29,7 @@ class GroupsController < ApplicationController
           
           if @theme.groups << group
               @theme.save
+              flash[:notice] = 'Grupo foi criado com sucesso.'
               redirect_to list_theme_groups_path(params[:theme_id])          
           else  
               render :action => 'new'
@@ -36,8 +37,9 @@ class GroupsController < ApplicationController
   end
 
   def edit
-  
+    @group = Group.find(params[:id])
   end
+
 
   def update
 

@@ -1,0 +1,11 @@
+<h1>Novo Grupo</h1>
+
+<% form_for(:group, :url => theme_groups_path) do |f| %>
+  <p>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+
+    <%= submit_tag "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', theme_groups_path(@theme) %>

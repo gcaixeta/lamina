@@ -1,0 +1,11 @@
+<h1>Editar</h1>
+
+<%= error_messages_for :group %>
+
+<% form_for(:group, :url => theme_group_path(@group.theme_id, @group), :html => { :method => :put }) do |f| %>
+
+  <%= render :partial => 'form', :locals => {:f => f} %>
+
+ <%= submit_tag "Update" %> or <%= link_to 'Cancel', theme_groups_path(@group.theme_id) %>
+
+<% end %>

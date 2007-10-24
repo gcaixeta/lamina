@@ -66,6 +66,7 @@ class GroupsController < ApplicationController
   end
 
   def list
+  @groups = Group.find(:all)
   end
 
 

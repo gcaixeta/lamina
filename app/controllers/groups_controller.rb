@@ -42,11 +42,27 @@ class GroupsController < ApplicationController
 
 
   def update
-
+    @group = Group.find(params[:id])
+    
+    respond_to do |format|
+      if @group.update_attributes(params[:group])
+        format.html { redirect_to list_theme_groups_path(params[:theme_id])          }
+        format.xml  { render :nothing => true }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @link.errors.to_xml }        
+      end
+    end
   end
 
   def destroy
-
+    @group = Group.find(params[:id])
+    @group.destroy
+    
+    respond_to do |format|
+      format.html { redirect_to list_theme_groups_path(params[:theme_id])          }
+      format.xml  { render :nothing => true }
+    end
   end
 
   def list

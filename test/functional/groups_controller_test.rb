@@ -126,6 +126,20 @@ end
     get :edit, :id =>1 , :theme_id => 1
     assert_response :success
   end
-  
-  
+
+  def test_should_update_group
+   login_as :usp1
+    put :update, :id => 1,   :theme_id => 1, :group => { :name => "Nome" }
+         assert_redirected_to list_theme_groups_path(1)
+  end  
+
+
+ def test_should_destroy_link
+    login_as :usp1
+    old_count = Group.count
+    delete :destroy, :id => 1, :theme_id => 1
+    assert_equal old_count-1, Group.count
+    
+    assert_redirected_to list_theme_groups_path(1)
+  end  
 end

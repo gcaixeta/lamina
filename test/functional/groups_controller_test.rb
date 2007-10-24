@@ -155,4 +155,22 @@ end
     assert_equal old_count, Group.count
     assert_response :redirect
   end  
+
+  def test_should_list
+        login_as :usp1
+         get :list, :theme_id  => 1
+        assert_response :success
+  end
+
+  def test_should_not_list
+        login_as :usp1
+         get :list, :theme_id  => 2
+        assert_response :success
+  end
+
+  def test_should_not_list
+         get :list, :theme_id  => 1
+        assert_response :redirect
+  end
+
 end

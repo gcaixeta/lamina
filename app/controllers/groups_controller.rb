@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_filter :login_required, :only => [ :index, :show ]
+  before_filter :login_required, :only => [ :index, :show, :list ]
   before_filter :find_theme, :except => [:index, :show, :last_msgs]
   before_filter :have_permission_to_view, :only => [:show]
   before_filter :have_proposal_in_theme, :only => [:new, :create, :update, :edit, :destroy]      

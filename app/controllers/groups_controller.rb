@@ -109,10 +109,24 @@ class GroupsController < ApplicationController
     end
   end
   
+  #exemplos
+  #Person.find(:all, :offset => 10, :limit => 10)
+  #Person.find(:first, :conditions => [ "user_name = ?", user_name])
+  #Person.find(1, 2, 6) 
+  #Person.find([7, 17]) 
+  #  { :status => nil, :group_id => [1,2,3] }
+    # => "status IS NULL and group_id IN (1,2,3)"
+    
+    # m = Message.find(:all, :conditions => [ "participation_id IN (3,4)"])
+
+#part = Participation.find_all_by_group_id(5)
+#m = Message.find(:all, :conditions => [ "participation_id IN (?)", part])
+
+  
   def last_msgs
     p = Participation.find_all_by_group_id(5, :include=>[:messages])
     @messages = p.first.messages
-    page.insert_html :bottom, 'messages', :partial => 'message', :collection => @messages
+   
   end
 
   private

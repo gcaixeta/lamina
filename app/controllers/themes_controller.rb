@@ -24,11 +24,12 @@ def index
     end
 end
 
-  # GET /programs/1
-  # GET /programs/1.xml
+
+  #/themes/1/groups/list
   def show
     @theme = Theme.find(params[:id])
-     redirect_to theme_group_url(@theme)
+     @group = Group.find_all_by_theme_id(@theme)
+     redirect_to list_theme_groups_path(@theme)
     
 
       #respond_to do |format|

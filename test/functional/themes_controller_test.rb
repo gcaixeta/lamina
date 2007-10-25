@@ -31,7 +31,7 @@ fixtures :users, :registrations, :institutions, :cities, :states, :profiles, :th
   def test_should_show_theme
     login_as :usp1
     get :show, :id => 1
-    assert_response :success
+    assert_response :redirect
   end
 
   def test_should_get_index

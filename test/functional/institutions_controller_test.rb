@@ -53,6 +53,11 @@ class InstitutionsControllerTest < Test::Unit::TestCase
     assert_response :redirect
   end
 
+   def test_should_show_permission_professor_themes
+		login_as :usp1	
+		get:show
+                assert_response :redirect
+   end
 
 
 end

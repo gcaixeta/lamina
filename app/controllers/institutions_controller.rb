@@ -1,9 +1,9 @@
 class InstitutionsController < ApplicationController
-before_filter :login_required, :only => [:index ]
+before_filter :login_required, :only => [:index, :show ]
 
 before_filter :is_teacher, :only => [ :signup, :create, :inactive]
 
-before_filter :is_user_registration, :only => [:index ]
+before_filter :is_user_registration, :only => [:index, :show ]
 	#usuario
 
   def index
@@ -12,10 +12,12 @@ before_filter :is_user_registration, :only => [:index ]
   
   def show
          @reg =Registration.find_all_by_user_id_and_profile_id(session[:user], 2)
-         if @reg == []
-      redirect_to institutions_path
-    else
+         if @reg != []
       redirect_to themes_path
+         elsif Registration.find_all_by_user_id_and_profile_id(session[:user], 1) != []
+      redirect_to groups_url
+         else
+       redirect_to :controller => '/site', :action => 'index'
     end
   end
 

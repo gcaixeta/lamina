@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
 #institutions/id/registrations/ID do profile???
 #Institution.find(2).registrations.find_all_by_profile_id(3)
 
-  map.resources :institutions,  :collection => {:inactive => :get, :signup => :get}, :member => {}  do |institutions|
+  map.resources :institutions,  :collection => {:inactive => :get, :signup => :get }, :member => {}  do |institutions|
     institutions.resources :registrations, :collection => {:signup => :get, :create => :post}
   end
 

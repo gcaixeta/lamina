@@ -40,7 +40,7 @@ if participations != nil
               for login in logins
                   registrations = User.find_by_login(login).registrations.find_by_institution_id_and_profile_id(institution_id,1) #TODO verificar find, se nao deve colocar all
                   if registrations != nil #colocar [] se for vetor
-                    group << registration
+                    group.registrations << registrations
                   end
               end
 end

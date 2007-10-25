@@ -18,12 +18,6 @@ class ParticipationTest < Test::Unit::TestCase
     assert_invalid participation, "theme shouldn't be created"
   end
 
-     # validar o leader do participation
- def test_should_require_leader
-    participation = create(:leader => nil)
-    assert participation.errors.invalid?(:leader), "leader should be required"
-    assert_invalid participation, "theme shouldn't be created"
-  end
 
 
   def test_should_check_proposal_Participation_authorship

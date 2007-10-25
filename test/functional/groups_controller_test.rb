@@ -120,8 +120,10 @@ end
 def test_should_create_a_group_in_theme
          login_as :usp1
         old_count = Group.count
+        old_count_participation = Participation.count
          post :create, :theme_id => 1, :group => { :name => "Nome" }, :participations => "kiko, nanda"
          assert_equal old_count+1, Group.count
+         assert_equal  old_count_participation + 2, Participation.count 
          assert_redirected_to list_theme_groups_path(1)
 end
 

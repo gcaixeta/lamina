@@ -30,7 +30,20 @@ class GroupsController < ApplicationController
           
           if @theme.groups << group
               @theme.save
-              
+              participations = params[:participations]
+
+if participations != nil     
+
+             logins = participations.split(', ')
+                            
+              institution_id = Proposal.find_by_theme_id(params[:theme_id]).registration.institution_id
+              for login in logins
+                  registrations = User.find_by_login(login).registrations.find_by_institution_id_and_profile_id(institution_id,1) #TODO verificar find, se nao deve colocar all
+                  if registrations != nil #colocar [] se for vetor
+                    group << registration
+                  end
+              end
+end
               # 1 - Localizar user_id
               # 2 - Verificar se ele tem registration, na instituição do grupo (pegar por themes > proposal >registration_institution_id ?
               # 3 - tem registration?

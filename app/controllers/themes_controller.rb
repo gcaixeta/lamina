@@ -28,11 +28,13 @@ end
   # GET /programs/1.xml
   def show
     @theme = Theme.find(params[:id])
+     redirect_to theme_group_url(@theme)
     
-    respond_to do |format|
-      format.html # show.rhtml
-      format.xml  { render :xml => @theme.to_xml }
-    end
+
+      #respond_to do |format|
+      #format.html # show.rhtml
+      #format.xml  { render :xml => @theme.to_xml }
+    #end
   end
 
 

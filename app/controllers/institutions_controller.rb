@@ -10,14 +10,15 @@ before_filter :is_user_registration, :only => [:index, :show ]
     
   end
   
-  def show
 
+  def show
+         @theme = Theme.find(params[:id])
 	 @institution = Institution.find(params[:id])
          @reg =Registration.find_all_by_user_id_and_profile_id(session[:user], 2)
          if @reg != []
       redirect_to themes_path
          elsif Registration.find_all_by_user_id_and_profile_id(session[:user], 1) != []
-      redirect_to groups_url
+         redirect_to theme_group_url(@theme)
          else
        redirect_to :controller => '/site', :action => 'index'
     end

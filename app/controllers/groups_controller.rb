@@ -25,10 +25,17 @@ class GroupsController < ApplicationController
 
   def create
           
+          
           group = Group.new(params[:group])
           
           if @theme.groups << group
               @theme.save
+              
+              # 1 - Localizar user_id
+              # 2 - Verificar se ele tem registration, na instituição do grupo (pegar por themes > proposal >registration_institution_id ?
+              # 3 - tem registration?
+              # 4 - cria as participations com o id da registration
+              # 5 fazer loop em todos os logins?
               flash[:notice] = 'Grupo foi criado com sucesso.'
               redirect_to list_theme_groups_path(params[:theme_id])          
           else  

@@ -49,7 +49,8 @@ def create
       flash[:notice] = 'Theme criada com sucesso.'
       redirect_to :controller => 'themes' , :action => 'index'
     else
-      render :action => 'new'
+	flash[:notice] = 'Erros falta campo a ser preenchido'
+      redirect_to :controller => 'themes' , :action => 'new'
     end
   end
 

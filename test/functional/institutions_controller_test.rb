@@ -55,10 +55,24 @@ class InstitutionsControllerTest < Test::Unit::TestCase
 
    def test_should_show_permission_professor_themes
 		login_as :usp1	
-		get:show
+		get:show, :id =>1
                 assert_response :redirect
+ 	        assert_redirected_to :themes_path
    end
 
+   def test_should_show_permission_professor_themes
+		login_as :usa1	
+		get:show, :id =>1
+                assert_response :redirect
+ 	        assert_redirected_to :groups_url
+   end
+
+   def test_should_show_permission_professor_themes
+		login_as :usr1	
+		get:show, :id =>1
+                assert_response :redirect
+ 	        assert_redirected_to :controller => '/site', :action => 'index'
+   end
 
 end
 

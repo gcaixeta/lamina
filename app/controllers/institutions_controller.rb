@@ -11,6 +11,8 @@ before_filter :is_user_registration, :only => [:index, :show ]
   end
   
   def show
+
+	 @institution = Institutionfind(params[:id])
          @reg =Registration.find_all_by_user_id_and_profile_id(session[:user], 2)
          if @reg != []
       redirect_to themes_path

@@ -1,9 +1,7 @@
 <h3><%= @group.name %></h3>
 
-                            
+<%= link_to_remote "Click",:url => {:action => :message}  %>
 <div id="messages">
 a
 </div>
-<%= periodically_call_remote :update => 'messages',
-                            :url => {:action => :last_msgs},
-                            :frequency => 10.0 %>
+<% #periodically_call_remote :update => 'messages',   :url => {:action => :message},   :frequency => 10.0 %>

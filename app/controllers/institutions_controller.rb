@@ -18,7 +18,7 @@ before_filter :is_user_registration, :only => [:index, :show ]
          if @reg != []
       redirect_to themes_path
          elsif Registration.find_all_by_user_id_and_profile_id(session[:user], 1) != []
-      redirect_to list_theme_groups_path(@theme)
+      redirect_to theme_group_path(@theme)
          else
        redirect_to :controller => '/site', :action => 'index'
     end

@@ -20,7 +20,7 @@ class GroupsController < ApplicationController
   #/themes/:theme_id/groups/list - Listar por ultima interacao
 
   def new
-        
+     @group = Group.new
   end
 
   def create

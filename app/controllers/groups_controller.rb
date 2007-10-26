@@ -127,8 +127,8 @@ class GroupsController < ApplicationController
   def message
     #TODO verificar performances de qual o melhor select
     #p = Participation.find_all_by_group_id(5, :include=>[:messages])
-    participations = Participation.find_all_by_group_id(5)
-    @messages = Message.find(:all, :conditions => [ "participation_id IN (?)", participations])
+    participations = Participation.find_all_by_group_id(params[:id])
+    @messages = Message.find(:all, :offset => 1, :limit => 10, :conditions => [ "participation_id IN (?)", participations])
    
   end
 

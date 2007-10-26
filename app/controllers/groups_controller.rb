@@ -87,7 +87,11 @@ class GroupsController < ApplicationController
 
 
   def index
-    @groups = Group.find(:all)
+    
+    @registrations = Registration.find_all_by_user_id(session[:user], :include=>[:groups]) 
+
+    
+    
     respond_to do |format|
       format.html # index.rhtml
       format.xml  { render :xml => @groups.to_xml }

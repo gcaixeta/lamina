@@ -6,15 +6,18 @@
 
                        
   </tr>
-  
-<% for group in @groups %>
+
+  <% for registration in   @registrations %>
+<% for group in registration.groups %>
   <tr>
     <td><%= group.name %></td>
 
   </tr>
   </tr>
 <% end %>
-
+<% end %>
 </table>
 
 <br />
+
+

@@ -10,7 +10,10 @@
 <% for group in @groups %>
   <tr>
     <td><%= group.name %></td>
-
+    <td><%= link_to 'Ver', theme_group_path(@theme, group) %></td>
+    <td><%= link_to 'Editar', edit_theme_group_path(@theme, group) %></td>
+    <td><%= link_to 'Deletar', theme_group_path(@theme, group), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
   </tr>
 <% end %>
 

@@ -85,6 +85,15 @@ before_filter :find_group
     end
   end
   
+    def list
+    #TODO otimizar query que pega mensagens do grupo
+    #p = Participation.find_all_by_group_id(5, :include=>[:messages])
+    #p.each {|pe| me.push( pe.messages) }
+    
+      participations = Participation.find_all_by_group_id(@group.id)
+      @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, params[:ver]])
+  end
+  
     private
   def find_group
     @group = Group.find params[:group_id]

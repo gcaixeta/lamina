@@ -7,6 +7,6 @@
   
 <%=  javascript_tag "var ver = '0'; var lastver = '0'"  %>
 <%= periodically_call_remote( 
-:url => {:action => :message },
+:url => list_group_messages_url(@group.id),
 :with => "'ver=' + ver + '&lastver=' + lastver + '&id=#{params[:id]}'",  
 :frequency => 2.0) %>

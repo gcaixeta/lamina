@@ -3,7 +3,7 @@
 <div id="last_message"></div>
 <div id="messages">
 </div>
-<%=  javascript_tag "var ver = 0; var lastver = 0"  %>
+<%=  javascript_tag "var ver = '0'; var lastver = '0'"  %>
 <%= periodically_call_remote( 
 :url => {:action => :message },
 :with => "'ver=' + ver + '&lastver=' + lastver + '&id=5'",  

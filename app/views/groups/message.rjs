@@ -1,4 +1,7 @@
 page.insert_html :bottom, 'messages', :partial => 'message', :locals => {:messages => @messages}
+page << "ver = #{@messages.last.id}"
+
+
 page.replace_html 'last_message', @messages.last.id
 page.visual_effect  :highlight, 'messages', 
                     :startcolor => "'#99ffcc'"

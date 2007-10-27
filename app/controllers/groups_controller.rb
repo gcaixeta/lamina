@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_filter :login_required, :only => [ :index, :show, :list ]
-  before_filter :find_theme, :except => [:index, :show, :message]
+  before_filter :find_theme, :except => [:index, :show]
   before_filter :have_permission_to_view, :only => [:show]
   before_filter :have_proposal_in_theme, :only => [:new, :create, :update, :edit, :destroy]      
 
@@ -112,33 +112,7 @@ class GroupsController < ApplicationController
     end
   end
   
-  
-  #TODO LIXO LIXO
-  #Person.find(:all, :offset => 10, :limit => 10)
-  #Person.find(:first, :conditions => [ "user_name = ?", user_name])
-  #Person.find(1, 2, 6) 
-  #Person.find([7, 17]) 
-  #  { :status => nil, :group_id => [1,2,3] }
-    # => "status IS NULL and group_id IN (1,2,3)"
-    # m = Message.find(:all, :conditions => [ "participation_id IN (3,4)"])
-#part = Participation.find_all_by_group_id(5)
-#m = Message.find(:all, :conditions => [ "participation_id IN (?)", part])
 
-#m = Message.find(:all, :offset => 2, :limit => 5,  :conditions => [ "participation_id IN (?)", part])
-
-
-  
-  def message
-    #TODO verificar performances de qual o melhor select
-    #p = Participation.find_all_by_group_id(5, :include=>[:messages])
-    # Message.create(:participation_id => 3,  :messages =>"fala mulhe!")
-    participations = Participation.find_all_by_group_id(params[:id])
-    #TODO voltar condicoes, pensando no valor pra por no ver
-    # 
-    
-    @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, params[:ver]])
-   
-  end
 
   private
 

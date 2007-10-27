@@ -1,5 +1,5 @@
 <h3><%= @group.name %></h3>
-<p style="color:red"> AVISO: Ajax pesado em 5 segundos </p>
+<p style="color:red"> AVISO: Ajax pesado em 2 segundos </p>
 <div id="last_message"></div>
 <div id="messages">
 </div>
@@ -9,4 +9,4 @@
 <%= periodically_call_remote( 
 :url => {:action => :message },
 :with => "'ver=' + ver + '&lastver=' + lastver + '&id=#{params[:id]}'",  
-:frequency => 5.0) %>
+:frequency => 2.0) %>

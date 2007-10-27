@@ -109,3 +109,9 @@ background: #fff;
 #content tr:hover{
 background:  #e8eefa;
 }
+
+#messages {
+height: 300px;
+background: #e8eefa;
+overflow: auto;
+}

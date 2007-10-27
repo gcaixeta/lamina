@@ -1,0 +1,23 @@
+<p>
+  <b>Question:</b>
+  <%=h @interaction.question_id %>
+</p>
+
+<p>
+  <b>Answer:</b>
+  <%=h @interaction.answer_id %>
+</p>
+
+<p>
+  <b>Participation:</b>
+  <%=h @interaction.participation_id %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @interaction.created_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_interaction_path(@interaction) %> |
+<%= link_to 'Back', interactions_path %>

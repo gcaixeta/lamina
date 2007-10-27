@@ -1,0 +1,31 @@
+<h1>New interaction</h1>
+
+<%= error_messages_for :interaction %>
+
+<% form_for(:interaction, :url => interactions_path) do |f| %>
+  <p>
+    <b>Question</b><br />
+    <%= f.text_field :question_id %>
+  </p>
+
+  <p>
+    <b>Answer</b><br />
+    <%= f.text_field :answer_id %>
+  </p>
+
+  <p>
+    <b>Participation</b><br />
+    <%= f.text_field :participation_id %>
+  </p>
+
+  <p>
+    <b>Created at</b><br />
+    <%= f.datetime_select :created_at %>
+  </p>
+
+  <p>
+    <%= submit_tag "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', interactions_path %>

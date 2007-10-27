@@ -38,7 +38,9 @@ ActionController::Routing::Routes.draw do |map|
 #/groups/id - show - acessa o ambiente
 #/groups/index - listar os grupos do aluno (e do professor?)
 
-  map.resources :groups,  :collection => {:message => :post} #do |groups|  end
+  map.resources :groups,  :collection => {:message => :post} do |groups|  
+  groups.resources :messages
+  end
 
 
 

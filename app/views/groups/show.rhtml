@@ -3,6 +3,8 @@
 <div id="last_message"></div>
 <div id="messages">
 </div>
+  <%= render :partial => 'messages/form', :locals => {:group =>@group.id} %>
+  
 <%=  javascript_tag "var ver = '0'; var lastver = '0'"  %>
 <%= periodically_call_remote( 
 :url => {:action => :message },

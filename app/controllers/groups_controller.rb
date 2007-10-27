@@ -106,7 +106,7 @@ class GroupsController < ApplicationController
     #end
     respond_to do |format|
       format.html do
-
+     
       end
       format.xml  { render :xml => @group.to_xml }
     end

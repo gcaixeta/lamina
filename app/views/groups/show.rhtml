@@ -1,4 +1,14 @@
 <h3><%= @group.name %></h3>
+
+<div id="menu_aq">
+	<div id="new_aq">
+		link_to_remote "Nova Pergunta", :url => { :action => "destroy", :id => post.id }
+	</div>
+</div>
+<div id="content_aq">
+</div>
+
+
 <p style="color:red"> AVISO: Ajax pesado em 2 segundos </p>
 <div id="last_message"></div>
 <div id="messages">

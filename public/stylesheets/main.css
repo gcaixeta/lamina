@@ -111,7 +111,20 @@ background:  #e8eefa;
 }
 
 #messages {
-height: 300px;
+height: 100px;
 background: #e8eefa;
+overflow: auto;
+}
+
+#menu_aq {
+height: 30px;
+background: #00ccfa;
+overflow: auto;
+}
+
+
+#content_aq {
+height: 190px;
+background: #00ff44;
 overflow: auto;
 }

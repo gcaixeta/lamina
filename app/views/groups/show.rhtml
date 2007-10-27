@@ -1,11 +1,13 @@
 <h3><%= @group.name %></h3>
 
 <div id="menu_aq">
-	<div id="new_aq">
-		link_to_remote "Nova Pergunta", :url => { :action => "destroy", :id => post.id }
-	</div>
+   <div id="new_aq">
+     <%= link_to_remote "Nova Pergunta", :url => group_messages_url(1) %>
+   </div>
 </div>
 <div id="content_aq">
+  <div id="list_aq">Lista de AQ</div>
+  <div id="view_aq">VER de AQ</div>
 </div>
 
 
@@ -15,8 +17,11 @@
 </div>
   <%= render :partial => 'messages/form', :locals => {:group =>@group.id} %>
   
+  
+
+
 <%=  javascript_tag "var ver = '0'; var lastver = '0'"  %>
 <%= periodically_call_remote( 
 :url => list_group_messages_url(@group.id),
 :with => "'ver=' + ver + '&lastver=' + lastver + '&id=#{params[:id]}'",  
-:frequency => 2.0) %>
+:frequency => 60.0) %>

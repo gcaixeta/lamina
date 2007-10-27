@@ -5,7 +5,7 @@ require 'answers_controller'
 class AnswersController; def rescue_action(e) raise e end; end
 
 class AnswersControllerTest < Test::Unit::TestCase
-  fixtures :answers
+  fixtures :answers, :questions
 
   def setup
     @controller = AnswersController.new
@@ -26,7 +26,7 @@ class AnswersControllerTest < Test::Unit::TestCase
   
   def test_should_create_answer
     old_count = Answer.count
-    post :create, :answer => { }
+    post :create, :answer => {:text => answers(:ans3).text, :question_id => answers(:ans3).question_id, :correct => true }
     assert_equal old_count+1, Answer.count
     
     assert_redirected_to answer_path(assigns(:answer))

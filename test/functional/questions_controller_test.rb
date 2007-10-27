@@ -26,7 +26,7 @@ class QuestionsControllerTest < Test::Unit::TestCase
   
   def test_should_create_question
     old_count = Question.count
-    post :create, :question => { }
+    post :create, :question => {:text => questions(:one).text }
     assert_equal old_count+1, Question.count
     
     assert_redirected_to question_path(assigns(:question))

@@ -5,7 +5,7 @@ require 'interactions_controller'
 class InteractionsController; def rescue_action(e) raise e end; end
 
 class InteractionsControllerTest < Test::Unit::TestCase
-  fixtures :interactions
+  fixtures :interactions, :questions, :answers, :participations
 
   def setup
     @controller = InteractionsController.new
@@ -26,7 +26,7 @@ class InteractionsControllerTest < Test::Unit::TestCase
   
   def test_should_create_interaction
     old_count = Interaction.count
-    post :create, :interaction => { }
+    post :create, :interaction => {:question_id => 1, :answer_id => 1, :participation_id => 1, :created_at => Time.now }
     assert_equal old_count+1, Interaction.count
     
     assert_redirected_to interaction_path(assigns(:interaction))

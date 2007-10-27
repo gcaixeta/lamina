@@ -1,5 +1,16 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 one:
   id: 1
+  text: questions was
+
 two:
   id: 2
+  text: question is
+  
+ques1:
+  id: 3
+  text: Quem descobriu o Brasil?
+  
+ques2:
+  id: 4
+  text: Qual o ano de descobrimento do Brasil?

@@ -134,9 +134,9 @@ class GroupsController < ApplicationController
     # Message.create(:participation_id => 3,  :messages =>"fala mulhe!")
     participations = Participation.find_all_by_group_id(params[:id])
     #TODO voltar condicoes, pensando no valor pra por no ver
-    #, :conditions => [ "participation_id IN (?)", participations] 
+    # 
     
-    @messages = Message.find(:all, :offset => params[:ver], :limit => 10)
+    @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, params[:ver]])
    
   end
 

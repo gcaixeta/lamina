@@ -6,5 +6,5 @@
 <%=  javascript_tag "var ver = '0'; var lastver = '0'"  %>
 <%= periodically_call_remote( 
 :url => {:action => :message },
-:with => "'ver=' + ver + '&lastver=' + lastver + '&id=5'",  
+:with => "'ver=' + ver + '&lastver=' + lastver + '&id=#{params[:id]}'",  
 :frequency => 5.0) %>

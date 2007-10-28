@@ -68,7 +68,7 @@ class CreatePerTables < ActiveRecord::Migration
     t.column "configuration_id", :integer, :null => false
     t.column "name",              :string, :null => false
     t.column "summary",           :string, :null => false
-    t.column "create_at",         :datetime
+    t.column "created_at",         :datetime
     t.column "active",            :boolean, :null => false
     t.column "password",          :string
   end

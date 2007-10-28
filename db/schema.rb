@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(:version => 4) do
     t.column "configuration_id", :integer,                  :null => false
     t.column "name",             :string,   :default => "", :null => false
     t.column "summary",          :string,   :default => "", :null => false
-    t.column "create_at",        :datetime
+    t.column "created_at",       :datetime
     t.column "active",           :boolean,                  :null => false
     t.column "password",         :string
   end

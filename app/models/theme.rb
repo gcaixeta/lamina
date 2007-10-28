@@ -21,7 +21,12 @@ validates_presence_of :summary
 validates_presence_of :active
 validates_presence_of :password
 
+
 validates_length_of :password, :minimum => 4
 validates_numericality_of :configuration_id, :only_integer => true
+  private
 
+    def after_find
+      self.created_at = created_at.strftime("posted on %b, %m %Y - %H:%M")
+    end
 end

@@ -1,1 +1,4 @@
-<% for message in messages %><p id="men_<%= message.id %>"><i>(<%= message.id %>)</i><b><%= message.participation.registration.user.name %>: </b><%= message.messages %></p><% end %>
+<% for message in messages %><p id="men_<%= message.id %>">
+<i>(<%= message.created_at %>)</i>
+<i>(<%= message.id %>)</i>
+<b><%= message.participation.registration.user.name %>: </b><%= message.messages %></p><% end %>

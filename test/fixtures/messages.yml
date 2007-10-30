@@ -3,27 +3,34 @@ message1:
   id: 1
   participation_id: 1
   messages: olá blz
+  created_at: <%= 5.days.ago.to_s :db %>
 message2:
   id: 2
   participation_id: 1
   messages: blz e vc
+  created_at: <%= 5.days.ago.to_s :db %>
 msg1:
   id: 3
   participation_id: 3
   messages: Bom dia Nanda
+  created_at: <%= 5.days.ago.to_s :db %>
 msg2:
   id: 4
   participation_id: 4
   messages: Bom dia Kiko!!!!
+  created_at: <%= 5.days.ago.to_s :db %>
 msg3:
   id: 5
   participation_id: 3
   messages: Que pergunta sobre Citologia voce pensou nanda?
+  created_at: <%= 5.days.ago.to_s :db %>
 msg4:
   id: 6
   participation_id: 4
   messages: Pensei em estudar mais biologia celular.
+  created_at: <%= 5.days.ago.to_s :db %>
 msg5:
   id: 7
   participation_id: 3
   messages: unnn Legal hein, vamos montar umas perguntas sobre a importancia do nucleo na celula
+  created_at: <%= 5.days.ago.to_s :db %>

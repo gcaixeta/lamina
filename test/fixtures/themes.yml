@@ -6,6 +6,7 @@ Paz:
   summary: the paz today
   active: true
   password: 1234
+  created_at: <%= 5.days.ago.to_s :db %>
   
 War:
   id: 2
@@ -14,6 +15,7 @@ War:
   summary: the war today
   active: false
   password: 1234  
+  created_at: <%= 5.days.ago.to_s :db %>
 
 the1:
   id: 3
@@ -22,6 +24,7 @@ the1:
   summary: celulas humas
   active: true
   password: 1234  
+  created_at: <%= 5.days.ago.to_s :db %>
 
 the2:
   id: 4
@@ -30,6 +33,7 @@ the2:
   summary: Estados e capitais
   active: false
   password: 1234 
+  created_at: <%= 5.days.ago.to_s :db %>
 
 the3:
   id: 5
@@ -38,3 +42,4 @@ the3:
   summary: Independecia
   active: true
   password: 1234
+  created_at: <%= 5.days.ago.to_s :db %>

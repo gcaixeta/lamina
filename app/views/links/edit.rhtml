@@ -1,4 +1,4 @@
-<h1>Editar</h1>
+<h3>Editar</h3>
 
 <%= error_messages_for :link %>
 
@@ -6,6 +6,6 @@
 
   <%= render :partial => 'form', :locals => {:f => f} %>
 
- <%= submit_tag "Update" %> or <%= link_to 'Cancel', theme_links_path(@link.theme_id) %>
+ <%= submit_tag "Editar" %> or <%= link_to 'Voltar', theme_links_path(@link.theme_id) %>
 
 <% end %>

@@ -1,11 +1,11 @@
-<h1>Novo Arquivos</h1>
+<h3>Novo Arquivos</h3>
 
 <% form_for(:archive, :url => theme_archives_path) do |f| %>
   <p>
   <%= render :partial => 'form', :locals => {:f => f} %>
 
-    <%= submit_tag "Create" %>
+    <%= submit_tag "Criar" %>
   </p>
 <% end %>
 
-<%= link_to 'Back', theme_archives_path(@theme) %>
+<%= link_to 'Voltar', theme_archives_path(@theme) %>

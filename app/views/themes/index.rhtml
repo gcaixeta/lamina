@@ -23,7 +23,7 @@
         <td><%= theme.links.size %><%= link_to 'Ver',theme_links_path(theme) %></td>
         <td><%= theme.archives.size %><%= link_to 'Ver',theme_archives_path(theme) %></td>
         <td><%= theme.tags.size %><%= link_to 'Ver',theme_archives_path(theme) %></td>
-         <td><%= theme.groups.size %><%= theme.tags.size %><%= link_to'Ver',theme_path(theme) %></td> 
+         <td><%= theme.groups.size %><%= link_to'Ver',theme_path(theme) %></td> 
     <td><%= link_to 'Editar', edit_theme_path(theme) %></td>
     <td><%= link_to_remote 'Apagar', 
                     :url => theme_path(theme),

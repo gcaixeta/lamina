@@ -1,16 +1,18 @@
 
 <% form_for(:theme, :url=>themes_path)  do |f|  -%>
-<fieldset>
-<h3>Cadastro de Temas</h3>
+<br/>
+<center>
+<FIELDSET style="width: 500px; height: 400px">
+<h4>Cadastro de Temas</h4>
 
-<p><label for="user_city">Cidade</label><br/>
-<%= select("registration","id", @registrations.collect{|r|[r.institution.name,r.id]} ) %></p>
+<p><label for="theme_institution">Instituição</label>
+<%= select("registration","id", @registrations.collect{|r|[r.institution.name,r.id]} ) %></p><br/>
 
 
 <%= render :partial => 'form', :locals => {:f =>f} %>
 
 <p><%= submit_tag 'Criar' %></p>
-
+</center>
 </fieldset>
 <% end -%>
 

@@ -1,5 +1,3 @@
-<FIELDSET style="width: 223px; height: 162px">
-
 <label for="">Tema:
   <%= f.text_field :name %>
 </label>
@@ -16,11 +14,11 @@
   <%= f.text_field :active %>
 </label>
 
-</fieldset>
-<FIELDSET style="width: 223px; height: 162px"><h4> Configuração</h4>
-<p><label for="">Questoes Minimas:</label><br/>
-<%= text_field_tag  'configuration[questions_max]' %></p>
+<label for="">Numero minino de questões:</label>
+<%= text_field_tag  'configuration[questions_max]' %>
 
-<p><label for="">Number Participantes:</label><br/>
-<%= text_field_tag 'configuration[number_participants]' %></p>
-</fieldset>
+<label for="">Numero de participantes:</label>
+<%= text_field_tag 'configuration[number_participants]' %>
+
+
+

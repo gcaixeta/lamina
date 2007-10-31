@@ -7,8 +7,9 @@
                       <td>Ativo</td>
                     <td>Links</td>
                    <td>Arquivos</td>
-                      <td>Grupos</td>
 			<td>Tags</td>
+                      <td>Grupos</td>
+
                        
   </tr>
   
@@ -18,11 +19,10 @@
     <td><%= theme.name %></td>
         <td><%= theme.created_at.to_s(:post) %></td>
         <td><%= theme.active %></td>
-                <td><%= theme.links.size %></td>
-                 <td><%= theme.archives.size %></td>
-                  <td><%= theme.groups.size %></td>
- 			<td><%= theme.tags.size %></td>
-    <td><%= link_to 'Grupos', theme_path(theme) %></td>
+        <td><%= theme.links.size %><%= link_to 'Ver',new_theme_link_path(theme) %></td>
+        <td><%= theme.archives.size %><%= link_to 'Ver',new_theme_archive_path(theme) %></td>
+        <td><%= theme.tags.size %><%= link_to 'Ver',new_theme_archive_path(theme) %></td>
+         <td><%= theme.groups.size %><%= theme.tags.size %><%= link_to'Ver',theme_path(theme) %></td>
     <td><%= link_to 'Editar', edit_theme_path(theme) %></td>
     <td><%= link_to_remote 'Apagar', 
                     :url => theme_path(theme),

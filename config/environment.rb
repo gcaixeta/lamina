@@ -61,5 +61,5 @@ end
 # Include your application configuration below
 require "#{RAILS_ROOT}/app/overrides/messages"
 Time::DATE_FORMATS[:data] = "%I:%M%p"
-Time::DATE_FORMATS[:post] = "%b, %m %Y - %I:%M%p"
+Time::DATE_FORMATS[:post] = "%d/%m/%Y"
 #require 'redgreen'

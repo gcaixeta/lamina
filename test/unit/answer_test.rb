@@ -11,12 +11,7 @@ class AnswerTest < Test::Unit::TestCase
     assert_invalid answer, "answer shouldn't be created"
   end
 
-     # validar o correct do answer
- def test_should_require_correct
-    answer = create(:correct => nil)
-    assert answer.errors.invalid?(:correct), ":correct should be required"
-    assert_invalid answer, "answer shouldn't be created"
-  end
+
 
 
      # validar o question_id do answer

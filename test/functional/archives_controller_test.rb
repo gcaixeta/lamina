@@ -27,9 +27,9 @@ fixtures :archives, :users, :links, :registrations, :institutions, :cities, :sta
   
   def test_should_create_archives
     login_as :usp1
-    old_count = Archives.count
+    old_count = Archive.count
         post :create, :theme_id => 1 , :archive => { :name => "Foto", :description => "Imagem de la", :heading => "nada"}
-    assert_equal old_count+1, Archives.count
+    assert_equal old_count+1, Archive.count
     assert_redirected_to theme_archives_url
   end
 
@@ -53,9 +53,9 @@ fixtures :archives, :users, :links, :registrations, :institutions, :cities, :sta
   
   def test_should_destroy_archives
     login_as :usp1
-    old_count = Archives.count
+    old_count = Archive.count
     delete :destroy, :id => 1, :theme_id => 1
-    assert_equal old_count-1, Archives.count
+    assert_equal old_count-1, Archive.count
     
    assert_redirected_to theme_archives_url
   end

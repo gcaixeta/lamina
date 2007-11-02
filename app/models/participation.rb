@@ -4,6 +4,7 @@ belongs_to :group
 
 has_many :messages
 has_many :interactions
+has_many :activities
 
 validates_presence_of :group_id
 validates_presence_of :registration_id
@@ -14,6 +15,9 @@ validates_numericality_of :registration_id, :only_integer => true
 
 validates_presence_of :registration
 validates_associated :registration
+
+#validates_presence_of :activities
+#validates_associated :activities
 
 validates_presence_of :group
 validates_associated :group

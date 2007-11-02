@@ -2,10 +2,12 @@
 one:
   id: 1
   participation_id: 1
-  answer_id: 1 
-  question_id: 1
+  created_at: <%= 5.days.ago.to_s :db %>
+  action_type: new
+  activity_id: 1
 two:
   id: 2
   participation_id: 1
-  answer_id: 1
-  question_id: 1
+  created_at: <%= 5.days.ago.to_s :db %>
+  action_type: new
+  activity_id: 1

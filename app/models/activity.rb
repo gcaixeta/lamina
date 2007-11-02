@@ -1,6 +1,12 @@
-class Interaction < ActiveRecord::Base
+class Activity < ActiveRecord::Base
+# p.activities.create(:creation => q)
+
 belongs_to  :participation
-belongs_to :activities
+
+belongs_to :creation, :polymorphic => true
+
+
+has_many :interactions
 
 validates_presence_of :participation_id
 

@@ -2,12 +2,16 @@
 
 <div id="menu_aq">
    <div id="new_aq">
-     <%= link_to_remote "Nova Pergunta", :url => group_messages_url(1) %>
+     <%= link_to_remote "Nova Pergunta", :url => new_group_question_url(@group.id), :method => 'get'%>
    </div>
 </div>
 <div id="content_aq">
-  <div id="list_aq">Lista de AQ</div>
-  <div id="view_aq">VER de AQ</div>
+  <div id="question_list">Lista de AQ</div>
+  <div id="question_view">
+    <div id="question_new" style="display:none">
+      <%= render :partial => 'questions/form', :locals => {:group =>@group.id} %>
+    </div>
+  </div>
 </div>
 
 
@@ -21,7 +25,15 @@
 
 
 <%=  javascript_tag "var ver = '0'; var lastver = '0'"  %>
+<%=  javascript_tag "var interaction = '0';"  %>
+
 <%= periodically_call_remote( 
 :url => list_group_messages_url(@group.id),
 :with => "'ver=' + ver + '&lastver=' + lastver + '&id=#{params[:id]}'",  
 :frequency => 5.0) %>
+
+<%= periodically_call_remote( 
+:url => group_interaction_url(@group.id),
+:with => "'interaction=' + interaction",
+:method => "get",
+:frequency => 35.0) %>

@@ -1,12 +1,30 @@
 class InteractionsController < ApplicationController
-  # GET /interactions
-  # GET /interactions.xml
-  def index
-    @interactions = Interaction.find(:all)
 
+before_filter :find_group
+
+  def index
+    #
+    # questoes = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
+#Group.find(5).participation_ids
+#questoes.first.creation
+# :order => "created_on DESC"
+    participations = Participation.find_all_by_group_id(@group.id)
+    interaction = params[:interaction]
+    
+    if interaction == 0
+      activities = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
+    
+    elsif interaction > 0
+    
+    else
+      @interactions = Interaction.find(:all)
+    end
+    
+    
     respond_to do |format|
       format.html # index.rhtml
       format.xml  { render :xml => @interactions.to_xml }
+      format.js
     end
   end
 
@@ -75,5 +93,9 @@ class InteractionsController < ApplicationController
       format.html { redirect_to interactions_url }
       format.xml  { head :ok }
     end
+  end
+private
+  def find_group
+    @group = Group.find params[:group_id]
   end
 end

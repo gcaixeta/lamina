@@ -1,0 +1,2 @@
+page['question_form'].reset
+page['question_new'].show

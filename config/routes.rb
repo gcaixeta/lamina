@@ -1,9 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :interactions
 
-  map.resources :answers
-
-  map.resources :questions
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -46,6 +42,13 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :groups,  :collection => {:message => :post} do |groups|  
   groups.resources :messages, :collection => {:list =>:post}
+
+  groups.resources :interactions
+  groups.resources :activities
+  groups.resources :answers
+
+  groups.resources :questions
+  
   end
 
 

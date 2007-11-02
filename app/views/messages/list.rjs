@@ -10,6 +10,6 @@ page.visual_effect  :highlight, "men_#{@messages.last.id}",
                     :startcolor => "'#99ffcc'"
                     
 #page << "$('men_#{@messages.last.id}').focus;"
-page[:men_10].toggle
+#page[:men_10].toggle
 
 end

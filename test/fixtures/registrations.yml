@@ -58,3 +58,9 @@ reg9:
  profile_id: 3
  user_id: 12
  institution_id: 2
+
+reg9:
+ id: 10
+ profile_id: 3
+ user_id: 12
+ institution_id: 1

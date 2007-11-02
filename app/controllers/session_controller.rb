@@ -14,9 +14,9 @@ class SessionController < ApplicationController
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
       end
       #redirect_back_or_default('/')
-       
+
       redirect_to institutions_path
-  
+
     else
       flash.now[:error] = "Loggin ou senha errado"
       render :action => 'new'

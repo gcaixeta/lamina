@@ -18,6 +18,7 @@
         <td><%= registration.institution.email %></td>
 
     <td><%= link_to 'Entrar', institution_path(registration.institution) %></td>
+    <td><%= link_to 'Cadastro na intituição', signup_institution_registrations_path(registration.institution) %></td>
 
   </tr>
 <% end %>

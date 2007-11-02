@@ -25,7 +25,7 @@
 
 
 <%=  javascript_tag "var ver = '0'; var lastver = '0'"  %>
-<%=  javascript_tag "var interaction = '0';"  %>
+<%=  javascript_tag "var interaction =0;"  %>
 
 <%= periodically_call_remote( 
 :url => list_group_messages_url(@group.id),
@@ -33,7 +33,7 @@
 :frequency => 5.0) %>
 
 <%= periodically_call_remote( 
-:url => group_interaction_url(@group.id),
+:url => group_interactions_url(@group.id),
 :with => "'interaction=' + interaction",
 :method => "get",
-:frequency => 35.0) %>
+:frequency => 5.0) %>

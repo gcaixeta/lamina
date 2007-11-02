@@ -1,4 +1,5 @@
 <% for message in messages %><p id="men_<%= message.id %>">
 <i>(<%= message.created_at.to_s(:data)  %>)</i>
 <i>(<%= message.id %>)</i>
-<b><%= message.participation.registration.user.name %>: </b><%= message.messages %></p><% end %>
+<b><%= message.participation.registration.user.name %>: </b><%= message.messages %></p>
+<% end %>

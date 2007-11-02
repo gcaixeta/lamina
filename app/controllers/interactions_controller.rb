@@ -11,14 +11,13 @@ before_filter :find_group
     participations = Participation.find_all_by_group_id(@group.id)
     interaction = params[:interaction]
     
-    if interaction == 0
-      activities = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
+    #if interaction == 0
+      @activities = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
+
     
-    elsif interaction > 0
-    
-    else
-      @interactions = Interaction.find(:all)
-    end
+#     else
+#       @interactions = Interaction.find(:all)
+#     end
     
     
     respond_to do |format|

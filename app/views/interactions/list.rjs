@@ -8,16 +8,17 @@ elsif @interactions != nil && @interactions != []
 
 end
 
-if @messages != []
+if @messages != [] && @messages != nil
   page.insert_html :bottom, 'messages', :partial => 'messages/list', :locals => {:messages => @messages}
   page.assign :message, @messages.last.id 
   page.visual_effect  :highlight, "men_#{@messages.last.id}", :startcolor => "'#99ffcc'"
 end
 
-page.assign :interaction, @interactions.last.id
 
 
-if @interactions != []
+
+if @interactions != [] && @interactions != nil
+  page.assign :interaction, @interactions.last.id
   page.insert_html :top, 'question_list', :partial => 'list', :locals => {:interactions => @interactions}
 end
 

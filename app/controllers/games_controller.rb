@@ -30,6 +30,7 @@ before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
   # GET /games/new
   def new
     @game = Game.new
+    @groups = Theme.find(@theme).groups
   end
 
   # GET /games/1;edit
@@ -41,6 +42,7 @@ before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
   # POST /games.xml
   def create
     @game = Game.new(params[:game])
+
 
     respond_to do |format|
       if  @theme.games << @game
@@ -63,7 +65,7 @@ before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
     respond_to do |format|
       if @game.update_attributes(params[:game])
         flash[:notice] = 'Game was successfully updated.'
-        format.html { redirect_to game_url(@game) }
+        format.html { redirect_to  games_path () }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -92,7 +94,7 @@ before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
  def is_teacher
                 reg = Registration.find_by_user_id_and_profile_id(session[:user], 2)
                 if reg == nil
-                    flash[:notice] = "Voce não tem permissao para cadastrar um tema"
+                    flash[:notice] = "Voce não tem permissao para cadastrar um game"
                   redirect_to themes_path
                     #render :action => 'index'
                 end

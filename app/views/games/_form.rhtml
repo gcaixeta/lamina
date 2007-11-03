@@ -3,17 +3,27 @@
 <fieldset>
   <p>
     <b>Date begin</b><br />
-    <%= f.date_select :date_begin %>
+    <%= f.datetime_select :date_begin %>
   </p>
 
   <p>
-    <b>Concluded</b><br />
-    <%= f.check_box :concluded %>
+    <b>concluded</b><br />
+    <%= f.check_box :concluded%>
   </p>
+
+
 
   <p>
     <b>Victory</b><br />
     <%= f.text_field :victory_id %>
   </p>
 
+
+  <% for group in   @groups %>
+
+<%= group.name %>
+<%= check_box_tag "group[#{group.name}]",  group.id %>  </br>
+
+
+<% end %>
 </fieldset>

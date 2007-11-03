@@ -20,7 +20,7 @@ before_filter :find_group
       @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, message])
       
       
-    elsif interaction > 0 && message != 0
+    elsif interaction > 0 && message > 0
       @interactions = Interaction.find(:all, :conditions => [ "participation_id IN (?) AND id > ?",participations, interaction], :order => "created_at DESC" )
       @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, message])
     end
@@ -29,8 +29,8 @@ before_filter :find_group
       format.html # index.rhtml
       format.xml  { render :xml => @interactions.to_xml }
       format.js do 
-        if interaction == 0 && message == 0
-          render :action => 'list.rjs' 
+        if @interactions != [] || @messages != []
+          render :action => 'list.rjs'
         else
           render :nothing => true
         end

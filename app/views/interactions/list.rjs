@@ -9,3 +9,9 @@ elsif @interactions != nil && @interactions != []
   page.assign :interaction, @interactions.first.id
 
 end
+
+if @messages != []
+  page.insert_html :bottom, 'messages', :partial => 'messages/list', :locals => {:messages => @messages}
+  page.assign :message, @messages.last.id 
+  page.visual_effect  :highlight, "men_#{@messages.last.id}", :startcolor => "'#99ffcc'"
+end

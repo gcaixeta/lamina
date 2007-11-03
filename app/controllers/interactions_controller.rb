@@ -9,18 +9,32 @@ before_filter :find_group
 #questoes.first.creation
 # :order => "created_on DESC"
     participations = Participation.find_all_by_group_id(@group.id)
-    interaction = params[:interaction]
+
+    interaction = params[:interaction].to_i
+    message = params[:message].to_i
+
+    if interaction == 0 && message == 0
     
-    if interaction == '0'
+    
       @activities = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
-    else
+      @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, message])
+      
+      
+    elsif interaction > 0 && message != 0
       @interactions = Interaction.find(:all, :conditions => [ "participation_id IN (?) AND id > ?",participations, interaction], :order => "created_at DESC" )
+      @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, message])
     end
 
     respond_to do |format|
       format.html # index.rhtml
       format.xml  { render :xml => @interactions.to_xml }
-      format.js { render :action => 'list.rjs' }
+      format.js do 
+        if interaction == 0 && message == 0
+          render :action => 'list.rjs' 
+        else
+          render :nothing => true
+        end
+      end
     end
   end
   
@@ -29,7 +43,7 @@ before_filter :find_group
     respond_to do |format|
       format.html # index.rhtml
       format.xml  { render :xml => @interactions.to_xml }
-      format.js
+      format.js 
     end
   
   end

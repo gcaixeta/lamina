@@ -92,7 +92,7 @@ before_filter :find_group
     #p.each {|pe| me.push( pe.messages) }
     
       participations = Participation.find_all_by_group_id(@group.id)
-      @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, params[:ver]])
+      @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, params[:message]])
 
     respond_to do |format|
       format.html # index.rhtml

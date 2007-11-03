@@ -1,0 +1,18 @@
+<p>
+  <b>Date begin:</b>
+  <%=h @game.date_begin %>
+</p>
+
+<p>
+  <b>Concluded:</b>
+  <%=h @game.concluded %>
+</p>
+
+<p>
+  <b>Victory:</b>
+  <%=h @game.victory_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@theme, @game) %> |
+<%= link_to 'Back', games_path %>

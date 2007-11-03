@@ -1,0 +1,24 @@
+<h1>Listing games</h1>
+
+<table>
+  <tr>
+    <th>Date begin</th>
+    <th>Concluded</th>
+    <th>Victory</th>
+  </tr>
+  
+<% for game in @games %>
+  <tr>
+    <td><%=h game.date_begin %></td>
+    <td><%=h game.concluded %></td>
+    <td><%=h game.victory_id %></td>
+    <td><%= link_to 'Show', game_path(@theme, game) %></td>
+    <td><%= link_to 'Edit', edit_game_path(@theme, game) %></td>
+    <td><%= link_to 'Destroy', game_path(@theme, game), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New game', new_game_path %>

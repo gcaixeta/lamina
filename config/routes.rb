@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
 
 
+
+
   # The priority is based upon order of creation: first created -> highest priority.
 
 
@@ -24,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
     themes.resources :links
     themes.resources :groups, :name_prefix => "theme_", :collection => {:list =>:get}
     themes.resources :archives
+    themes.resources :games
   end
 
 #Planejamento de URL do Grupos

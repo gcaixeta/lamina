@@ -1,0 +1,27 @@
+<h1>Editing game</h1>
+
+<%= error_messages_for :game %>
+
+<% form_for(:game, :url => game_path(@theme,@game), :html => { :method => :put }) do |f| %>
+  <p>
+    <b>Date begin</b><br />
+    <%= f.date_select :date_begin %>
+  </p>
+
+  <p>
+    <b>Concluded</b><br />
+    <%= f.check_box :concluded %>
+  </p>
+
+  <p>
+    <b>Victory</b><br />
+    <%= f.text_field :victory_id %>
+  </p>
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', game_path(@theme,@game) %> |
+<%= link_to 'Back', games_path %>

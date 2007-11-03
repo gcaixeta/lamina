@@ -27,10 +27,10 @@
 <%=  javascript_tag "var ver = '0'; var lastver = '0'"  %>
 <%=  javascript_tag "var interaction =0;"  %>
 
-<%= periodically_call_remote( 
+<%# periodically_call_remote( 
 :url => list_group_messages_url(@group.id),
 :with => "'ver=' + ver + '&lastver=' + lastver + '&id=#{params[:id]}'",  
-:frequency => 5.0) %>
+:frequency => 5.0) -%>
 
 <%= periodically_call_remote( 
 :url => list_group_interactions_url(@group.id),

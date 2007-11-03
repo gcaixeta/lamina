@@ -96,7 +96,7 @@ before_filter :find_group
 
     respond_to do |format|
       format.html # index.rhtml
-      format.xml  { render :xml => @interactions.to_xml }
+      format.xml  { render :xml => @messages.to_xml }
       format.js do
       if @messages != []
       render :action => 'list.rjs'

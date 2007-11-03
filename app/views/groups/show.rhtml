@@ -24,15 +24,15 @@
   
 
 
-<%=  javascript_tag "var ver = '0'; var lastver = '0'"  %>
-<%=  javascript_tag "var interaction =0;"  %>
+<%=  javascript_tag "var message = 0;"  %>
+<%=  javascript_tag "var interaction = 0;"  %>
 
 <%# periodically_call_remote( 
 :url => list_group_messages_url(@group.id),
-:with => "'ver=' + ver + '&lastver=' + lastver + '&id=#{params[:id]}'",  
+:with => "'message=' + message + '&lastver=' + lastver + '&id=#{params[:id]}'",  
 :frequency => 5.0) -%>
 
 <%= periodically_call_remote( 
 :url => list_group_interactions_url(@group.id),
-:with => "'interaction=' + interaction",
-:frequency => 105.0) %>
+:with => "'interaction=' + interaction + '&message='+ message",
+:frequency => 5.0) %>

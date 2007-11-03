@@ -22,7 +22,7 @@
   <% for group in   @groups %>
 
 <%= group.name %>
-<%= check_box_tag "group[#{group.name}]",  group.id %>  </br>
+<%= check_box_tag "groups[]",  group.id %>  </br>
 
 
 <% end %>

@@ -36,6 +36,7 @@ before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
   # GET /games/1;edit
   def edit
     @game = Game.find(params[:id])
+    @groups = Theme.find(@theme).groups
   end
 
   # POST /games
@@ -43,11 +44,15 @@ before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
   def create
     @game = Game.new(params[:game])
 
-
+    
     respond_to do |format|
       if  @theme.games << @game
+              groups = params[:groups]
+                for group in groups
+                     puts group
+                end 
 
-        flash[:notice] = 'Game was successfully created.'
+        flash[:notice] = 'Jogo criado com sucesso.'
         format.html { redirect_to theme_games_url }
         format.xml  { head :created, :location => game_url(@game) }
       else
@@ -65,7 +70,7 @@ before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
     respond_to do |format|
       if @game.update_attributes(params[:game])
         flash[:notice] = 'Game was successfully updated.'
-        format.html { redirect_to  games_path () }
+        format.html { redirect_to theme_games_url }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

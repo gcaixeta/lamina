@@ -33,7 +33,6 @@
 :frequency => 60.0) %>
 
 <%= periodically_call_remote( 
-:url => group_interactions_url(@group.id),
+:url => list_group_interactions_url(@group.id),
 :with => "'interaction=' + interaction",
-:method => "get",
 :frequency => 15.0) %>

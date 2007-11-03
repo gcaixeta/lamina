@@ -43,7 +43,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :groups,  :collection => {:message => :post} do |groups|  
   groups.resources :messages, :collection => {:list =>:post}
 
-  groups.resources :interactions
+  groups.resources :interactions, :collection => {:list =>:post}
   groups.resources :activities
   groups.resources :answers
 

@@ -2,7 +2,7 @@ class InteractionsController < ApplicationController
 
 before_filter :find_group
 
-  def index
+  def list
     #
     # questoes = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
 #Group.find(5).participation_ids
@@ -25,6 +25,16 @@ before_filter :find_group
       format.xml  { render :xml => @interactions.to_xml }
       format.js
     end
+  end
+  
+  def index
+    @interactions = Interaction.find(:all)
+    respond_to do |format|
+      format.html # index.rhtml
+      format.xml  { render :xml => @interactions.to_xml }
+      format.js
+    end
+  
   end
 
   # GET /interactions/1

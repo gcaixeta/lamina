@@ -1,7 +1,11 @@
 if @activities != nil
+  #PROBLEMA ultima atividade nao é a primeira interação... verificar como pegar as interações, talvez través da data
   page.assign :interaction, @activities.last.id
-  page.insert_html :bottom, 'question_list', :partial => 'questions/list', :locals => {:activities => @activities}
+  page.replace_html 'question_list', :partial => 'questions/list', :locals => {:activities => @activities}
+
+
 elsif @interactions != nil && @interactions != []
+
   page.assign :interaction, @interactions.first.id
 
 end

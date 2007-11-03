@@ -84,14 +84,27 @@ before_filter :find_group
       format.xml  { head :ok }
     end
   end
-  
-    def list
+
+
+  def list
     #TODO otimizar query que pega mensagens do grupo
     #p = Participation.find_all_by_group_id(5, :include=>[:messages])
     #p.each {|pe| me.push( pe.messages) }
     
       participations = Participation.find_all_by_group_id(@group.id)
       @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, params[:ver]])
+
+    respond_to do |format|
+      format.html # index.rhtml
+      format.xml  { render :xml => @interactions.to_xml }
+      format.js do
+      if @messages != []
+      render :action => 'list.rjs'
+      else
+      render :nothing => true
+      end
+      end
+    end
   end
   
     private

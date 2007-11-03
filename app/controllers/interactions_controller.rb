@@ -20,7 +20,7 @@ before_filter :find_group
     respond_to do |format|
       format.html # index.rhtml
       format.xml  { render :xml => @interactions.to_xml }
-      format.js
+      format.js { render :action => 'list.rjs' }
     end
   end
   

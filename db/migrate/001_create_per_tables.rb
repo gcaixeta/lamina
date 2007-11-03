@@ -137,7 +137,7 @@ class CreatePerTables < ActiveRecord::Migration
 
   create_table "games" do |t|
     t.column "theme_id",      :integer, :null => false
-    t.column "date_begin", :date, :null => false
+    t.column "date_begin", :datetime, :null => false
     t.column "concluded",     :boolean, :default => false
     t.column "victory_id",     :integer, :null => true
   end

@@ -1,12 +1,10 @@
 if @activities != nil
-  #PROBLEMA ultima atividade nao é a primeira interação... verificar como pegar as interações, talvez través da data
-  page.assign :interaction, @activities.last.id
   page.replace_html 'question_list', :partial => 'questions/list', :locals => {:activities => @activities}
 
 
 elsif @interactions != nil && @interactions != []
 
-  page.assign :interaction, @interactions.first.id
+  
 
 end
 
@@ -15,3 +13,11 @@ if @messages != []
   page.assign :message, @messages.last.id 
   page.visual_effect  :highlight, "men_#{@messages.last.id}", :startcolor => "'#99ffcc'"
 end
+
+page.assign :interaction, @interactions.last.id
+
+
+if @interactions != []
+  page.insert_html :top, 'question_list', :partial => 'list', :locals => {:interactions => @interactions}
+end
+

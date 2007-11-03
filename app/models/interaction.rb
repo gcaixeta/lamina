@@ -1,6 +1,6 @@
 class Interaction < ActiveRecord::Base
 belongs_to  :participation
-belongs_to :activities
+belongs_to :activity
 
 validates_presence_of :participation_id
 

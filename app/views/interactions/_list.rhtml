@@ -1,0 +1,4 @@
+<% for interaction in interactions %>
+<p id="ques_<%= interaction.activity.creation_id %>">
+<%= interaction.activity.creation.text[0...15] %>...</p>
+<% end %>

@@ -1,2 +1,7 @@
-page << "interaction = #{@activities.last.id};"
-page.insert_html :bottom, 'question_list', :partial => 'questions/list', :locals => {:activities => @activities}
+if @activities != nil
+  page.assign :interaction, @activities.last.id
+  page.insert_html :bottom, 'question_list', :partial => 'questions/list', :locals => {:activities => @activities}
+elsif @interactions != nil && @interactions != []
+  page.assign :interaction, @interactions.first.id
+
+end

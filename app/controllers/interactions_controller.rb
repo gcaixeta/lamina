@@ -11,15 +11,12 @@ before_filter :find_group
     participations = Participation.find_all_by_group_id(@group.id)
     interaction = params[:interaction]
     
-    #if interaction == 0
+    if interaction == '0'
       @activities = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
+    else
+      @interactions = Interaction.find(:all, :conditions => [ "participation_id IN (?) AND id > ?",participations, interaction], :order => "created_at DESC" )
+    end
 
-    
-#     else
-#       @interactions = Interaction.find(:all)
-#     end
-    
-    
     respond_to do |format|
       format.html # index.rhtml
       format.xml  { render :xml => @interactions.to_xml }

@@ -1,5 +1,7 @@
 <% form_remote_tag :url => group_questions_path(@group),  :html => {:id => 'question_form'} do -%>
-  <label for="question_text">Pergunta:</label>
-  <%= text_area 'question', 'text' %>
+  <label for="question_text">Editar Pergunta:</label>
+  <br />
+  <%= text_area( 'question', 'text', "cols" => 45, "rows" => 5) %>
+  <br />
   <%= submit_tag 'Salvar' %>
 <% end -%>

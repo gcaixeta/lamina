@@ -1,4 +1,4 @@
 <% for activity in activities %>
 <p id="ques_<%= activity.creation_id %>">
-<%= activity.creation.text %></p>
+<%= activity.creation.text[0...15] %>...</p>
 <% end %>

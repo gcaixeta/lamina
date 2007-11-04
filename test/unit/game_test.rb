@@ -25,13 +25,6 @@ end
     assert_invalid game, "game shouldn't be created"
   end
 
-     # validar o concluded  do game
- def test_should_require_concluded
-    game = create(:concluded  => nil)
-    assert game.errors.invalid?(:concluded ), ":concluded  should be required"
-    assert_invalid game, "game shouldn't be created"
-  end
-
 
 	# validar o int no theme_id do game
 def test_should_deny_non_integer_theme_id

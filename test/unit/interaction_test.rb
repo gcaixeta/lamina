@@ -84,7 +84,7 @@ end
   assert_equal 3, activities(:act1).interactions.size, "answer should have had 3 interactions"
 
   # assign a proposal to a answer_id that doesn't exist
-    interaction = create(:activity_id => 100)
+    interaction = create(:activity_id => 99999999)
     assert interaction.errors.invalid?(:activity), "answer doesn't exist, so it should be required"
 
   end

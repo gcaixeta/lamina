@@ -37,6 +37,7 @@ before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
   def edit
     @game = Game.find(params[:id])
     @groups = Theme.find(@theme).groups
+    @game.groups
   end
 
   # POST /games

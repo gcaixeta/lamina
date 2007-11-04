@@ -8,6 +8,15 @@ before_filter :find_group
 #Group.find(5).participation_ids
 #questoes.first.creation
 # :order => "created_on DESC"
+
+#p = Participation.find(:all, :conditions => { :group_id =>5}, :include=>[:messages])
+# p = Participation.find_all_by_group_id(5, :include=>[:messages])
+#messages = Message.find(:all, :conditions => [ "participation_id IN (?)", participations])
+
+
+
+
+
     participations = Participation.find_all_by_group_id(@group.id)
 
     interaction = params[:interaction].to_i

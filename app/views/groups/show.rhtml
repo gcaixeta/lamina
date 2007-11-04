@@ -2,7 +2,10 @@
 
 <div id="menu_aq">
    <div id="new_aq">
-     <%= link_to_remote "Nova Pergunta", :url => new_group_question_url(@group.id), :method => 'get'%>
+     <%= link_to_function "Nova Pergunta", update_page {|page|
+    page['question_form'].reset
+page['question_new'].show
+  } %>
    </div>
 </div>
 <div id="content_aq">

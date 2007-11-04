@@ -22,9 +22,9 @@ before_filter :find_group
     interaction = params[:interaction].to_i
     message = params[:message].to_i
 
+#lista todas as atividades e mensagens, se for a primeira vez que o usuario entra no ambiente
     if interaction == 0 && message == 0
-    
-    
+
       @activities = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
       @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, message])
        @interactions = Interaction.find(:all, :order => "id desc", :limit => 1, :conditions => [ "participation_id IN (?)",participations])

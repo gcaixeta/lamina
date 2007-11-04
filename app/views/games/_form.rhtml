@@ -2,27 +2,16 @@
 
 <fieldset>
   <p>
-    <b>Date begin</b><br />
+    <b>Data e hora do Jogo</b><br />
     <%= f.datetime_select :date_begin %>
   </p>
 
-  <p>
-    <b>concluded</b><br />
-    <%= f.check_box :concluded%>
-  </p>
 
-
-
-  <p>
-    <b>Victory</b><br />
-    <%= f.text_field :victory_id %>
-  </p>
-
-
+</br> <p><b></br>Grupos para o jogo</b></p>
   <% for group in   @groups %>
 
-<%= group.name %>
-<%= check_box_tag "groups[]",  group.id %>  </br>
+   <p></br><%= group.name %>
+<%= check_box_tag "groups[]",  group.id %>  </br>  </p>
 
 
 <% end %>

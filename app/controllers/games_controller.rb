@@ -70,7 +70,7 @@ before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
 
     respond_to do |format|
       if @game.update_attributes(params[:game])
-        flash[:notice] = 'Game was successfully updated.'
+        flash[:notice] = 'Jogo editado com sucesso.'
         format.html { redirect_to theme_games_url }
         format.xml  { head :ok }
       else

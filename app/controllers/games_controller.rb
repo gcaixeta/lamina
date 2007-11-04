@@ -47,9 +47,9 @@ before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
     
     respond_to do |format|
       if  @theme.games << @game
-              groups = params[:groups]
-                for group in groups
-       player = Player.create(:game_id => @game, :group_id => group.to_i)
+                groups = params[:groups]
+                groups.each do |group|
+                  @game.groups << Group.find(group.to_i)
                 end 
 
         flash[:notice] = 'Jogo criado com sucesso.'

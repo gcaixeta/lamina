@@ -1,0 +1,2 @@
+page.replace_html 'question_view', :partial => 'questions/show', :locals => {:question => @question}
+page['question_view'].show

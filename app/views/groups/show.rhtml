@@ -10,10 +10,10 @@ page['question_new'].show
 </div>
 <div id="content_aq">
   <div id="question_list">Lista de AQ</div>
-  <div id="question_view">
-    <div id="question_new" style="display:none">
-      <%= render :partial => 'questions/form', :locals => {:group =>@group.id} %>
-    </div>
+  <div id="question_new" style="display:none">
+    <%= render :partial => 'questions/form', :locals => {:group =>@group.id} %>
+  </div>
+  <div id="question_view" style="display:none">
   </div>
 </div>
 

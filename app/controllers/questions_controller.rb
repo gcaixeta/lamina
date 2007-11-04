@@ -20,6 +20,7 @@ before_filter :find_group
     respond_to do |format|
       format.html # show.rhtml
       format.xml  { render :xml => @question.to_xml }
+      format.js
     end
   end
 

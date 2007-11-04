@@ -62,5 +62,5 @@ end
 require "#{RAILS_ROOT}/app/overrides/messages"
 Time::DATE_FORMATS[:data] = "%I:%M%p"
 Time::DATE_FORMATS[:post] = "%d/%m/%Y"
-Time::DATE_FORMATS[:game] = "%d/%m/%Y-%I:%M%p "
+Time::DATE_FORMATS[:game] = "%d/%m/%Y - %I:%M%p "
 #require 'redgreen'

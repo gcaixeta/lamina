@@ -9,7 +9,7 @@
   
 <% for game in @games %>
   <tr>
-    <td><%=h game.date_begin %></td>
+    <td><%=h game.date_begin.to_s(:game)%></td>
     <td><%=h game.concluded %></td>
     <td><%=h game.victory_id %></td>
     <td><%= link_to 'Ver', game_path(@theme, game) %></td>

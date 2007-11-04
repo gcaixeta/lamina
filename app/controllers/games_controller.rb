@@ -8,7 +8,7 @@ before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
   # GET /games
   # GET /games.xml
   def index
-    @games = Game.find(:all)
+    @games = @theme.games.find(:all)
 
     respond_to do |format|
       format.html # index.rhtml

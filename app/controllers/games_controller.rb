@@ -49,7 +49,7 @@ before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
       if  @theme.games << @game
               groups = params[:groups]
                 for group in groups
-                     puts group
+       player = Player.create(:game_id => @game, :group_id => group.to_i)
                 end 
 
         flash[:notice] = 'Jogo criado com sucesso.'

@@ -13,6 +13,9 @@ page['question_new'].show
   <div id="question_new" style="display:none">
     <%= render :partial => 'questions/form', :locals => {:group =>@group.id} %>
   </div>
+  <div id="answer_new" style="display:none">
+    <%= render :partial => 'answers/form', :locals => {:group =>@group.id} %>
+  </div>
   <div id="question_view" style="display:none">
   </div>
 </div>
@@ -35,4 +38,4 @@ page['question_new'].show
 <%= periodically_call_remote( 
 :url => list_group_interactions_url(@group.id),
 :with => "'interaction=' + interaction + '&message='+ message",
-:frequency => 10.0) %>
+:frequency => 5.0) %>

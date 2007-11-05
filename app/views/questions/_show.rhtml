@@ -5,3 +5,7 @@ page['question_view'].hide
   <b>Text:</b>
   <%=h @question.text %>
 </p>
+<%= link_to_function "Nova Resposta", update_page {|page|
+page['question_view'].hide
+  } %>
+<%= render :partial => 'answers/list', :locals => {:answers => @question.answers } %>

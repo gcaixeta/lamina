@@ -44,14 +44,11 @@ ActionController::Routing::Routes.draw do |map|
 #/groups/index - listar os grupos do aluno (e do professor?)
 
   map.resources :groups,  :collection => {:message => :post} do |groups|  
-  groups.resources :messages, :collection => {:list =>:post}
-
-  groups.resources :interactions, :collection => {:list =>:post}
-  groups.resources :activities
-  groups.resources :answers
-
-  groups.resources :questions
-  
+    groups.resources :messages, :collection => {:list =>:post}
+    groups.resources :interactions, :collection => {:list =>:post}
+    groups.resources :activities
+    groups.resources :answers
+    groups.resources :questions
   end
 
 

@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+                <td>Institutição</td>
                 <td>Nome</td>
                    <td>Data de Criação</td>
                       <td>Ativo</td>
@@ -15,9 +16,10 @@
   </tr>
   
 <% for registration in @registrations %>
+   <tr><td>  <%= registration.institution.name %> </td> </tr>
      <% for theme in registration.themes %>
   <tr>
-        
+        <td></td>
         <td><%= theme.name %></td>
         <td><%= theme.created_at.to_s(:post) %></td>
         <td><%= theme.active %></td>

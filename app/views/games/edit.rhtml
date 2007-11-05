@@ -6,18 +6,7 @@
 
 
 <%= render :partial => 'form', :locals => {:f => f} %>
-<fieldset>  <h3><p>Finalizar Jogo  </p></h3>
-  <p>
-    <b>Concluido</b><%= f.check_box :concluded %>
-  </p>
 
-
-<p>
-<label for="game_group">Grupo Vecendor</label><br/>
-<%= select("group","group_id", Group.find_all_by_theme_id(@theme).collect{|t|[t.name, t.id]} ) %>
-</p>
-
-</fieldset>
   <p>
     <%= submit_tag "Update" %>
   </p>

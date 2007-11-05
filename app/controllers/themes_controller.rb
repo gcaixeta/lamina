@@ -16,7 +16,7 @@ end
 
 def index
     #@theme = Theme.find(:all)
-      @registrations = Registration.find_all_by_user_id(session[:user])
+      @registrations = Registration.find_all_by_user_id_and_profile_id(session[:user],2)
         
     respond_to do |format|
       format.html # index.rhtml

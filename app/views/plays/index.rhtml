@@ -1,0 +1,24 @@
+<h1>Listing plays</h1>
+
+<table>
+  <tr>
+    <th>Player</th>
+    <th>Question</th>
+    <th>Answer</th>
+  </tr>
+  
+<% for play in @plays %>
+  <tr>
+    <td><%=h play.player_id %></td>
+    <td><%=h play.question_id %></td>
+    <td><%=h play.answer_id %></td>
+    <td><%= link_to 'Show', play_path(play) %></td>
+    <td><%= link_to 'Edit', edit_play_path(play) %></td>
+    <td><%= link_to 'Destroy', play_path(play), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New play', new_play_path %>

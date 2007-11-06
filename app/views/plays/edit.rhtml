@@ -1,0 +1,27 @@
+<h1>Editing play</h1>
+
+<%= error_messages_for :play %>
+
+<% form_for(:play, :url => play_path(@play), :html => { :method => :put }) do |f| %>
+  <p>
+    <b>Player</b><br />
+    <%= f.text_field :player_id %>
+  </p>
+
+  <p>
+    <b>Question</b><br />
+    <%= f.text_field :question_id %>
+  </p>
+
+  <p>
+    <b>Answer</b><br />
+    <%= f.text_field :answer_id %>
+  </p>
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', play_path(@play) %> |
+<%= link_to 'Back', plays_path %>

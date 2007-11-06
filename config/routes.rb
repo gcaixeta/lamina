@@ -3,6 +3,8 @@ ActionController::Routing::Routes.draw do |map|
 
 
 
+
+
   # The priority is based upon order of creation: first created -> highest priority.
 
 
@@ -49,6 +51,7 @@ ActionController::Routing::Routes.draw do |map|
     groups.resources :activities
     groups.resources :answers
     groups.resources :questions
+    groups.resources :plays
   end
 
 

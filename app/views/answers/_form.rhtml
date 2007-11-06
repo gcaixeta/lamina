@@ -1,0 +1,8 @@
+<% form_remote_tag :url => group_answers_path(@group),  :html => {:id => 'answer_form'} do -%>
+<%= hidden_field_tag 'answer[question_id]' -%>
+  <label for="answer_text">Editar Resposta:</label>
+  <br />
+  <%= text_field_tag 'answer[text]' %>
+  <br />
+  <%= submit_tag 'Salvar' %>
+<% end -%>

@@ -6,6 +6,8 @@ page['question_view'].hide
   <%=h @question.text %>
 </p>
 <%= link_to_function "Nova Resposta", update_page {|page|
-page['question_view'].hide
+page['answer_new'].show
+page['answer[question_id]'].value = @question.id
+page['answer_form'].reset
   } %>
 <%= render :partial => 'answers/list', :locals => {:answers => @question.answers } %>

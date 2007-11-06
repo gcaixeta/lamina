@@ -1,0 +1,3 @@
+page.insert_html :bottom, 'answer_list', :partial => 'answers/show', :locals => {:answer => @answer}
+page.visual_effect  :highlight, "ans_#{@answer.id}", :startcolor => "'#99ffcc'"
+page['answer_form'].reset

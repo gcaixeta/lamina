@@ -1,5 +1,5 @@
-<ol>
+<ol id="answer_list">
 <% for answer in answers %>
-<li><%= answer.text -%></li>
+<li id="ans_<%= answer.id %>"><%= answer.text -%></li>
 <% end %>
 </ol>

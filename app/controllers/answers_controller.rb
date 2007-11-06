@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
-  # GET /answers
-  # GET /answers.xml
+
+  before_filter :find_group
+  
   def index
     @answers = Answer.find(:all)
 
@@ -38,12 +39,19 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.save
+        registration = @group.registrations.find_by_user_id(session[:user])
+        participation = Participation.find_by_group_id_and_registration_id(@group.id,registration.id)
+        activity = participation.activities.create(:creation => @answer)
+        interaction = Interaction.create(:activity_id => activity.id, :participation_id => participation.id, :action_type => 'newA' )
+      
         flash[:notice] = 'Answer was successfully created.'
-        format.html { redirect_to answer_url(@answer) }
-        format.xml  { head :created, :location => answer_url(@answer) }
+        format.html { redirect_to group_answer_url(@group, @answer) }
+        format.xml  { head :created, :location => group_answer_url(@group, @answer) }
+        format.js 
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @answer.errors.to_xml }
+        format.js 
       end
     end
   end
@@ -75,5 +83,9 @@ class AnswersController < ApplicationController
       format.html { redirect_to answers_url }
       format.xml  { head :ok }
     end
+  end
+private
+  def find_group
+    @group = Group.find params[:group_id]
   end
 end

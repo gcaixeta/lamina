@@ -4,5 +4,8 @@
   <br />
   <%= text_field_tag 'answer[text]' %>
   <br />
+  <label for="answer[correct]">Resposta Correta?</label>
+  <%= check_box_tag 'answer[correct]' %>
+  <br />
   <%= submit_tag 'Salvar' %>
 <% end -%>

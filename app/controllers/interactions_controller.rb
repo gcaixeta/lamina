@@ -31,7 +31,7 @@ before_filter :find_group
 
       
     elsif interaction > 0 || message > 0
-      @interactions = Interaction.find(:all, :conditions => [ "participation_id IN (?) AND id > ?",participations, interaction], :order => "created_at DESC" )
+      @interactions = Interaction.find(:all, :conditions => [ "participation_id IN (?) AND id > ? AND action_type = 'new' ",participations, interaction], :order => "created_at DESC"  )
       @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, message])
     end
 

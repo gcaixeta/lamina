@@ -4,4 +4,7 @@
   <%= text_area( 'question', 'text', "cols" => 45, "rows" => 5) %>
   <br />
   <%= submit_tag 'Salvar' %>
+  <%= button_to_function "Cancelar", update_page {|page|
+    page['question_new'].hide
+  } %>
 <% end -%>

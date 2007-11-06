@@ -1,17 +1,17 @@
-<h3><%= @group.name %></h3>
+<h3>Grupo: <%= @group.name %></h3>
 
 <div id="menu_aq">
    <div id="new_aq">
-     <%= link_to_function "Nova Pergunta", update_page {|page|
+     <%= button_to_function "Nova Pergunta", update_page {|page|
     page['question_form'].reset
-page['question_new'].show
-page['answer_form'].reset
-page['answer_new'].hide
+    page['question_new'].show
+    page['answer_form'].reset
+    page['answer_new'].hide
   } %>
    </div>
 </div>
 <div id="content_aq">
-  <div id="question_list">Lista de AQ</div>
+  <div id="question_list">Carregando lista de Perguntas...</div>
   <div id="question_new" style="display:none">
     <%= render :partial => 'questions/form', :locals => {:group =>@group.id} %>
   </div>
@@ -23,7 +23,7 @@ page['answer_new'].hide
 </div>
 
 
-<p style="color:red"> AVISO: Ajax pesado em 2 segundos </p>
+<h5>Chat:</h5>
 <div id="last_message"></div>
 <div id="messages">
 </div>

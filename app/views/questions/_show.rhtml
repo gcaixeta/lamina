@@ -13,3 +13,6 @@ page['answer_new'].show
 page['answer[question_id]'].value = @question.id
 page['answer_form'].reset
   } %>
+<%= link_to_remote "Editar", 
+    :url => group_question_url(@group.id, @question), 
+    :method => 'get'%>

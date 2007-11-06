@@ -70,6 +70,7 @@ before_filter :find_group
         flash[:notice] = 'Question was successfully updated.'
         format.html { redirect_to question_url(@question) }
         format.xml  { head :ok }
+        format.js
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @question.errors.to_xml }

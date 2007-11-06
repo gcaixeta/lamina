@@ -1,6 +1,9 @@
 class PlaysController < ApplicationController
-  # GET /plays
-  # GET /plays.xml
+
+#ANOTACOES
+#1 passo
+#usuario passa pergunta do grupo deleend
+
   def index
     @plays = Play.find(:all)
 

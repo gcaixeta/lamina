@@ -1,14 +1,16 @@
 #Listagem Inicial com todas as perguntas
 if @activities != nil
   page.replace_html 'question_list', :partial => 'questions/list', :locals => {:activities => @activities}
-#elsif @interactions != nil && @interactions != []
 end
 
 
 #se tiver interacao
-if @interactions != [] && @interactions != nil
-  page.assign :interaction, @interactions.last.id
+if @interactions != [] && @interactions != nil && @activities == nil
   page.insert_html :top, 'question_list', :partial => 'list', :locals => {:interactions => @interactions}
+end
+
+if @interactions != []
+  page.assign :interaction, @interactions.last.id
 end
 
 

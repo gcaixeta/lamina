@@ -5,6 +5,8 @@
      <%= link_to_function "Nova Pergunta", update_page {|page|
     page['question_form'].reset
 page['question_new'].show
+page['answer_form'].reset
+page['answer_new'].hide
   } %>
    </div>
 </div>

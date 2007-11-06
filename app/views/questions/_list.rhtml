@@ -1,4 +1,5 @@
 <% for activity in activities %>
 <p id="ques_<%= activity.creation_id %>">
-<%= activity.creation.text[0...15] %>...</p>
+<%= link_to_remote "#{activity.creation.text[0...15]}...", :url => group_question_url(@group.id, activity.creation_id), :method => 'get'%>
 <% end %>
+

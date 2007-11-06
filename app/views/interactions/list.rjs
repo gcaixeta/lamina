@@ -4,6 +4,16 @@ if @activities != nil
 #elsif @interactions != nil && @interactions != []
 end
 
+
+#se tiver interacao
+if @interactions != [] && @interactions != nil
+  page.assign :interaction, @interactions.last.id
+  page.insert_html :top, 'question_list', :partial => 'list', :locals => {:interactions => @interactions}
+end
+
+
+
+
 #se tiver mensagem, passa instrucao de nova mensagem
 if @messages != [] && @messages != nil
   page.insert_html :bottom, 'messages', :partial => 'messages/list', :locals => {:messages => @messages}
@@ -11,9 +21,5 @@ if @messages != [] && @messages != nil
   page.visual_effect  :highlight, "men_#{@messages.last.id}", :startcolor => "'#99ffcc'"
 end
 
-#se tiver interacao
-if @interactions != [] && @interactions != nil
-  page.assign :interaction, @interactions.last.id
-  page.insert_html :top, 'question_list', :partial => 'list', :locals => {:interactions => @interactions}
-end
+
 

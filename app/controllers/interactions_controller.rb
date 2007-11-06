@@ -27,7 +27,8 @@ before_filter :find_group
 
       @activities = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
       @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, message])
-       @interactions = Interaction.find(:all, :order => "id desc", :limit => 1, :conditions => [ "participation_id IN (?)",participations])
+       @interactions = Interaction.find(:all, :order => "id desc", :limit => 1, :conditions => [ "participation_id IN (?) AND action_type = 'new'",participations])
+       #problema em selecionar apenas interactions de perguntas
 
       
     elsif interaction > 0 || message > 0

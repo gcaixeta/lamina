@@ -1,5 +1,5 @@
 <% for interaction in interactions %>
 <p id="ques_<%= interaction.activity.creation_id %>">
-<%= link_to_remote "#{interaction.activity.creation.text[0...15]}...", :url => group_question_url(@group.id, interaction.activity.creation_id), :method => 'get'%>
+<%= link_to_remote "#{interaction.activity.creation.text[0...15]}...", :url => group_question_url(@group.id, interaction.activity.creation_id), :method => 'get'%>(<%= interaction.activity.creation.answers.count %>) - <%= interaction.created_at.to_s(:interaction) %>
 <% end %>
 

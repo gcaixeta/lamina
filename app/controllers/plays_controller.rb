@@ -23,6 +23,21 @@ class PlaysController < ApplicationController
       format.xml  { render :xml => @play.to_xml }
     end
   end
+  
+  def list
+  	play = params[:play].to_i
+  	
+  	@group = Group.find(params[:group_id])
+  	@players = @grou.players
+  	
+  	
+  	
+  	if play == 0
+  	#localiza todas as jogadas direcionadas ao grupo do individuo
+  		@plays = Play.find(:all)
+  	end
+  	
+  end
 
   # GET /plays/new
   def new

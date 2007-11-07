@@ -43,3 +43,13 @@
 :url => list_group_interactions_url(@group.id),
 :with => "'interaction=' + interaction + '&message='+ message",
 :frequency => 5.0) %>
+
+<%=	if @game  != []  
+
+periodically_call_remote( 
+:url => list_group_plays_url(@group.id),
+:with => "'interaction=' + interaction + '&message='+ message",
+:frequency => 5.0)
+
+
+		 end  %> 

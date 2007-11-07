@@ -2,7 +2,8 @@ class GroupsController < ApplicationController
   before_filter :login_required, :only => [ :index, :show, :list ]
   before_filter :find_theme, :except => [:index, :show]
   before_filter :have_permission_to_view, :only => [:show]
-  before_filter :have_proposal_in_theme, :only => [:new, :create, :update, :edit, :destroy]      
+  before_filter :have_proposal_in_theme, :only => [:new, :create, :update, :edit, :destroy]  
+  before_filter :is_on_game, :only => [ :show ]    
 
   # p = Participation.find_all_by_group_id(1, :include=>[:interactions])
   # p = Participation.find_all_by_group_id(5, :include=>[:messages])
@@ -115,6 +116,11 @@ class GroupsController < ApplicationController
 
 
   private
+
+	def is_on_game
+		#Verifica se o grupo está no periodo de um jogo(game)
+		@game = @group.games.find(:first, :conditions => [ "concluded = ? AND date_begin < ? ",false, Time.now])
+	end
 
   def find_theme
     @theme = Theme.find params[:theme_id]

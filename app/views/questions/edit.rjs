@@ -1,3 +1,4 @@
 page['question_new'].hide
-page.replace_html 'question_edit', :partial => 'questions/edit', :locals => {:question => @question}
+page.replace_html 'question_edit', :partial => 'questions/edit', :locals => {:question => @question, :group => @group}
 page['question_view'].hide
+page['question_edit'].show

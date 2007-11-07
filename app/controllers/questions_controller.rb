@@ -36,6 +36,10 @@ before_filter :find_group
   # GET /questions/1;edit
   def edit
     @question = Question.find(params[:id])
+      respond_to do |format|
+        format.html
+        format.js
+    end
   end
 
   # POST /questions

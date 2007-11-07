@@ -1,7 +1,7 @@
-<% remote_form_for(:question, :url => group_questions_path(@group), :html => { :method => :put }) do |f| %>
+<% remote_form_for(:question, :url => group_question_path(@group, @question), :html => { :method => :put }) do |f| %>
   <p>
-    <label for="question_text">Editar Pergunta:</label>br />
-    <%= f.text_area :text %>
+    <label for="question_text">Editar Pergunta:</label><br />
+    <%= f.text_area :text,  "cols" => 45, "rows" => 5 %>
   </p>
 
   <p>

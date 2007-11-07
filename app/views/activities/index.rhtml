@@ -1,0 +1,8 @@
+
+
+<% for activity in @activities %>
+<br>
+<b><%= activity.id %></b>
+<b><%= activity.participation.registration.user.name %></b>
+<b><%= activity.creation_type %></b>
+<% end %>

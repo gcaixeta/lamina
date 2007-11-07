@@ -1,1 +1,1 @@
-page.replace_html  "anse_#{@question_id}", :partial => 'answers/list', :locals => {:answers => @answers}
+page.replace_html  "list_ans_#{@question_id}", :partial => 'answers/list', :locals => {:answers => @answers}

@@ -4,7 +4,7 @@ before_filter :find_group
   def index
     
    participations = Participation.find_all_by_group_id(@group.id)
-	
+
       @activities = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
     respond_to do |format|
       format.html # index.rhtml

@@ -3,11 +3,13 @@ class AnswersController < ApplicationController
   before_filter :find_group
   
   def index
-    @answers = Answer.find(:all)
+      @question_id = params[:question_id]
+    @answers = Answer.find_all_by_question_id(@question_id)
 
     respond_to do |format|
       format.html # index.rhtml
       format.xml  { render :xml => @answers.to_xml }
+      format.js 
     end
   end
 

@@ -4,5 +4,11 @@
 <br>
 <b><%= activity.id %></b>
 <b><%= activity.participation.registration.user.name %></b>
-<b><%= activity.creation_type %></b>
+<div><%= activity.creation.text %></div>
+<%= link_to_remote "resposta", 
+    :url => group_answers_url(@group), 
+    :with => "'question_id=' + #{activity.creation_id}",
+    :method => 'get'%>
+<div id="anse_<%=activity.creation_id%>">
+</div>
 <% end %>

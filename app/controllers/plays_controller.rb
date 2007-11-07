@@ -27,15 +27,26 @@ class PlaysController < ApplicationController
   def list
   	play = params[:play].to_i
   	
+  	#pega de qual jogo quer listar as jogadas
+  	@game = Game.find(params[:game])
   	@group = Group.find(params[:group_id])
-  	@players = @grou.players
+  	players = @group.players.find_all_by_game_id(@game)
   	
   	
   	
   	if play == 0
   	#localiza todas as jogadas direcionadas ao grupo do individuo
-  		@plays = Play.find(:all)
+  		@plays = Play.find(:all, :conditions => [ "player_id IN (?)",players])
+  	elsif play > 0
+  		@plays = Play.find(:all, :conditions => [ "player_id IN (?) AND id > ?",players, play])
   	end
+  	
+  	
+  	 respond_to do |format|
+      format.html # show.rhtml
+      format.xml  { render :xml => @plays.to_xml }
+      format.js
+    end
   	
   end
 

@@ -23,6 +23,10 @@
     <%= render :partial => 'answers/form', :locals => {:group =>@group.id} %>
   </div>
 </div>
+<div id="content_game">
+	<div id="play_list">
+	</div>
+</div>
 
 
 <h5>Chat:</h5>
@@ -36,7 +40,7 @@
 
 <%=  javascript_tag "var message = 0;"  %>
 <%=  javascript_tag "var interaction = 0;"  %>
-
+<%=  javascript_tag "var play = 0;"  %>
 
 
 <%= periodically_call_remote( 
@@ -46,10 +50,11 @@
 
 <%=	if @game  != []  
 
+
 periodically_call_remote( 
 :url => list_group_plays_url(@group.id),
-:with => "'interaction=' + interaction + '&message='+ message",
-:frequency => 5.0)
+:with => "'game=' + #{@game.id} + '&play='+ play",
+:frequency => 10.0)
 
 
 		 end  %> 

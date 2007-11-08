@@ -7,7 +7,7 @@ belongs_to :creation, :polymorphic => true
 
 
 has_many :interactions
-
+has_many :observations
 validates_presence_of :participation_id
 
 

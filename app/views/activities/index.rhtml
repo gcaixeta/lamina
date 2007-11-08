@@ -13,8 +13,11 @@
 <div id="list_ans_<%=activity.creation_id%>">
 </div>
 
+<div id="apr_<%=activity.id%>"><%= activity.is_approved %></div>
 
 
-<b><%= activity.is_approved %></b>
-
+<%= link_to_remote "aprovado", 
+    :url => approved_group_activity_url(@group, activity), 
+    :method => 'put' %>
+ 
 <% end %>

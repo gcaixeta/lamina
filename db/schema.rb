@@ -74,12 +74,9 @@ ActiveRecord::Schema.define(:version => 9) do
     t.column "created_at",       :datetime
   end
 
-  create_table "observation", :force => true do |t|
-    t.column "text", :text
-  end
-
   create_table "observations", :force => true do |t|
-    t.column "text", :text, :default => "", :null => false
+    t.column "text",        :text,    :default => "", :null => false
+    t.column "activity_id", :integer,                 :null => false
   end
 
   create_table "participations", :force => true do |t|

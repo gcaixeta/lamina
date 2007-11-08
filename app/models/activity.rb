@@ -17,4 +17,14 @@ validates_numericality_of :participation_id, :only_integer => true
 validates_presence_of :participation
 validates_associated :participation
 
+def is_approved
+ 
+      if self.approved 
+            "aprovado" 
+     else
+           "Não Aprovado"
+     end
+
+end
+
 end

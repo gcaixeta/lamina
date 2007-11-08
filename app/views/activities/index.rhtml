@@ -3,6 +3,7 @@
 <% for activity in @activities %>
 <br>
 <b><%= activity.id %></b>
+
 <b><%= activity.participation.registration.user.name %></b>
 <div><%= activity.creation.text %></div>
 <%= link_to_remote "resposta", 
@@ -11,4 +12,9 @@
     :method => 'get'%>
 <div id="list_ans_<%=activity.creation_id%>">
 </div>
+
+
+
+<b><%= activity.is_approved %></b>
+
 <% end %>

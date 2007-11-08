@@ -2,12 +2,13 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 6) do
+ActiveRecord::Schema.define(:version => 8) do
 
   create_table "activities", :force => true do |t|
-    t.column "creation_type",    :string,  :default => "", :null => false
-    t.column "creation_id",      :integer,                 :null => false
-    t.column "participation_id", :integer,                 :null => false
+    t.column "creation_type",    :string,  :default => "",    :null => false
+    t.column "creation_id",      :integer,                    :null => false
+    t.column "participation_id", :integer,                    :null => false
+    t.column "approved",         :boolean, :default => false
   end
 
   create_table "answers", :force => true do |t|
@@ -71,6 +72,10 @@ ActiveRecord::Schema.define(:version => 6) do
     t.column "participation_id", :integer,                  :null => false
     t.column "messages",         :text,     :default => "", :null => false
     t.column "created_at",       :datetime
+  end
+
+  create_table "observation", :force => true do |t|
+    t.column "text", :text
   end
 
   create_table "participations", :force => true do |t|

@@ -1,1 +1,1 @@
-page."apr_<%=activity.id%>"
+page.replace_html "apr_#{@activity.id}", "aprovado"

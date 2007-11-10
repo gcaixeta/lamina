@@ -35,30 +35,20 @@ before_filter :find_activity
   # POST /observations
   # POST /observations.xml
 
-  def create
-      @observation = Observation.new(params[:observation])
-     @observation.activity_id = @activity.id
-    respond_to do |format|
-      if @observation.save
-        flash[:notice] = 'observation was successfully created.'
-        format.html { redirect_to message_url(@message) }
-        format.xml  { head :created, :location => message_url(@message) }
-        format.js { }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @message.errors.to_xml }
-      end
-    end
-  end
+
 
   def create
-    @observation = Observation.new(params[:observation])
-
+      activity = Activity.find params[:activity_id]
+              
+     @observation = Observation.new(params[:observation])
+     @observation.activity_id = activity.id
+     
     respond_to do |format|
       if @observation.save
         flash[:notice] = 'Observation was successfully created.'
         format.html { redirect_to observation_url(@observation) }
         format.xml  { head :created, :location => observation_url(@observation) }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @observation.errors.to_xml }

@@ -21,7 +21,7 @@
     :url => approved_group_activity_url(@group, activity), 
     :method => 'put' %>
 
-  <div id="obs_new">
+  <div id="obs_new_<%=activity.id%>">
     <%= render :partial => 'observations/new', :locals => {:activity =>@activity.id} %>
   </div>
 

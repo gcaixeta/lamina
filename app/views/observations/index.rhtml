@@ -10,9 +10,9 @@
   <tr>
     <td><%=h observation.text %></td>
     <td><%=h observation.activity_id %></td>
-    <td><%= link_to 'Show', observation_path(observation) %></td>
-    <td><%= link_to 'Edit', edit_observation_path(observation) %></td>
-    <td><%= link_to 'Destroy', observation_path(observation), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', observation_path(@activity, observation) %></td>
+    <td><%= link_to 'Edit', edit_observation_path(@activity, observation) %></td>
+    <td><%= link_to 'Destroy', observation_path(@activity, observation), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

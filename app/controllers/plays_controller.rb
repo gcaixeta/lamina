@@ -1,6 +1,6 @@
 class PlaysController < ApplicationController
   
- before_filter :find_group, :only => [:play]
+ before_filter :find_player, :only => [:play]
   #ANOTACOES
   #1 passo
   #usuario passa pergunta do grupo deleend
@@ -63,7 +63,13 @@ class PlaysController < ApplicationController
   # POST /plays
   # POST /plays.xml
   def create
-    @play = Play.new(params[:play])
+    #@play = Play.new(params[:play])
+#Grupo de destino
+#questao que vem como parametro
+    question = Question.find params[:id].split("_")[1]
+    @play = Play.new
+    @play.player = @player
+    @play.question = 
 
     respond_to do |format|
       if @play.save
@@ -110,5 +116,8 @@ class PlaysController < ApplicationController
   private
   def find_group
     @group = Group.find params[:group_id]
+  end
+    def find_player
+    @player = Player.find params[:player_id]
   end
 end

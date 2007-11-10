@@ -1,0 +1,10 @@
+
+
+<% form_remote_tag :url => new_activity_observations_path(@activity),  :html => {:id => 'pbs_new'} do -%>
+                    
+  <label for="observations_text">T</label>
+  <%= text_field 'observation', 'text' %>
+ 
+  <%= submit_tag 'Enviar' %>
+
+<% end -%>

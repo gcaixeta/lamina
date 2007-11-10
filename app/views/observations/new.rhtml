@@ -1,6 +1,0 @@
-<% form_remote_tag :url => activity_observations_path(@activity),  :html => {:id => 'obs_new'} do -%>
-<%= hidden_field_tag 'observation[activity_id]' -%>
-  <%= text_field_tag 'observation[text]' %>
-  <br />
-  <%= submit_tag 'Salvar' %>
-<% end -%>

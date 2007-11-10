@@ -1,5 +1,5 @@
 class ObservationsController < ApplicationController
-before_filter :find_group
+before_filter :find_activity
   # GET /observations
   # GET /observations.xml
   def index
@@ -78,7 +78,7 @@ before_filter :find_group
     end
   end
 private
-  def find_group
-    @group = Group.find params[:group_id]
+  def find_activity
+    @activity = Activity.find params[:activity_id]
   end
 end

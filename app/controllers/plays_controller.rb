@@ -121,11 +121,13 @@ class PlaysController < ApplicationController
     @group = @player.group
     @game = @player.game
     
+    play = params[:play].to_i
+    
     if play == 0
       #localiza todas as jogadas direcionadas ao grupo do individuo
-      @plays = Play.find(:all, :conditions => [ "player_id IN (?)",players])
+      @plays = Play.find(:all, :conditions => {:player_id => @player.id})
     elsif play > 0
-      @plays = Play.find(:all, :conditions => [ "player_id IN (?) AND id > ?",players, play])
+      @plays = Play.find(:all, :conditions => [ "player_id = ? AND id > ?", @player, play])
     end
     
     

@@ -1,0 +1,3 @@
+if @plays != [] && @plays != nil
+  page.assign :play, @plays.last.id 
+end

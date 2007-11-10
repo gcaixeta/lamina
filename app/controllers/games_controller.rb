@@ -5,6 +5,7 @@ class GamesController < ApplicationController
   before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
 
   before_filter :find_theme
+  before_filter :find_group, :only => [:play]
   # GET /games
   # GET /games.xml
   def index
@@ -91,6 +92,15 @@ class GamesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  
+  def play
+    respond_to do |format|
+      format.html # show.rhtml
+      format.xml  { render :xml => @game.to_xml }
+    end
+    
+  end
 
   private
   def find_theme
@@ -105,4 +115,9 @@ class GamesController < ApplicationController
       #render :action => 'index'
     end
   end
+  
+  def find_group
+    @group = Group.find params[:group_id]
+  end
 end
+

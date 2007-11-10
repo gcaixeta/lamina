@@ -1,14 +1,14 @@
 <h3>Grupo: <%= @group.name %></h3>
 
 <div id="menu_aq">
-   <div id="new_aq">
-     <%= button_to_function "Nova Pergunta", update_page {|page|
-    page['question_form'].reset
-    page['question_new'].show
-    page['answer_form'].reset
-    page['answer_new'].hide
-  } %>
-   </div>
+  <div id="new_aq">
+    <%= button_to_function "Nova Pergunta", update_page {|page|
+      page['question_form'].reset
+      page['question_new'].show
+      page['answer_form'].reset
+      page['answer_new'].hide
+    } %>
+  </div>
 </div>
 <div id="content_aq">
   <div id="question_list">Carregando lista de Perguntas...</div>
@@ -24,8 +24,8 @@
   </div>
 </div>
 <div id="content_game">
-	<div id="play_list">
-	</div>
+  <div id="play_list">
+  </div>
 </div>
 
 
@@ -33,9 +33,9 @@
 <div id="last_message"></div>
 <div id="messages">
 </div>
-  <%= render :partial => 'messages/form', :locals => {:group =>@group.id} %>
-  
-  
+<%= render :partial => 'messages/form', :locals => {:group =>@group.id} %>
+
+
 
 
 <%=  javascript_tag "var message = 0;"  %>
@@ -44,17 +44,17 @@
 
 
 <%= periodically_call_remote( 
-:url => list_group_interactions_url(@group.id),
-:with => "'interaction=' + interaction + '&message='+ message",
-:frequency => 5.0) %>
+  :url => list_group_interactions_url(@group.id),
+  :with => "'interaction=' + interaction + '&message='+ message",
+  :frequency => 5.0) %>
 
 <%=	if @game  != []  
 
 
-periodically_call_remote( 
-:url => list_group_plays_url(@group.id),
-:with => "'game=' + #{@game.id} + '&play='+ play",
-:frequency => 10.0)
+  periodically_call_remote( 
+    :url => list_group_plays_url(@group.id),
+    :with => "'game=' + #{@game.id} + '&play='+ play",
+    :frequency => 10.0)
 
 
-		 end  %> 
+end  %> 

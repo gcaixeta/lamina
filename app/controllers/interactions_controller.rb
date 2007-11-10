@@ -1,17 +1,17 @@
 class InteractionsController < ApplicationController
 
-before_filter :find_group
+  before_filter :find_group
 
   def list
     #
     # questoes = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
-#Group.find(5).participation_ids
-#questoes.first.creation
-# :order => "created_on DESC"
+    #Group.find(5).participation_ids
+    #questoes.first.creation
+    # :order => "created_on DESC"
 
-#p = Participation.find(:all, :conditions => { :group_id =>5}, :include=>[:messages])
-# p = Participation.find_all_by_group_id(5, :include=>[:messages])
-#messages = Message.find(:all, :conditions => [ "participation_id IN (?)", participations])
+    #p = Participation.find(:all, :conditions => { :group_id =>5}, :include=>[:messages])
+    # p = Participation.find_all_by_group_id(5, :include=>[:messages])
+    #messages = Message.find(:all, :conditions => [ "participation_id IN (?)", participations])
 
 
 
@@ -22,13 +22,13 @@ before_filter :find_group
     interaction = params[:interaction].to_i
     message = params[:message].to_i
 
-#lista todas as atividades e mensagens, se for a primeira vez que o usuario entra no ambiente
+    #lista todas as atividades e mensagens, se for a primeira vez que o usuario entra no ambiente
     if interaction == 0 && message == 0
 
       @activities = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
       @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, message])
-       @interactions = Interaction.find(:all, :order => "id desc", :limit => 1, :conditions => [ "participation_id IN (?) AND action_type = 'new'",participations])
-       #problema em selecionar apenas interactions de perguntas
+      @interactions = Interaction.find(:all, :order => "id desc", :limit => 1, :conditions => [ "participation_id IN (?) AND action_type = 'new'",participations])
+      #problema em selecionar apenas interactions de perguntas
 
       
     elsif interaction > 0 || message > 0
@@ -125,7 +125,7 @@ before_filter :find_group
       format.xml  { head :ok }
     end
   end
-private
+  private
   def find_group
     @group = Group.find params[:group_id]
   end

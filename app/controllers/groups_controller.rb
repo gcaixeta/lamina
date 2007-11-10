@@ -21,7 +21,7 @@ class GroupsController < ApplicationController
   #/themes/:theme_id/groups/list - Listar por ultima interacao
 
   def new
-     @group = Group.new
+    @group = Group.new
   end
 
   def create
@@ -117,10 +117,10 @@ class GroupsController < ApplicationController
 
   private
 
-	def is_on_game
-		#Verifica se o grupo está no periodo de um jogo(game)
-		@game = @group.games.find(:first, :conditions => [ "concluded = ? AND date_begin < ? ",false, Time.now])
-	end
+  def is_on_game
+    #Verifica se o grupo está no periodo de um jogo(game)
+    @game = @group.games.find(:first, :conditions => [ "concluded = ? AND date_begin < ? ",false, Time.now])
+  end
 
   def find_theme
     @theme = Theme.find params[:theme_id]

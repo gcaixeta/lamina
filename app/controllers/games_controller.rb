@@ -1,8 +1,8 @@
 class GamesController < ApplicationController
 
-before_filter :login_required, :only => [ :new, :create, :update, :destroy, :show, :edit, :index ]
+  before_filter :login_required, :only => [ :new, :create, :update, :destroy, :show, :edit, :index ]
 
-before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
+  before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
 
   before_filter :find_theme
   # GET /games
@@ -48,10 +48,10 @@ before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
     
     respond_to do |format|
       if  @theme.games << @game
-                groups = params[:groups]
-                groups.each do |group|
-                  @game.groups << Group.find(group.to_i)
-                end 
+        groups = params[:groups]
+        groups.each do |group|
+          @game.groups << Group.find(group.to_i)
+        end 
 
         flash[:notice] = 'Jogo criado com sucesso.'
         format.html { redirect_to theme_games_url }
@@ -97,12 +97,12 @@ before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
     @theme = Theme.find params[:theme_id]
   end
 
- def is_teacher
-                reg = Registration.find_by_user_id_and_profile_id(session[:user], 2)
-                if reg == nil
-                    flash[:notice] = "Voce não tem permissao para cadastrar um game"
-                  redirect_to themes_path
-                    #render :action => 'index'
-                end
-        end
+  def is_teacher
+    reg = Registration.find_by_user_id_and_profile_id(session[:user], 2)
+    if reg == nil
+      flash[:notice] = "Voce não tem permissao para cadastrar um game"
+      redirect_to themes_path
+      #render :action => 'index'
+    end
+  end
 end

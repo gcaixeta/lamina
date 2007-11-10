@@ -98,6 +98,10 @@ class GamesController < ApplicationController
   def play
     @game = Game.find(params[:id])
     @groups = @game.groups
+    participations = @group.participations
+    
+    #TODO colocar registricao de somente questoes aprovadas
+    @questions = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
     
     
     respond_to do |format|
@@ -122,7 +126,7 @@ class GamesController < ApplicationController
   end
   
   def find_group
-    #@group = Group.find params[:group_id]
+    @group = Group.find params[:group_id]
   end
 end
 

@@ -1,2 +1,11 @@
 <h5>Participantes:</h5>
-<%= render :partial => 'groups/group', :collection => @groups %>
+<div id="list_players">
+  <%= render :partial => 'groups/group', :collection => @groups %>
+</div>
+
+<h5>Lista de Perguntas do Grupo:</h5>
+<div id="list_questions">
+<ul>
+  <%= render :partial => 'activities/activity', :collection => @questions %>
+</ul>
+</div>

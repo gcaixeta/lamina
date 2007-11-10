@@ -97,7 +97,9 @@ class GamesController < ApplicationController
   
   def play
     @game = Game.find(params[:id])
-    @groups = @game.groups
+    #TODO remover a variavel groups
+    #@groups = @game.groups
+    @players = @game.players
     participations = @group.participations
     
     #TODO colocar registricao de somente questoes aprovadas

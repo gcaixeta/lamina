@@ -56,13 +56,13 @@ ActionController::Routing::Routes.draw do |map|
     groups.resources :games, :member => {:play => :get}
   end
 
-map.resources :activities do |activities|
-activities.resources :observations
-end
+  map.resources :activities do |activities|
+    activities.resources :observations
+  end
 
-map.resources :players do |players|
-players.resources :plays
-end
+  map.resources :players do |players|
+    players.resources :plays, :collection => {:check =>:post}
+  end
 
 
   map.resources :users

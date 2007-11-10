@@ -1,28 +1,42 @@
-<h5>Participantes:</h5>
-<div id="list_players">
-  <%= render :partial => 'players/player', :collection => @players %>
-  <% for player in @players  %>
-    
-  <div id="plays_of_player_<%= player.id %>">Plays of Player</div>
-  <%= drop_receiving_element "player_#{player.id}", 
-      #:update => "plays_of_player_#{player.id}", 
-      :url => player_plays_url(player),
-      :accept => "question"
-      %>
-  
-  
-  <% end %>
+<div class="column3">
+  <h3>Meu Grupo</h3>
+  <h5>Lista de Perguntas do Grupo:</h5>
+  <div id="list_questions">
+    <ul>
+      <% #render :partial => 'activities/activity', :collection => @questions %>
+      <%= render :partial => 'question', :collection => @questions %>
+    </ul>
+    <% for question in @questions  %>
+      <%= draggable_element "question_#{question.creation_id}", :revert => true %>
+    <% end %>
+  </div>
 </div>
 
-<h5>Lista de Perguntas do Grupo:</h5>
-<div id="list_questions">
-  <ul>
-    <% #render :partial => 'activities/activity', :collection => @questions %>
-    <%= render :partial => 'question', :collection => @questions %>
-  </ul>
-  <% for question in @questions  %>
-    <%= draggable_element "question_#{question.creation_id}", :revert => true %>
-  <% end %>
-  
-  
+
+<div class="column3">
+  <h3>Comum</h3>
 </div>
+
+
+<div class="column3">
+  <h5>Participantes:</h5>
+  <div id="list_players">
+    <%= render :partial => 'players/player', :collection => @players %>
+    <% for player in @players  %>
+    
+      <div id="plays_of_player_<%= player.id %>">Plays of Player</div>
+      <%= drop_receiving_element "player_#{player.id}",
+        #:update => "plays_of_player_#{player.id}",
+      :url => player_plays_url(player),
+        :accept => "question"
+      %>
+    <% end %>
+  </div>
+</div>
+
+#quais interacoes devo verificar?
+Novas jogadas DESTINADAS ao PLAYER
+Play.find
+<%= render :partial => 'games/check', :locals => {:group =>@group, :game => @game, :player => @player}%>
+
+

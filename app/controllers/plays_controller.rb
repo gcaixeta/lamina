@@ -1,6 +1,6 @@
 class PlaysController < ApplicationController
   
- before_filter :find_player, :only => [:create]
+  before_filter :find_player, :only => [:create]
   #ANOTACOES
   #1 passo
   #usuario passa pergunta do grupo deleend
@@ -26,6 +26,8 @@ class PlaysController < ApplicationController
   end
   
   def list
+    #TODO verificar se estou utilizando este metodo, caso contrário, removelo. 
+    #Ele foi o piloto do Jogo, mas estou usando o check agora
     play = params[:play].to_i
   	
     #pega de qual jogo quer listar as jogadas
@@ -64,8 +66,8 @@ class PlaysController < ApplicationController
   # POST /plays.xml
   def create
     #@play = Play.new(params[:play])
-#Grupo de destino
-#questao que vem como parametro
+    #Grupo de destino
+    #questao que vem como parametro
     question = Question.find params[:id].split("_")[1]
     @play = Play.new
     @play.player = @player
@@ -113,11 +115,33 @@ class PlaysController < ApplicationController
     end
   end
   
+  def check
+    
+    @player = Player.find params[:player_id]
+    @group = @player.group
+    @game = @player.game
+    
+    if play == 0
+      #localiza todas as jogadas direcionadas ao grupo do individuo
+      @plays = Play.find(:all, :conditions => [ "player_id IN (?)",players])
+    elsif play > 0
+      @plays = Play.find(:all, :conditions => [ "player_id IN (?) AND id > ?",players, play])
+    end
+    
+    
+    respond_to do |format|
+      format.html { redirect_to plays_url }
+      format.xml  { head :ok }
+      format.js
+    end
+    
+  end
+  
   private
   def find_group
     @group = Group.find params[:group_id]
   end
-    def find_player
+  def find_player
     @player = Player.find params[:player_id]
   end
 end

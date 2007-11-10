@@ -142,3 +142,15 @@ padding: 0px 0px 0px 15px;
 background: url('../images/red.gif') no-repeat;
 padding: 0px 0px 0px 15px;
 }
+.column3{
+width: 31.5%;
+/*overflow: auto;*/
+margin: 5px;
+border: solid 1px black;
+float: left;
+background: #fff;
+
+}
+.show_group{
+    background: #99ffcc;
+}

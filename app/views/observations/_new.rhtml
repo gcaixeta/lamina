@@ -1,6 +1,6 @@
 
 
-<% form_remote_tag :html => {:id => 'pbs_new'} do -%>
+<% form_remote_tag :url => activity_observations_url(@activity), :html => {:id => 'pbs_new'} do -%>
                     
   <label for="observations_text">Obs:</label>
   <%= text_field 'observations', 'text' %>

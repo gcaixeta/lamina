@@ -47,13 +47,16 @@ ActionController::Routing::Routes.draw do |map|
     groups.resources :messages, :collection => {:list =>:post}
     groups.resources :interactions, :collection => {:list =>:post}
     groups.resources :activities, :member => {:approved => :put}
-    groups.resources :activities, :name_prefix => "group_"
+    groups.resources :activities, :name_prefix => "observation_"
     groups.resources :answers
     groups.resources :questions
     groups.resources :plays, :collection => {:list =>:post}
     groups.resources :games, :member => {:play => :get}
   end
 
+map.resources :activities do |activities|
+activities.resources :observations
+end
 
 
 

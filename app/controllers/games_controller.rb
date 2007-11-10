@@ -4,7 +4,7 @@ class GamesController < ApplicationController
 
   before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
 
-  before_filter :find_theme
+  before_filter :find_theme, :only => [:index, :new, :create, :update, :destroy, :edit]
   before_filter :find_group, :only => [:play]
   # GET /games
   # GET /games.xml
@@ -55,7 +55,7 @@ class GamesController < ApplicationController
         end 
 
         flash[:notice] = 'Jogo criado com sucesso.'
-        format.html { redirect_to theme_games_url }
+        format.html { redirect_to theme_games_url(@theme) }
         format.xml  { head :created, :location => game_url(@game) }
       else
         format.html { render :action => "new" }
@@ -72,7 +72,7 @@ class GamesController < ApplicationController
     respond_to do |format|
       if @game.update_attributes(params[:game])
         flash[:notice] = 'Jogo editado com sucesso.'
-        format.html { redirect_to theme_games_url }
+        format.html { redirect_to theme_games_url(@theme) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -88,7 +88,7 @@ class GamesController < ApplicationController
     @game.destroy
 
     respond_to do |format|
-      format.html { redirect_to games_url }
+      format.html { redirect_to theme_games_url(@theme) }
       format.xml  { head :ok }
     end
   end

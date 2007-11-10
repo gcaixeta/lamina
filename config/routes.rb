@@ -26,7 +26,7 @@ ActionController::Routing::Routes.draw do |map|
     themes.resources :links
     themes.resources :groups, :name_prefix => "theme_", :collection => {:list =>:get}
     themes.resources :archives
-    themes.resources :games
+    themes.resources :games, :name_prefix => "theme_"
   end
 
   #Planejamento de URL do Grupos
@@ -51,7 +51,7 @@ ActionController::Routing::Routes.draw do |map|
     groups.resources :answers
     groups.resources :questions
     groups.resources :plays, :collection => {:list =>:post}
-    groups.resources :games, :member => {:play => :get}
+    #groups.resources :games, :member => {:play => :get}
   end
 
 

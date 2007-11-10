@@ -2,7 +2,7 @@
 
 <%= error_messages_for :game %>
 
-<% form_for(:game, :url => games_path) do |f| %>
+<% form_for(:game, :url => theme_games_path(@theme)) do |f| %>
 
 
   <%= render :partial => 'form', :locals => {:f => f} %>
@@ -12,4 +12,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Voltar', games_path %>
+<%= link_to 'Voltar', theme_games_path(@theme) %>

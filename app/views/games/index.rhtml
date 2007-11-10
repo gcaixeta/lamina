@@ -12,13 +12,13 @@
     <td><%=h game.date_begin.to_s(:game)%></td>
     <td><%=h game.concluded %></td>
     <td><%=h game.victory_id %></td>
-    <td><%= link_to 'Ver', game_path(@theme, game) %></td>
-    <td><%= link_to 'Editar', edit_game_path(@theme, game) %></td>
-    <td><%= link_to 'Deletar', game_path(@theme, game), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Ver', theme_game_path(@theme, game) %></td>
+    <td><%= link_to 'Editar', edit_theme_game_path(@theme, game) %></td>
+    <td><%= link_to 'Deletar', theme_game_path(@theme, game), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Novo jogo', new_game_path %>
+<%= link_to 'Novo jogo', new_theme_game_path %>

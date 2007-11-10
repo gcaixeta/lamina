@@ -97,6 +97,9 @@ class GamesController < ApplicationController
   
   def play
     @game = Game.find(params[:id])
+    @players = @game.groups
+    
+    
     respond_to do |format|
       format.html # show.rhtml
       format.xml  { render :xml => @game.to_xml }

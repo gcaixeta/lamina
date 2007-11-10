@@ -1,6 +1,2 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
-
-<%= "play.rhtml" %>
+<h5>Participantes:</h5>
+<%= render :partial => 'players/show', :collection => @players, :spacer_template => { :inline => '<hr />' } %>

@@ -2,8 +2,11 @@ class ActivitiesController < ApplicationController
 before_filter :find_group
 
   def index
-    
    participations = Participation.find_all_by_group_id(@group.id)
+    @activity = Activity.find_by_participation_id(participations)
+    @observation = Observation.new
+    @observation = Observation.find(:all)
+
 
       @activities = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
     respond_to do |format|

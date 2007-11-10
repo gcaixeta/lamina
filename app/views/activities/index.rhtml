@@ -1,6 +1,8 @@
 
 
 <% for activity in @activities %>
+
+
 <br>
 <b><%= activity.id %></b>
 
@@ -15,9 +17,15 @@
 
 <div id="apr_<%=activity.id%>"><%= activity.is_approved %></div>
 
-
 <%= link_to_remote "aprovado", 
     :url => approved_group_activity_url(@group, activity), 
     :method => 'put' %>
- 
+
+<% end %>
+  <div id="obs_new">
+    <%= render :partial => 'observations/new', :locals => {:activity =>@activity.id} %>
+  </div>
+<% for observation in @observation %>
+ <b><%= observation.id %></b>
+<b><%= observation.text %></b>
 <% end %>

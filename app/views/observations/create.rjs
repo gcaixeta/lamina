@@ -1,1 +1,2 @@
 page['obs_new_'].reset
+page['obs_new_'].hide

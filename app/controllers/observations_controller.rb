@@ -24,6 +24,7 @@ before_filter :find_activity
 
   # GET /observations/new
   def new
+
     @observation = Observation.new
   end
 

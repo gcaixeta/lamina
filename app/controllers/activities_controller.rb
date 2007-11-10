@@ -5,7 +5,7 @@ before_filter :find_group
    participations = Participation.find_all_by_group_id(@group.id)
     @activity = Activity.find_by_participation_id(participations)
 
-    @observation = Observation.find(:all)
+    @observations = Observation.find(:all)
 
 
       @activities = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])

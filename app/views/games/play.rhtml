@@ -6,6 +6,13 @@
 <h5>Lista de Perguntas do Grupo:</h5>
 <div id="list_questions">
   <ul>
-    <%= render :partial => 'activities/activity', :collection => @questions %>
+    <% #render :partial => 'activities/activity', :collection => @questions %>
+    <%= render :partial => 'question', :collection => @questions %>
   </ul>
+  <%  for question in @questions  %>
+   <%= draggable_element "question_#{question.creation_id}", :revert => true %>
+  <% end %>
+  
+  
+  
 </div>

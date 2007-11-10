@@ -1,6 +1,6 @@
 class PlaysController < ApplicationController
   
- before_filter :find_player, :only => [:play]
+ before_filter :find_player, :only => [:create]
   #ANOTACOES
   #1 passo
   #usuario passa pergunta do grupo deleend
@@ -69,7 +69,7 @@ class PlaysController < ApplicationController
     question = Question.find params[:id].split("_")[1]
     @play = Play.new
     @play.player = @player
-    @play.question = 
+    @play.question = question
 
     respond_to do |format|
       if @play.save

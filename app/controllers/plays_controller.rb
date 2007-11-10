@@ -1,8 +1,9 @@
 class PlaysController < ApplicationController
-
-#ANOTACOES
-#1 passo
-#usuario passa pergunta do grupo deleend
+  
+ before_filter :find_group, :only => [:play]
+  #ANOTACOES
+  #1 passo
+  #usuario passa pergunta do grupo deleend
 
   def index
     @plays = Play.find(:all)
@@ -25,24 +26,23 @@ class PlaysController < ApplicationController
   end
   
   def list
-  	play = params[:play].to_i
+    play = params[:play].to_i
   	
-  	#pega de qual jogo quer listar as jogadas
-  	@game = Game.find(params[:game])
-  	@group = Group.find(params[:group_id])
-  	players = @group.players.find_all_by_game_id(@game)
-  	
+    #pega de qual jogo quer listar as jogadas
+    @game = Game.find(params[:game])
+    players = @group.players.find_all_by_game_id(@game)
   	
   	
-  	if play == 0
-  	#localiza todas as jogadas direcionadas ao grupo do individuo
-  		@plays = Play.find(:all, :conditions => [ "player_id IN (?)",players])
-  	elsif play > 0
-  		@plays = Play.find(:all, :conditions => [ "player_id IN (?) AND id > ?",players, play])
-  	end
+  	
+    if play == 0
+      #localiza todas as jogadas direcionadas ao grupo do individuo
+      @plays = Play.find(:all, :conditions => [ "player_id IN (?)",players])
+    elsif play > 0
+      @plays = Play.find(:all, :conditions => [ "player_id IN (?) AND id > ?",players, play])
+    end
   	
   	
-  	 respond_to do |format|
+    respond_to do |format|
       format.html # show.rhtml
       format.xml  { render :xml => @plays.to_xml }
       format.js
@@ -70,6 +70,7 @@ class PlaysController < ApplicationController
         flash[:notice] = 'Play was successfully created.'
         format.html { redirect_to play_url(@play) }
         format.xml  { head :created, :location => play_url(@play) }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @play.errors.to_xml }
@@ -104,5 +105,10 @@ class PlaysController < ApplicationController
       format.html { redirect_to plays_url }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  def find_group
+    @group = Group.find params[:group_id]
   end
 end

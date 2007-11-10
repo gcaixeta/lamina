@@ -4,7 +4,7 @@ class GamesController < ApplicationController
 
   before_filter :is_teacher, :only => [:new, :create, :update, :destroy, :edit]
 
-  before_filter :find_theme, :only => [:index, :new, :create, :update, :destroy, :edit]
+  before_filter :find_theme, :except => [:play]
   before_filter :find_group, :only => [:play]
   # GET /games
   # GET /games.xml
@@ -38,7 +38,8 @@ class GamesController < ApplicationController
   def edit
     @game = Game.find(params[:id])
     @groups = Theme.find(@theme).groups
-    @game.groups
+    #@game.groups
+    #TODO esse ou o de cima?
   end
 
   # POST /games

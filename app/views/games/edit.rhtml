@@ -2,7 +2,7 @@
 
 <%= error_messages_for :game %>
 
-<% form_for(:game, :url => game_path(@theme,@game), :html => { :method => :put }) do |f| %>
+<% form_for(:game, :url => theme_game_path(@theme,@game), :html => { :method => :put }) do |f| %>
 
 
 <%= render :partial => 'form', :locals => {:f => f} %>

@@ -23,14 +23,17 @@
 
   
 
-
   <div id="obs_new_<%=activity.id%>">
-    <%= render :partial => 'observations/new', :locals => {:activity =>@activity.id} %>
+    <%= render :partial => 'observations/new', :locals => {:activity =>activity.id} %>
   </div>
+
+
 
 <% end %>
 
+
+
 <% for observation in @observations %>
- <b><%= observation.id %></b>
+ <b><%= observation.activity_id %></b>
 <b><%= observation.text %></b>
 <% end %>

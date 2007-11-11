@@ -24,12 +24,14 @@ before_filter :find_activity
 
   # GET /observations/new
   def new
+   @observation = Observation.new
+   @activity = Activity.find params[:activity_id]
 
-    @observation = Observation.new
   end
 
   # GET /observations/1;edit
   def edit
+    
     @observation = Observation.find(params[:id])
   end
 

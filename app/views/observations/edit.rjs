@@ -1,0 +1,2 @@
+page["obs_edit_#{@activity.id}"].reset
+#page['obs_new_'].hide

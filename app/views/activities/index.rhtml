@@ -3,8 +3,7 @@
 <% for activity in @activities %>
 
 
-<br>
-<b><%= activity.id %></b>
+
 
 <b><%= activity.participation.registration.user.name %></b>
 <div><%= activity.creation.text %></div>
@@ -22,18 +21,18 @@
     :method => 'put' %>
 
   
+<div id="obs_edit_<%=activity.id%>"><b><%= activity.observation.text %></b>
+  <%= render :partial => 'observations/edit', :locals => {:activity =>activity.id} %>
+  </div>
 
+  
   <div id="obs_<%=activity.id%>">
     <%= render :partial => 'observations/new', :locals => {:activity =>activity.id} %>
   </div>
 
+<br>
 
 
 <% end %>
 
 
-
-<% for observation in @observations %>
- <b><%= observation.activity_id %></b>
-<b><%= observation.text %></b>
-<% end %>

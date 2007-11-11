@@ -1,2 +1,2 @@
-page["obs_#{@activity.id}"].reset
+page["obs_new_#{@activity.id}"].reset
 #page['obs_new_'].hide

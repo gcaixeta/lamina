@@ -120,24 +120,34 @@ class PlaysController < ApplicationController
     @player = Player.find params[:player_id]
     @group = @player.group
     @game = @player.game
+    @players = @group.players
     
     play = params[:play].to_i
     
     if play == 0
       #localiza todas as jogadas direcionadas ao grupo do individuo
-      @plays = Play.find(:all, :conditions => {:player_id => @player.id})
+      #@plays = Play.find(:all, :conditions => {:player_id => @player.id})
+      @plays = Play.find(:all,:conditions => [ "player_id IN (?)", @players])
     elsif play > 0
-      @plays = Play.find(:all, :conditions => [ "player_id = ? AND id > ?", @player, play])
+      #@plays = Play.find(:all, :conditions => [ "player_id = ? AND id > ?", @player, play])
+      @plays = Play.find(:all, :conditions => [ "player_id IN (?) AND id > ?", @players, play])
     end
     
     
     respond_to do |format|
       format.html { redirect_to plays_url }
       format.xml  { head :ok }
-      format.js
+      format.js do
+        if @plays != [] 
+          render :action => 'check.rjs'
+        else
+          render :nothing => true
+        end
+      end
     end
-    
   end
+    
+
   
   private
   def find_group

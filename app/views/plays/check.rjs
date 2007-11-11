@@ -1,3 +1,4 @@
 if @plays != [] && @plays != nil
   page.assign :play, @plays.last.id 
+  page.insert_html :bottom, 'list_plays', :partial => 'plays/play', :collection => @plays
 end

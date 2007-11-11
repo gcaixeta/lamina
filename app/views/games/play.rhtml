@@ -15,16 +15,18 @@
 
 <div class="column3">
   <h3>Comum</h3>
+  <h5>Atividades:</h5>
+  <div id="list_plays"></div>
 </div>
 
 
 <div class="column3">
-  <h5>Participantes:</h5>
-  <div id="list_players">
-    <%= render :partial => 'players/player', :collection => @players %>
-    <% for player in @players  %>
-    
-      <div id="plays_of_player_<%= player.id %>">Plays of Player</div>
+<h5>Participantes:</h5>
+<div id="list_players">
+  <%= render :partial => 'players/player', :collection => @players %>
+  <% for player in @players  %>
+  
+    <div id="plays_of_player_<%= player.id %>">Plays of Player</div>
       <%= drop_receiving_element "player_#{player.id}",
         #:update => "plays_of_player_#{player.id}",
       :url => player_plays_url(player),

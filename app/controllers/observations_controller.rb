@@ -45,7 +45,8 @@ before_filter :find_activity
      @observation.activity_id = activity.id
      
     respond_to do |format|
-      if @observation.save
+      if @observation.activity
+        @observation.save
         flash[:notice] = 'Observation was successfully created.'
         format.html { redirect_to observation_url(@observation) }
         format.xml  { head :created, :location => observation_url(@observation) }

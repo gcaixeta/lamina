@@ -46,15 +46,6 @@
 <%= periodically_call_remote( 
   :url => list_group_interactions_url(@group.id),
   :with => "'interaction=' + interaction + '&message='+ message",
-  :frequency => 5.0) %>
-
-<%=	if @game  != []  
+  :frequency => 15.0) %>
 
 
-  periodically_call_remote( 
-    :url => list_group_plays_url(@group.id),
-    :with => "'game=' + #{@game.id} + '&play='+ play",
-    :frequency => 10.0)
-
-
-end  %> 

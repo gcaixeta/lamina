@@ -3,4 +3,4 @@
 [<%= activity.creation.answers.count %>]
 <%= link_to_remote "#{activity.creation.text[0...15]}...", :url => group_question_url(@group.id, activity.creation_id), :method => 'get'%> - <%= activity.interactions.last.created_at.to_s(:interaction) %>
 <% end %>
-
+<%#TODO Da problema no created_at se tiver perguntas sem passar no activity direito %>

@@ -1,4 +1,12 @@
 if @plays != [] && @plays != nil
   page.assign :play, @plays.last.id 
   page.insert_html :bottom, 'list_plays', :partial => 'plays/play', :collection => @plays
+  @plays.each do |play|
+    
+    #se a jogada for para o grupo logado, insere na lista de jogas dele, para ele visualizar a pergunta
+    if play.player == @player
+      #TODO colocar a partial para exibir a pergunta que o player recebeu
+      page.insert_html :bottom, dom_id(@player, :plays_of), :partial => 'plays/question',  :locals => {:question => play.question}
+    end
+  end
 end

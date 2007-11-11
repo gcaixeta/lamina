@@ -10,6 +10,8 @@
       <%= draggable_element "question_#{question.creation_id}", :revert => true %>
     <% end %>
   </div>
+  <h5>Jogadas Recebidas</h5>
+  <div id="<%= dom_id(@player, :plays_of) %>"></div>
 </div>
 
 
@@ -21,12 +23,12 @@
 
 
 <div class="column3">
-<h5>Participantes:</h5>
-<div id="list_players">
-  <%= render :partial => 'players/player', :collection => @players %>
-  <% for player in @players  %>
-  
-    <div id="<%= dom_id(player, :plays_of) %>">Plays of Player</div>
+  <h5>Participantes:</h5>
+  <div id="list_players">
+    <%= render :partial => 'players/player', :collection => @players %>
+    <% for player in @players  %>
+    
+    
       <%= drop_receiving_element dom_id(player),
         #:update => "plays_of_player_#{player.id}",
       :url => player_plays_url(player),

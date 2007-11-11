@@ -39,10 +39,10 @@ before_filter :find_activity
 
 
   def create
-      activity = Activity.find params[:activity_id]
+      @activity = Activity.find params[:activity_id]
               
      @observation = Observation.new(params[:observation])
-     @observation.activity_id = activity.id
+     @observation.activity_id = @activity.id
      
     respond_to do |format|
       if @observation.activity

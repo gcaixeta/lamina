@@ -120,7 +120,7 @@ class PlaysController < ApplicationController
     @player = Player.find params[:player_id]
     @group = @player.group
     @game = @player.game
-    @players = @group.players
+    @players = @game.players
     
     play = params[:play].to_i
     

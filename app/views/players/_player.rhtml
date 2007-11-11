@@ -1,4 +1,4 @@
-<div class="show_group" id="player_<%= player.id  %>">
+<div class="show_group" id="<%= dom_id(player)  %>">
   <p>Nome: <%= player.group.name   %></p>
   <p>Participantes: <%= player.group.registrations.count   %> </p>
 </div>

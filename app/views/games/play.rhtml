@@ -26,8 +26,8 @@
   <%= render :partial => 'players/player', :collection => @players %>
   <% for player in @players  %>
   
-    <div id="plays_of_player_<%= player.id %>">Plays of Player</div>
-      <%= drop_receiving_element "player_#{player.id}",
+    <div id="<%= dom_id(player, :plays_of) %>">Plays of Player</div>
+      <%= drop_receiving_element dom_id(player),
         #:update => "plays_of_player_#{player.id}",
       :url => player_plays_url(player),
         :accept => "question"

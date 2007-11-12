@@ -23,24 +23,26 @@ class InteractionsController < ApplicationController
     message = params[:message].to_i
 
     #lista todas as atividades e mensagens, se for a primeira vez que o usuario entra no ambiente
-    if interaction == 0 && message == 0
+    if interaction == 0# && message == 0
 
       @activities = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
-      @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, message])
+      # @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, message])
       @interactions = Interaction.find(:all, :order => "id desc", :limit => 1, :conditions => [ "participation_id IN (?) AND action_type = 'new'",participations])
       #problema em selecionar apenas interactions de perguntas
 
       
-    elsif interaction > 0 || message > 0
+    elsif interaction > 0 #|| message > 0
       @interactions = Interaction.find(:all, :conditions => [ "participation_id IN (?) AND id > ? AND action_type = 'new' ",participations, interaction], :order => "created_at DESC"  )
-      @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, message])
+      # @messages = Message.find(:all,  :limit => 10, :conditions => [ "participation_id IN (?) and id > ?", participations, message])
     end
-
+    
+    has_messages = ajax_chat(@group, message)
+    
     respond_to do |format|
       format.html # index.rhtml
       format.xml  { render :xml => @interactions.to_xml }
       format.js do 
-        if @interactions != [] || @messages != []
+        if @interactions != [] ||  has_messages
           render :action => 'list.rjs'
         else
           render :nothing => true

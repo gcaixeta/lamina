@@ -16,7 +16,9 @@ class ApplicationController < ActionController::Base
     end
     
     if @messages != []
-      
+      true
+    else
+      false
     end
     
   end

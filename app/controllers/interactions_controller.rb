@@ -17,8 +17,8 @@ class InteractionsController < ApplicationController
 
 
 
-    participations = Participation.find_all_by_group_id(@group.id)
-
+    #participations = Participation.find_all_by_group_id(@group.id)
+    participations = @group.participation_ids
     interaction = params[:interaction].to_i
     message = params[:message].to_i
 

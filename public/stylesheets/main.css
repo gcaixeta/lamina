@@ -1,4 +1,4 @@
-*, html, body {
+            *, html, body {
 	margin:0;
 	padding:0;
 	list-style: none;
@@ -150,6 +150,11 @@ border: solid 1px black;
 float: left;
 background: #fff;
 
+
+}
+#game_place{
+overflow: auto;
+height: 190px;
 }
 .show_group{
     background: #99ffcc;

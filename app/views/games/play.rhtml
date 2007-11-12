@@ -1,43 +1,50 @@
-<div class="column3">
-  <h3>Meu Grupo</h3>
-  <h5>Lista de Perguntas do Grupo:</h5>
-  <div id="list_questions">
-    <ul>
-      <% #render :partial => 'activities/activity', :collection => @questions %>
-      <%= render :partial => 'question', :collection => @questions %>
-    </ul>
-    <% for question in @questions  %>
-      <%= draggable_element "question_#{question.creation_id}", :revert => true %>
-    <% end %>
+<div style="clear:both" ></div>
+<div id="game_place">
+  <div class="column3">
+    <h3>Meu Grupo</h3>
+    <h5>Lista de Perguntas do Grupo:</h5>
+    <div id="list_questions">
+      <ul>
+        <% #render :partial => 'activities/activity', :collection => @questions %>
+        <%= render :partial => 'question', :collection => @questions %>
+      </ul>
+      <% for question in @questions  %>
+        <%= draggable_element "question_#{question.creation_id}", :revert => true %>
+      <% end %>
+    </div>
+    <h5>Jogadas Recebidas</h5>
+    <div id="<%= dom_id(@player, :plays_of) %>"></div>
   </div>
-  <h5>Jogadas Recebidas</h5>
-  <div id="<%= dom_id(@player, :plays_of) %>"></div>
-</div>
-
-
-<div class="column3">
-  <h3>Comum</h3>
-  <h5>Atividades:</h5>
-  <div id="list_plays"></div>
-</div>
-
-
-<div class="column3">
-  <h5>Participantes:</h5>
-  <div id="list_players">
-    <%= render :partial => 'players/player', :collection => @players %>
-    <% for player in @players  %>
-    
-    
-      <%= drop_receiving_element dom_id(player),
-        #:update => "plays_of_player_#{player.id}",
-      :url => player_plays_url(player),
-        :accept => "question"
-      %>
-    <% end %>
+  
+  
+  <div class="column3">
+    <h3>Comum</h3>
+    <h5>Atividades:</h5>
+    <div id="list_plays"></div>
+  </div>
+  
+  
+  <div class="column3">
+    <h5>Participantes:</h5>
+    <div id="list_players">
+      <%= render :partial => 'players/player', :collection => @players %>
+      <% for player in @players  %>
+      
+      
+        <%= drop_receiving_element dom_id(player),
+          #:update => "plays_of_player_#{player.id}",
+        :url => player_plays_url(player),
+          :accept => "question"
+        %>
+      <% end %>
+    </div>
   </div>
 </div>
-
+<div style="clear:both" ></div>
+<h5>Chat:</h5>
+<div id="messages">
+  CHAT
+</div>
 #quais interacoes devo verificar?
 Novas jogadas DESTINADAS ao PLAYER
 Play.find

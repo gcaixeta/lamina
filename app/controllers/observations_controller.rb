@@ -15,7 +15,7 @@ before_filter :find_activity
   # GET /observations/1.xml
   def show
     @observation = Observation.find(params[:id])
-
+@activity = Activity.find params[:activity_id]
     respond_to do |format|
       format.html # show.rhtml
       format.xml  { render :xml => @observation.to_xml }
@@ -31,7 +31,7 @@ before_filter :find_activity
 
   # GET /observations/1;edit
   def edit
-    
+    @activity = Activity.find params[:activity_id]
     @observation = Observation.find(params[:id])
   end
 
@@ -64,12 +64,13 @@ before_filter :find_activity
   # PUT /observations/1.xml
   def update
     @observation = Observation.find(params[:id])
-
+    @activity = Activity.find params[:activity_id]
     respond_to do |format|
       if @observation.update_attributes(params[:observation])
         flash[:notice] = 'Observation was successfully updated.'
         format.html { redirect_to observation_url(@observation) }
         format.xml  { head :ok }
+        format.js
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @observation.errors.to_xml }

@@ -1,8 +1,8 @@
-<% form_for(:observation, :url => edit_activity_observation_path(@activity, @observation), :html => { :method => :put }) do |f| %>
+<% form_for(:observation, :url => activity_observation_path(observation, activity), :html => {:id => "obs_ed_#{activity}", :method => :put}) do |f| %>
 
   <label for="observations_text">Obs:</label>
   <%= text_field 'observation', 'text' %>
 
- <%= submit_tag "Update" %> 
+ <%= submit_tag "Editar" %> 
 
 <% end %>

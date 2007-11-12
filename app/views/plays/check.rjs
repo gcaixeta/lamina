@@ -10,3 +10,6 @@ if @plays != [] && @plays != nil
     end
   end
 end
+
+
+ajax_chat(page)

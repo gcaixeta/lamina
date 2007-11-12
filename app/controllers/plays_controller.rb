@@ -123,6 +123,7 @@ class PlaysController < ApplicationController
     @players = @game.players
     
     play = params[:play].to_i
+    message = params[:message].to_i
     
     if play == 0
       #localiza todas as jogadas direcionadas ao grupo do individuo
@@ -133,12 +134,13 @@ class PlaysController < ApplicationController
       @plays = Play.find(:all, :conditions => [ "player_id IN (?) AND id > ?", @players, play])
     end
     
+    has_messages = ajax_chat(@group, message)
     
     respond_to do |format|
       format.html { redirect_to plays_url }
       format.xml  { head :ok }
       format.js do
-        if @plays != [] 
+        if @plays != [] ||  has_messages
           render :action => 'check.rjs'
         else
           render :nothing => true

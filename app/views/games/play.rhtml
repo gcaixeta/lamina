@@ -43,11 +43,9 @@
 <div style="clear:both" ></div>
 <h5>Chat:</h5>
 <div id="messages">
-  CHAT
 </div>
-#quais interacoes devo verificar?
-Novas jogadas DESTINADAS ao PLAYER
-Play.find
+<%= render :partial => 'messages/form', :locals => {:group =>@group.id} %>
+
 <%= render :partial => 'games/check', :locals => {:group =>@group, :game => @game, :player => @player}%>
 
 

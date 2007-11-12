@@ -21,6 +21,7 @@
     :method => 'put' %>
 
   <b><%= activity.observation.text %></b>
+
 <div id="obs_edit_<%=activity.id%>">
   <%= render :partial => 'observations/edit', :locals => {:activity =>activity.id, :observation => activity.observation.id} %>
   </div>

@@ -1,4 +1,4 @@
-<% form_for(:observation, :url => activity_observation_path(observation, activity), :html => {:id => "obs_ed_#{activity}", :method => :put}) do |f| %>
+<% form_for(:observation, :url => activity_observation_path(activity, observation), :html => {:id => "obs_ed_#{activity}", :method => :put}) do |f| %>
 
   <label for="observations_text">Obs:</label>
   <%= text_field 'observation', 'text' %>

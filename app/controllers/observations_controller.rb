@@ -19,6 +19,7 @@ before_filter :find_activity
     respond_to do |format|
       format.html # show.rhtml
       format.xml  { render :xml => @observation.to_xml }
+      format.js
     end
   end
 

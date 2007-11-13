@@ -3,12 +3,12 @@ game1:
   id: 1
   theme_id: 1
   date_begin: <%= 5.days.ago.to_s :db %>
-  concluded: 1
+  concluded: true
   victory_id: 1
 
 game2:
   id: 2
   theme_id: 1
   date_begin: <%= 5.days.ago.to_s :db %>
-  concluded: 1
+  concluded: true
   victory_id: 2

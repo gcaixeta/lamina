@@ -1,5 +1,8 @@
 class ActivitiesController < ApplicationController
 before_filter :find_group
+before_filter :is_teacher, :only => [:index, :new, :show, :create, :update, :destroy, :edit, :approved]
+
+
 
   def index
    participations = Participation.find_all_by_group_id(@group.id)
@@ -97,4 +100,12 @@ before_filter :find_group
   def find_group
     @group = Group.find params[:group_id]
   end
+        def is_teacher
+                reg = Registration.find_by_user_id_and_profile_id(session[:user], 2)
+                if reg == nil
+                    flash[:notice] = "Voce nao tem permissao para acessar"
+                  redirect_to groups_path
+                    #render :action => 'index'
+                end
+        end
 end

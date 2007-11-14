@@ -1,11 +1,12 @@
-            *, html, body {
+*, html, body {
 	margin:0;
 	padding:0;
 	list-style: none;
+        font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 
 html {
-	background:#d5ae52 url('../images/back.png') repeat fixed 0 0;	
+	background: url('../images/back2.jpg') repeat fixed 0 0;	
 }
 body {
 }   
@@ -63,17 +64,41 @@ h4 { font-size: 120%;}
 
 .img-left { float: left; }
 .img-right { float: right;}
+ #session{ 
+float: left;
+background:  url('../images/session.png') no-repeat center center;
+width: 230px;
+height: 90px;
+ }
+ 
+#session label {
+display:block;
+float:left;
+font-size:12px;
+font-weight:bold;
+padding-right:10px;
+text-align:right;
+width:50px;
+color: #138DDA;
+}
 
+#menu {
+margin: 70px 0px 0px 0px ;
+float: left;
 
+}
 #menu  a {
 float: left;
 padding: 0px 15px;
-background: #fff;
-color:#000;
+background: #9CD8F5;
+color:#fff;
+font-weight: bolder;
+text-decoration: none;
 
 }
 #menu  a:hover{
-background: #e8eefa;
+background: #138DDA;
+color: #DBFF9D;
 } 
 
 ul#menu{
@@ -81,13 +106,15 @@ float: right;
 }
 
 #header{
-background: #c3d9ff url('../images/teste1.png') repeat;
-height: 75px;
+background: url('../images/menu.png') no-repeat top center;
+height: 134px;
 }
 
 #header h1{
-color:  #0000ff;
+color:  #82C0E9;
 text-align: center;
+font-style: italic;
+
 }
 
 #msgs{
@@ -99,7 +126,7 @@ color: yellow;
 }
 
 #content{
-background: #eff3f7;
+background: #fff;
 }
 
 

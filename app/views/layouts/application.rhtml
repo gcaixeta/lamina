@@ -36,12 +36,14 @@
         <li></li>
       </ul>
     </div>
+<div style="clear:both;">
     <div id="msgs">
       <%= flash[:notice] %>
     </div>
     <div id="errors">
       <%= flash[:error] %>
     </div>
+</div>
     <div id="content">
       <%= yield %>
     </div>

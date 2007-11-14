@@ -81,7 +81,19 @@ text-align:right;
 width:50px;
 color: #138DDA;
 }
-
+/*
+exemplo para colcoar imagens no fundo do botao input
+#session .button {
+    border: none;
+    background: url('../images/green.gif') no-repeat;
+    content: ""; 
+    display: inline-block; 
+    height: 32px;
+    line-height: 0; 
+    text-indent: -9999px;
+    width: 32px;
+}
+*/
 #menu {
 margin: 70px 0px 0px 0px ;
 float: left;
@@ -127,6 +139,9 @@ color: yellow;
 
 #content{
 background: #fff;
+width: 99%;
+margin: 0 auto;
+border: solid 2px #1188D8;
 }
 
 

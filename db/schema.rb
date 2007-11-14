@@ -5,7 +5,7 @@
 ActiveRecord::Schema.define(:version => 9) do
 
   create_table "activities", :force => true do |t|
-    t.column "creation_type",    :string,                     :null => false
+    t.column "creation_type",    :string,  :default => "",    :null => false
     t.column "creation_id",      :integer,                    :null => false
     t.column "participation_id", :integer,                    :null => false
     t.column "approved",         :boolean, :default => false
@@ -13,20 +13,20 @@ ActiveRecord::Schema.define(:version => 9) do
 
   create_table "answers", :force => true do |t|
     t.column "question_id", :integer,                    :null => false
-    t.column "text",        :text,                       :null => false
+    t.column "text",        :text,    :default => "",    :null => false
     t.column "correct",     :boolean, :default => false, :null => false
   end
 
   create_table "archives", :force => true do |t|
-    t.column "theme_id",    :string, :null => false
-    t.column "name",        :string, :null => false
+    t.column "theme_id",    :string, :default => "", :null => false
+    t.column "name",        :string, :default => "", :null => false
     t.column "description", :string
     t.column "heading",     :string
   end
 
   create_table "cities", :force => true do |t|
-    t.column "state_id", :integer, :null => false
-    t.column "name",     :string,  :null => false
+    t.column "state_id", :integer,                 :null => false
+    t.column "name",     :string,  :default => "", :null => false
   end
 
   create_table "configurations", :force => true do |t|
@@ -42,15 +42,15 @@ ActiveRecord::Schema.define(:version => 9) do
   end
 
   create_table "groups", :force => true do |t|
-    t.column "theme_id", :integer, :null => false
-    t.column "name",     :string,  :null => false
+    t.column "theme_id", :integer,                 :null => false
+    t.column "name",     :string,  :default => "", :null => false
   end
 
   create_table "institutions", :force => true do |t|
-    t.column "name",            :string,                     :null => false
+    t.column "name",            :string,  :default => "",    :null => false
     t.column "cnpj",            :integer,                    :null => false
     t.column "telephone",       :integer,                    :null => false
-    t.column "email",           :string,                     :null => false
+    t.column "email",           :string,  :default => "",    :null => false
     t.column "active",          :boolean, :default => false
     t.column "user_who_create", :integer
   end
@@ -63,20 +63,20 @@ ActiveRecord::Schema.define(:version => 9) do
   end
 
   create_table "links", :force => true do |t|
-    t.column "theme_id",    :integer, :null => false
-    t.column "address",     :string,  :null => false
-    t.column "description", :string,  :null => false
+    t.column "theme_id",    :integer,                 :null => false
+    t.column "address",     :string,  :default => "", :null => false
+    t.column "description", :string,  :default => "", :null => false
   end
 
   create_table "messages", :force => true do |t|
-    t.column "participation_id", :integer,  :null => false
-    t.column "messages",         :text,     :null => false
+    t.column "participation_id", :integer,                  :null => false
+    t.column "messages",         :text,     :default => "", :null => false
     t.column "created_at",       :datetime
   end
 
   create_table "observations", :force => true do |t|
-    t.column "text",        :text,    :null => false
-    t.column "activity_id", :integer, :null => false
+    t.column "text",        :text,    :default => "", :null => false
+    t.column "activity_id", :integer,                 :null => false
   end
 
   create_table "participations", :force => true do |t|
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(:version => 9) do
   end
 
   create_table "profiles", :force => true do |t|
-    t.column "description", :string, :null => false
+    t.column "description", :string, :default => "", :null => false
   end
 
   create_table "proposals", :force => true do |t|
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(:version => 9) do
   end
 
   create_table "questions", :force => true do |t|
-    t.column "text", :text, :null => false
+    t.column "text", :text, :default => "", :null => false
   end
 
   create_table "registrations", :force => true do |t|
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(:version => 9) do
   end
 
   create_table "states", :force => true do |t|
-    t.column "name", :string, :null => false
+    t.column "name", :string, :default => "", :null => false
   end
 
   create_table "taggings", :force => true do |t|
@@ -135,18 +135,18 @@ ActiveRecord::Schema.define(:version => 9) do
   end
 
   create_table "themes", :force => true do |t|
-    t.column "configuration_id", :integer,  :null => false
-    t.column "name",             :string,   :null => false
-    t.column "summary",          :string,   :null => false
+    t.column "configuration_id", :integer,                  :null => false
+    t.column "name",             :string,   :default => "", :null => false
+    t.column "summary",          :string,   :default => "", :null => false
     t.column "created_at",       :datetime
-    t.column "active",           :boolean,  :null => false
+    t.column "active",           :boolean,                  :null => false
     t.column "password",         :string
   end
 
   create_table "users", :force => true do |t|
     t.column "city_id",                   :integer,                                   :null => false
     t.column "name",                      :string
-    t.column "login",                     :string,                                    :null => false
+    t.column "login",                     :string,                 :default => "",    :null => false
     t.column "email",                     :string
     t.column "crypted_password",          :string,   :limit => 40
     t.column "birth",                     :datetime

@@ -2,7 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-
+  helper :prototype_window_class
   include AuthenticatedSystem
   # Pick a unique cookie name to distinguish our session data from others'
   session :session_key => '_per_session_id'

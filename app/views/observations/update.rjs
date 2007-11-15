@@ -1,4 +1,13 @@
-page["obs_ed_#{@activity.id}"].hide
-#page['obs_new_'].hide
+
+
+page["obs_ed_#{@activity.id}"].show
+
 
 page.replace_html "obs_show_#{@activity.observation.id}", "#{@activity.observation.text}"
+
+
+  
+  page["obs_ed_#{@activity.id}"].hide
+  
+
+  

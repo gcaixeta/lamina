@@ -23,7 +23,13 @@
   <div id="obs_show_<%=activity.observation.id%>">
 <%= activity.observation.text %>
 </div>
- <td><%= link_to_remote 'Editar', activity_observation_path(activity.id, activity.observation.id), :method => :update %></td>
+
+  
+ <%= link_to_remote 'Editar',
+ :url =>  activity_observation_path(activity.id, activity.observation.id), 
+ :method => 'put' %>
+
+  
 <div id="obs_edit_<%=activity.id%>">
   <%= render :partial => 'observations/edit', :locals => {:activity =>activity.id, :observation => activity.observation.id} %>
   </div>

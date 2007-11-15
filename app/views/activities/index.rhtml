@@ -1,45 +1,45 @@
-
-
 <% for activity in @activities %>
 
+  <h5>Autor:</h5>
+  <%= activity.participation.registration.user.name %>
 
-
-
-<b><%= activity.participation.registration.user.name %></b>
-<div><%= activity.creation.text %></div>
-<%= link_to_remote "resposta", 
+  <h5>Pergunta:</h5>
+  <%= activity.creation.text %>
+  
+  <%= link_to_remote "Listar Respostas", 
     :url => group_answers_url(@group), 
     :with => "'question_id=' + #{activity.creation_id}",
     :method => 'get'%>
-<div id="list_ans_<%=activity.creation_id%>">
-</div>
+    
+  
+  <div id="<%=dom_id(activity.creation, :list_ans) %>">
+  </div>
+  
+  <h5>Aprovação:</h5>
 
-<div id="apr_<%=activity.id%>"><%= activity.is_approved %></div>
+  <div id="apr_<%=activity.id%>"><%= activity.is_approved %></div>
 
-<%= link_to_remote "aprovado", 
+  <%= link_to_remote "Clique para Aprovar", 
     :url => approved_group_activity_url(@group, activity), 
     :method => 'put' %>
+    
+    
+  <br />
+  <h5>Observação:</h5>
+<% if activity.observation != nil %>
+  <b><%= activity.observation.text %></b>
 
-  <div id="obs_show_<%=activity.observation.id%>">
-<%= activity.observation.text %>
-</div>
-
-  
- <%= link_to_remote 'Editar',
- :url =>  activity_observation_path(activity.id, activity.observation.id), 
- :method => 'put' %>
-
-  
-<div id="obs_edit_<%=activity.id%>">
-  <%= render :partial => 'observations/edit', :locals => {:activity =>activity.id, :observation => activity.observation.id} %>
+  <td><%= link_to_remote 'Editar', activity_observation_path(activity.id, activity.observation.id) %></td>
+  <div id="obs_edit_<%=activity.id%>">
+    <%= render :partial => 'observations/edit', :locals => {:activity =>activity.id, :observation => activity.observation.id} %>
   </div>
+<% else %>
 
-  
   <div id="obs_<%=activity.id%>">
     <%= render :partial => 'observations/new', :locals => {:activity =>activity.id} %>
   </div>
-
-<br>
+<% end %>
+  <br>
 
 
 <% end %>

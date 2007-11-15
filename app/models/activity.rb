@@ -20,9 +20,9 @@ validates_associated :participation
 def is_approved
  
       if self.approved 
-            "aprovado" 
+            "Sim" 
      else
-           "Não Aprovado"
+           "Não"
      end
 
 end

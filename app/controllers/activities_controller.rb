@@ -11,7 +11,7 @@ before_filter :is_teacher, :only => [:index, :new, :show, :create, :update, :des
     @observations = Observation.find_all_by_activity_id(@activity)
 
 
-      #@activities = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
+
 
   @activities = Activity.find(:all, 
                               :conditions =>{

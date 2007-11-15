@@ -49,7 +49,7 @@ ActionController::Routing::Routes.draw do |map|
     groups.resources :activities, :member => {:approved => :put}
     
     #ROUTE ERRADA, deve ser groups, verifica se nao quebra nada
-    groups.resources :activities, :name_prefix => "observation_"
+    groups.resources :activities, :name_prefix => "group_"
     groups.resources :answers
     groups.resources :questions
     groups.resources :plays, :name_prefix => "group_", :collection => {:list =>:post}

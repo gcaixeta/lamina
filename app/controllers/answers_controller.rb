@@ -3,8 +3,8 @@ class AnswersController < ApplicationController
   before_filter :find_group
   
   def index
-      @question_id = params[:question_id]
-    @answers = Answer.find_all_by_question_id(@question_id)
+      @question = Question.find(params[:question_id])
+    @answers = Answer.find_all_by_question_id(@question)
 
     respond_to do |format|
       format.html # index.rhtml

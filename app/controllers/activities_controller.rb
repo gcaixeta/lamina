@@ -11,7 +11,14 @@ before_filter :is_teacher, :only => [:index, :new, :show, :create, :update, :des
     @observations = Observation.find_all_by_activity_id(@activity)
 
 
-      @activities = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
+      #@activities = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
+
+  @activities = Activity.find(:all, 
+                              :conditions =>{
+                                              :participation_id => participations,
+                                              :creation_type => 'Question' })
+
+
     respond_to do |format|
       format.html # index.rhtml
       format.xml  { render :xml => @activities.to_xml }

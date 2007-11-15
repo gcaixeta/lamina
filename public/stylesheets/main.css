@@ -201,3 +201,7 @@ height: 190px;
 .show_group{
     background: #99ffcc;
 }
+.observation_postit{
+    background: yellow;
+    width: 200px;
+}

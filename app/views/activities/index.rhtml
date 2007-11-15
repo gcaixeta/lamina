@@ -5,42 +5,52 @@
 
   <h5>Pergunta:</h5>
   <%= activity.creation.text %>
-  
+
   <%= link_to_remote "Listar Respostas", 
     :url => group_answers_url(@group), 
     :with => "'question_id=' + #{activity.creation_id}",
     :method => 'get'%>
-    
-  
+
+
   <div id="<%=dom_id(activity.creation, :list_ans) %>">
   </div>
-  
-  <h5>Aprovação:</h5>
 
-  <div id="apr_<%=activity.id%>"><%= activity.is_approved %></div>
+  <h5>Aprovado:
+  <span id="<%= dom_id(activity, :apr) %>"><%= activity.is_approved %></span></h5>
 
   <%= link_to_remote "Clique para Aprovar", 
     :url => approved_group_activity_url(@group, activity), 
     :method => 'put' %>
-    
-    
+
+
   <br />
   <h5>Observação:</h5>
-<% if activity.observation != nil %>
-  <b><%= activity.observation.text %></b>
+  <div class="observation_postit">
+  
+  
+  
+  
+    <% if activity.observation != nil %>
+  
+      <%= link_to_function "Ver Observacao", update_page {|page|
+        page["obs_edit_#{activity.id}"].show
+       } %>
+  
+  
+      <div id="obs_edit_<%=activity.id%>" style="display:none">
+        <%= render :partial => 'observations/edit', :locals => {:activity =>activity.id, :observation => activity.observation} %>
+      </div>
+    <% else %>
+      <div id="obs_<%=activity.id%>">
+        <%= render :partial => 'observations/new', :locals => {:activity =>activity.id} %>
+      </div>
+    <% end %>
 
-  <td><%= link_to_remote 'Editar', activity_observation_path(activity.id, activity.observation.id) %></td>
-  <div id="obs_edit_<%=activity.id%>">
-    <%= render :partial => 'observations/edit', :locals => {:activity =>activity.id, :observation => activity.observation.id} %>
+  
+  
   </div>
-<% else %>
-
-  <div id="obs_<%=activity.id%>">
-    <%= render :partial => 'observations/new', :locals => {:activity =>activity.id} %>
-  </div>
-<% end %>
   <br>
-
+  <hr />
 
 <% end %>
 

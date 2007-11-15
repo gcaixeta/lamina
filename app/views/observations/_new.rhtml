@@ -1,7 +1,7 @@
 <% form_remote_tag :url => activity_observations_url(activity), :html => {:id => "obs_new_#{activity}"} do -%>
                     
   <label for="observations_text">Obs:</label>
-  <%= text_field 'observation', 'text' %>
+  <%= text_area_tag 'observation[text]', nil, :size => '17x5' %>
  
   <%= submit_tag 'Enviar' %>
 

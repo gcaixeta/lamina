@@ -1,1 +1,1 @@
-page.replace_html "apr_#{@activity.id}", "Aprovado"
+page.replace_html dom_id(@activity, :apr), "Sim"

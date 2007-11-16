@@ -1,5 +1,8 @@
 <% for activity in @activities %>
 
+  <h5>Tema:</h5>
+  <%= activity.participation.group.theme.name %>
+
   <h5>Autor:</h5>
   <%= activity.participation.registration.user.name %>
 
@@ -21,6 +24,9 @@
   <%= link_to_remote "Clique para Aprovar", 
     :url => approved_group_activity_url(@group, activity), 
     :method => 'put' %>
+
+
+
 
 
   <br />

@@ -21,10 +21,9 @@
   <h5>Aprovado:
   <span id="<%= dom_id(activity, :apr) %>"><%= activity.is_approved %></span></h5>
 
-  <%= link_to_remote "Clique para Aprovar", 
+<%=link_to_remote(image_tag("zone", :size => "32x32", :border => 0), 
     :url => approved_group_activity_url(@group, activity), 
-    :method => 'put' %>
-
+    :method => 'put' )%>
 
 
 

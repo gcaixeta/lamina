@@ -27,7 +27,7 @@
       <div id="session">
         
         <% if logged_in? %>
-        
+            <br />
           <%= link_to 'Sair', logout_path %> (<%=h current_user.login %>)
         <% else %>
         

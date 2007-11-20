@@ -69,12 +69,13 @@ float: right;
 background:  url('../images/session.png') no-repeat center center;
 width: 230px;
 height: 90px;
+font-size:11px;
  }
  
 #session label {
 display:block;
 float:left;
-font-size:12px;
+font-size:10px;
 font-weight:bold;
 padding-right:10px;
 text-align:right;

@@ -65,7 +65,7 @@ h4 { font-size: 120%;}
 .img-left { float: left; }
 .img-right { float: right;}
  #session{ 
-float: left;
+float: right;
 background:  url('../images/session.png') no-repeat center center;
 width: 230px;
 height: 90px;

@@ -12,9 +12,9 @@ module ApplicationHelper
   def ajax_chat(page)
     #se tiver mensagem, passa instrucao de nova mensagem
     if @messages != [] && @messages != nil
-      page.insert_html :bottom, 'messages', :partial => 'messages/list', :locals => {:messages => @messages}
+      page.insert_html :bottom, 'messages', :partial => 'messages/message', :collection => @messages
       page.assign :message, @messages.last.id 
-      page.visual_effect  :highlight, "men_#{@messages.last.id}", :startcolor => "'#99ffcc'"
+      page.visual_effect  :highlight, dom_id(@messages.last), :startcolor => "'#99ffcc'"
       page.call 'divScrollToBotton', 'messages'
     end
   end

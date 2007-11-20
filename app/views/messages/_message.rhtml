@@ -1,0 +1,7 @@
+<p id="<%= dom_id message %>">
+  <i>(<%= message.created_at.to_s(:data)  %>)</i>
+  <i>(<%= message.id %>)</i>
+  <b><%= message.participation.registration.user.name %>: </b>
+  <%= message.messages %>
+</p>
+

@@ -25,6 +25,10 @@
     :url => approved_group_activity_url(@group, activity), 
     :method => 'put' )%>
 
+<%=link_to_remote(image_tag("zone", :size => "32x32", :border => 0), 
+    :url => reprove_group_activity_url(@group, activity), 
+    :method => 'put' )%>
+
 
 
 

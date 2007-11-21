@@ -37,6 +37,17 @@ before_filter :is_teacher, :only => [:index, :new, :show, :create, :update, :des
     end
   end
 
+  def reprove
+  @activity = Activity.find(params[:id])
+  @activity.approved = 0
+  @activity.save
+      respond_to do |format|
+      format.html # index.rhtml
+      format.xml  { render :xml => @activity.to_xml }
+      format.js
+    end
+  end
+
   # GET /activities/1
   # GET /activities/1.xml
   def show

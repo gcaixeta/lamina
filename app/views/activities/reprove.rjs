@@ -1,0 +1,1 @@
+page.replace_html dom_id(@activity, :apr), "Não"

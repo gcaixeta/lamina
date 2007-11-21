@@ -21,11 +21,11 @@
   <h5>Aprovado:
   <span id="<%= dom_id(activity, :apr) %>"><%= activity.is_approved %></span></h5>
 
-<%=link_to_remote(image_tag("zone", :size => "32x32", :border => 0), 
+<%=link_to_remote(image_tag("sim", :size => "32x32", :border => 0), 
     :url => approved_group_activity_url(@group, activity), 
     :method => 'put' )%>
 
-<%=link_to_remote(image_tag("zone", :size => "32x32", :border => 0), 
+<%=link_to_remote(image_tag("nao", :size => "32x32", :border => 0), 
     :url => reprove_group_activity_url(@group, activity), 
     :method => 'put' )%>
 

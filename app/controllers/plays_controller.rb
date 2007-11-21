@@ -154,7 +154,26 @@ class PlaysController < ApplicationController
       end
     end
   end
-    
+  
+  
+  #metodo que finaliza a jogada
+  def finish
+    @play = Play.find(params[:id])
+    answer = params[:play][:answer].to_i
+    answer = Answer.find(answer)
+    @play.answer = answer
+    respond_to do |format|
+      if @play.save
+        flash[:notice] = 'Play was successfully updated.'
+        format.html { redirect_to play_url(@play) }
+        format.xml  { head :ok }
+        format.js
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @play.errors.to_xml }
+      end
+    end
+  end
 
   
   private

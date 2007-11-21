@@ -1,0 +1,2 @@
+page.replace_html 'edit_play','<b>Jogada Respondida com Sucesso!!!</b>'
+page[dom_id(@play)].remove

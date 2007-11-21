@@ -61,7 +61,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.resources :players do |players|
-    players.resources :plays, :collection => {:check =>:post}
+    players.resources :plays, :collection => {:check =>:post}, :member => {:finish => :put}
   end
 
 

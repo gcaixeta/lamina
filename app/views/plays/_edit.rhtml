@@ -1,7 +1,11 @@
 <p><b>Pergunta:</b> <%= play.question.text -%></p>
 <p><b>Selecione uma resposta:</b></p>
+
+<% form_remote_tag :url => finish_player_play_url(play.player, play),  :html => {:id => 'play_form'}, :method => 'put' do -%>
 <ul>
 <% for answer in play.question.answers %>  
   <li><%= radio_button("play", "answer", answer.id) %><%= answer.text -%></li>
 <% end %>
 </ul>
+<%= submit_tag 'Finalizar Jogada' %>
+<% end %>

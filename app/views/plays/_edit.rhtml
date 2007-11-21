@@ -1,1 +1,7 @@
-<b>Pergunta:</b> <%= play.question.text -%>
+<p><b>Pergunta:</b> <%= play.question.text -%></p>
+<p><b>Selecione uma resposta:</b></p>
+<ul>
+<% for answer in play.question.answers %>  
+  <li><%= answer.text -%></li>
+<% end %>
+</ul>

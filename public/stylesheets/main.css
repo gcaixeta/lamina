@@ -114,8 +114,11 @@ background: #138DDA;
 color: #DBFF9D;
 } 
 
-ul#menu{
-float: right;
+ul#menu li a{
+float: left;
+}
+ul#menu li {
+display: inline;
 }
 
 #header{

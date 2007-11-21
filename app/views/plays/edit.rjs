@@ -1,1 +1,2 @@
 page << "edit_play_win.show()"
+page.replace_html 'edit_play', :partial => 'plays/edit',  :locals => {:play => @play}

@@ -46,6 +46,6 @@
 <%= periodically_call_remote( 
   :url => list_group_interactions_url(@group.id),
   :with => "'interaction=' + interaction + '&message='+ message",
-  :frequency => 15.0) %>
+  :frequency => 1.0) %>
 
 

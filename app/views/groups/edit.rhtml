@@ -1,10 +1,14 @@
-<h1>Editar</h1>
+<h3>Escolher Lider</h3>
 
 <%= error_messages_for :group %>
-
+<td>Aluno:</td>
 <% form_for(:group, :url => theme_group_path(@group.theme_id, @group), :html => { :method => :put }) do |f| %>
 
-  <%= render :partial => 'form', :locals => {:f => f} %>
+<ul>
+<% for participation in @group.participations %>  
+  <li><%= radio_button("participation", "leader", participation.id) %><%= participation.registration.user.name -%></li>
+<% end %>
+</ul>
 
  <%= submit_tag "Update" %> or <%= link_to 'Cancel', theme_groups_path(@group.theme_id) %>
 

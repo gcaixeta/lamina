@@ -60,7 +60,10 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
-    
+    leader = params[:participation][:leader].to_i
+    @leader = Participation.find(leader)
+    @leader.leader = true
+    @leader.save
     respond_to do |format|
       if @group.update_attributes(params[:group])
         format.html { redirect_to list_theme_groups_path(params[:theme_id])          }

@@ -1,16 +1,22 @@
 <div style="clear:both" ></div>
 <div id="game_place">
   <div class="column3">
-    <h3>Meu Grupo</h3>
+    <h3>Meu Grupo
+<% if @leader.id == session[:user] %>
+(Lider)
+<% end %>
+</h3>
     <h5>Lista de Perguntas do Grupo:</h5>
     <div id="list_questions">
       <ul>
         <% #render :partial => 'activities/activity', :collection => @questions %>
         <%= render :partial => 'question', :collection => @questions %>
       </ul>
+        <% if @leader.id == session[:user] %>
       <% for question in @questions  %>
         <%= draggable_element "question_#{question.creation_id}", :revert => true %>
       <% end %>
+       <% end %>
     </div>
     <h5>Jogadas Recebidas</h5>
     <ul id="<%= dom_id(@player, :plays_of) %>"></ul>

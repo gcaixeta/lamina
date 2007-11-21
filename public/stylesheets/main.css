@@ -203,9 +203,17 @@ overflow: auto;
 height: 190px;
 }
 .show_group{
-    background: #99ffcc;
+    background: #e8eefa url('../images/target2.png') no-repeat right top;
+font-weight: bolder;
+
 }
 .observation_postit{
     background: yellow;
     width: 200px;
+}
+.question{
+cursor: pointer;
+background: #ffc url('../images/interrogation.png') no-repeat right top;
+margin: 1px;
+border: solid 1px #e8eefa;
 }

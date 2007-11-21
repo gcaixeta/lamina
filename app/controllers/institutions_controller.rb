@@ -1,7 +1,9 @@
 class InstitutionsController < ApplicationController
 before_filter :login_required, :only => [:index, :show ]
 
-before_filter :is_teacher, :only => [ :signup, :create, :inactive]
+before_filter :is_teacher, :only => [ :inactive]
+
+before_filter :is_responsavel, :only => [:create, :signup]
 
 before_filter :is_user_registration, :only => [:index, :show ]
 	#usuario
@@ -63,7 +65,16 @@ private
         def is_teacher
                 reg = Registration.find_by_user_id_and_profile_id(session[:user], 2)
                 if reg == nil
-                    flash[:notice] = "Voce não tem permissao para cadastrar um tema"
+                    flash[:notice] = "Voce não tem permissão"
+                  redirect_to institutions_path
+                    #render :action => 'index'
+                end
+        end
+
+        def is_responsavel
+                reg = Registration.find_by_user_id_and_profile_id(session[:user], 3)
+                if reg == nil
+                    flash[:notice] = "Voce não tem permissão"
                   redirect_to institutions_path
                     #render :action => 'index'
                 end

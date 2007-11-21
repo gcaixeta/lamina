@@ -13,6 +13,7 @@
     <td><%= link_to 'Ver', theme_group_path(@theme, group) %></td>
     <td><%= link_to 'Editar', edit_theme_group_path(@theme, group) %></td>
     <td><%= link_to 'Deletar', theme_group_path(@theme, group), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Avaliar PER', group_activities_path(group)%>
   </tr>
   </tr>
 <% end %>

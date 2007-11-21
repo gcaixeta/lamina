@@ -90,8 +90,8 @@ class GroupsController < ApplicationController
   def index
     
     @registrations = Registration.find_all_by_user_id(session[:user], :include=>[:groups]) 
-
-    
+   # @group = Group.find(params[:id])
+ #   @game =  Game.find_all_by_group_id(@group)
     
     respond_to do |format|
       format.html # index.rhtml

@@ -103,7 +103,7 @@ class GamesController < ApplicationController
     participations = @group.participations
     @player = @players.find_by_group_id(@group)
     #TODO colocar registricao de somente questoes aprovadas
-    @questions = Activity.find(:all, :conditions => [ "participation_id IN (?) AND creation_type = 'Question'",participations])
+    @questions = Activity.find(:all,  :conditions =>{ :participation_id => participations, :creation_type => 'Question' })
     
     
     respond_to do |format|

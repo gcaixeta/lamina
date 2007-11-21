@@ -14,6 +14,7 @@
   </div>
   <h5>Jogadas Recebidas</h5>
   <div id="<%= dom_id(@player, :plays_of) %>"></div>
+  <div id="edit_play">lalala edit play</div>
   </div>
   
   
@@ -48,4 +49,4 @@
 
 <%= render :partial => 'games/check', :locals => {:group =>@group, :game => @game, :player => @player}%>
 
-
+<%=  javascript_tag "edit_play_win = new Window('1', {className: 'alphacube', title: 'Ver Jogada', width:200, height:150, top:70, left:100});edit_play_win.setContent('edit_play')  "  %>

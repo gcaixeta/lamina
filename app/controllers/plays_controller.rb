@@ -1,6 +1,6 @@
 class PlaysController < ApplicationController
   
-  before_filter :find_player, :only => [:create]
+  before_filter :find_player, :only => [:create, :show]
   #ANOTACOES
   #1 passo
   #usuario passa pergunta do grupo deleend
@@ -22,6 +22,7 @@ class PlaysController < ApplicationController
     respond_to do |format|
       format.html # show.rhtml
       format.xml  { render :xml => @play.to_xml }
+      format.js
     end
   end
   
@@ -60,6 +61,11 @@ class PlaysController < ApplicationController
   # GET /plays/1;edit
   def edit
     @play = Play.find(params[:id])
+    respond_to do |format|
+      format.html # show.rhtml
+      format.xml  { render :xml => @play.to_xml }
+      format.js
+    end
   end
 
   # POST /plays

@@ -6,7 +6,7 @@ if @plays != [] && @plays != nil
     #se a jogada for para o grupo logado, insere na lista de jogas dele, para ele visualizar a pergunta
     if play.player == @player
       #TODO colocar a partial para exibir a pergunta que o player recebeu
-      page.insert_html :bottom, dom_id(@player, :plays_of), :partial => 'plays/question',  :locals => {:question => play.question}
+      page.insert_html :bottom, dom_id(@player, :plays_of), :partial => 'plays/question',  :locals => {:play => play}
     end
   end
 end

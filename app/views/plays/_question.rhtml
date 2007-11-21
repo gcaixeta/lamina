@@ -1,1 +1,1 @@
-<p><%= question.text %></p>
+<%= link_to_remote "#{play.question.text[0...15]}...", :url => edit_player_play_url(@player, play), :method => 'get'%>

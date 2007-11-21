@@ -30,13 +30,14 @@
     <div id="list_players">
       <%= render :partial => 'players/player', :collection => @players %>
       <% for player in @players  %>
-      
+     <%  if player != @player %>
       
         <%= drop_receiving_element dom_id(player),
           #:update => "plays_of_player_#{player.id}",
         :url => player_plays_url(player),
           :accept => "question"
         %>
+      <% end %>
       <% end %>
     </div>
   </div>

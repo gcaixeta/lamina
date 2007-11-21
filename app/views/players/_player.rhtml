@@ -1,4 +1,7 @@
-<div class="show_group" id="<%= dom_id(player)  %>">
+<div class="<%= if player != @player
+ "show_group"   
+end
+%>" id="<%= dom_id(player)  %>">
   <p>Nome: <%= player.group.name   %></p>
   <p>Participantes: <%= player.group.registrations.count   %> </p>
 </div>

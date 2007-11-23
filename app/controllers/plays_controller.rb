@@ -64,7 +64,11 @@ class PlaysController < ApplicationController
     respond_to do |format|
       format.html # show.rhtml
       format.xml  { render :xml => @play.to_xml }
-      format.js
+if @play.answer_id == nil
+ format.js 
+else
+ format.js {render :action => 'erro.rjs' }
+end
     end
   end
 
@@ -158,10 +162,15 @@ class PlaysController < ApplicationController
   
   #metodo que finaliza a jogada
   def finish
-    @play = Play.find(params[:id])
+
+ @play = Play.find(params[:id])
+if @play.player.group.participations.find(:first, :conditions => {:leader => 1}).registration.user.id == session[:user]
+
+   
     answer = params[:play][:answer].to_i
     answer = Answer.find(answer)
     @play.answer = answer
+
     respond_to do |format|
       if @play.save
         flash[:notice] = 'Play was successfully updated.'
@@ -171,7 +180,11 @@ class PlaysController < ApplicationController
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @play.errors.to_xml }
+
       end
+end
+
+
     end
   end
 

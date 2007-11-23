@@ -1,4 +1,4 @@
-<h3>Grupo: <%= @group.name %><%= link_to 'Jogar', group_path(@group) %></h3>
+<h3>Grupo: <%= @group.name %></h3>
 
 <div id="menu_aq">
   <div id="new_aq">
@@ -46,6 +46,6 @@
 <%= periodically_call_remote( 
   :url => list_group_interactions_url(@group.id),
   :with => "'interaction=' + interaction + '&message='+ message",
-  :frequency => 1.0) %>
+  :frequency => 2.0) %>
 
 

@@ -23,5 +23,5 @@
 <p><label for="user_city">Cidade</label><br/>
 <%= select("user","city_id", City.find(:all).collect{|c|[c.name,c.id]} ) %></p>
 
-<p><%= submit_tag 'Sign up' %></p>
+<p><%= submit_tag 'Cadastrar' %></p>
 <% end -%>

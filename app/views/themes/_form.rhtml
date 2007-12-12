@@ -1,22 +1,25 @@
-<label for="">Tema:
+<FIELDSET style="width: 350px; height: 300px">
+
+
+<label for="">Tema:</label>
   <%= f.text_field :name %>
-</label>
 
-<label for="">Descrição:
+
+<label for="">Descrição:</label>
   <%= f.text_area(:summary, :rows =>1, :cols =>28) %>
-</label>
 
-<label for="">Senha:
+
+<label for="">Senha:</label>
   <%= f.password_field :password %>
-</label>
 
-<label for="">Ativar:
+
+<label for="">Ativar:</label>
   <%= f.text_field :active %>
-</label>
 
-<label for="">Palavras Chave:
+
+<label for="">Palavras Chave:</label>
   <%= f.text_field :tag_list %>
-</label>
+
 
 <label for="">Numero minino de questões:</label>
 <%= text_field_tag  'configuration[questions_max]' %>
@@ -25,4 +28,4 @@
 <%= text_field_tag 'configuration[number_participants]' %>
 
 
-
+</fieldset>
